@@ -1,87 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastian Lopez | ML Researcher & Software Developer</title>
+    <title>Computer Engineering Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -38px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #0ea5e9;
-            border: 3px solid #e0f2fe;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 33px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: #e0f2fe;
-        }
-        
-        .dark .timeline::before {
-            background-color: #1e293b;
-        }
-        
-        .dark .timeline-item::before {
-            border-color: #1e293b;
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .project-card:hover {
@@ -89,861 +19,435 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
-        .dark .project-card:hover {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #3b82f6;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
         }
         
-        .skill-badge {
-            transition: all 0.3s ease;
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
         }
         
-        .skill-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #0ea5e9;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .active-nav::after {
-            width: 100%;
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background-color: #0ea5e9;
-            z-index: 999;
-            transition: width 0.1s;
-        }
-        
-        .dark-mode-toggle {
-            transition: transform 0.3s ease;
-        }
-        
-        .dark-mode-toggle:hover {
-            transform: rotate(30deg);
-        }
-        
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 23px;
-            }
-            
-            .timeline-item::before {
-                left: -28px;
-            }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-    <!-- Progress bar -->
-    <div class="progress-bar" id="progressBar"></div>
-    
-    <!-- Header/Navbar -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                Sebastian Lopez
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <button id="themeToggle" class="dark-mode-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-                
-                <button id="mobileMenuButton" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
-        
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#about" class="nav-link py-2">About</a>
-                <a href="#skills" class="nav-link py-2">Skills</a>
-                <a href="#projects" class="nav-link py-2">Projects</a>
-                <a href="#experience" class="nav-link py-2">Experience</a>
-                <a href="#contact" class="nav-link py-2">Contact</a>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">CEPortfolio</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
-    
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-white dark:from-gray-800 dark:to-gray-900">
-            <div class="container mx-auto px-6 py-20 text-center">
-                <div class="max-w-3xl mx-auto animate-fade-in">
-                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary-400 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Sebastian Lopez" class="w-full h-full object-cover">
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600 transition">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">About</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600 transition">Projects</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-600 transition">Skills</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Alex Carter</span></h1>
+                <div class="typewriter text-2xl md:text-3xl font-medium mb-6">
+                    Computer Engineering Student
+                </div>
+                <p class="text-gray-600 mb-8 text-lg">
+                    Passionate about building innovative solutions through hardware and software integration.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">Get In Touch</a>
+                    <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg transition">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                             alt="Student Profile" class="w-full h-full object-cover">
                     </div>
-                    
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-slide-up">Sebastian Lopez</h1>
-                    <h2 class="text-xl md:text-2xl text-primary-600 dark:text-primary-400 mb-8 animate-slide-up">ML Researcher | Software Developer | Generative AI Enthusiast</h2>
-                    
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
-                        Bridging the gap between cutting-edge AI research and practical software solutions.
-                        Passionate about creating intelligent systems that solve real-world problems.
+                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-md">
+                        <div class="text-center">
+                            <p class="font-bold gradient-text text-lg">4th Year</p>
+                            <p class="text-gray-500">University of Tech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-48 h-48 rounded-full overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                             alt="Student working" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-gray-600 mb-6 text-lg">
+                        I'm a fourth-year Computer Engineering student at University of Technology with a passion for embedded systems and IoT solutions. My academic journey has equipped me with strong foundations in computer architecture, digital systems, and software development.
                     </p>
-                    
-                    <div class="flex justify-center space-x-4 animate-slide-up">
-                        <a href="#projects" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors shadow-md">
-                            View My Work
-                        </a>
-                        <a href="#contact" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition-colors">
-                            Contact Me
-                        </a>
-                    </div>
-                    
-                    <div class="flex justify-center space-x-6 mt-12 animate-slide-up">
-                        <a href="https://github.com/sebaslopez147" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 text-2xl">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/sebastian-lopez" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 text-2xl">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:sebastian@example.com" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 text-2xl">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="#" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 text-2xl">
-                            <i class="fas fa-file-pdf"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
-                
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                    <div class="animate-fade-in">
-                        <div class="rounded-xl overflow-hidden shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sebastian working" class="w-full h-auto object-cover">
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Beyond coursework, I actively participate in hackathons and robotics competitions, where I've honed my problem-solving skills and ability to work in teams. I'm particularly interested in the intersection of hardware and software, and how we can leverage both to create intelligent systems.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-microchip mr-2"></i> Embedded Systems
                         </div>
-                    </div>
-                    
-                    <div class="animate-fade-in">
-                        <p class="text-lg mb-4">
-                            I'm a passionate software developer and machine learning researcher with a strong interest in generative AI models and their practical applications.
-                        </p>
-                        
-                        <p class="text-lg mb-4">
-                            Currently, I work as a Full-Stack Developer at <span class="font-semibold text-primary-600 dark:text-primary-400">Dataconstructors.ai</span>, where I build automation tools, APIs, and web interfaces that leverage AI to solve complex problems.
-                        </p>
-                        
-                        <p class="text-lg mb-4">
-                            As a researcher at the <span class="font-semibold text-primary-600 dark:text-primary-400">Intelligent Systems Laboratory (LISI)</span> at the National University of Colombia, I explore cutting-edge techniques in deep learning, computer vision, and generative models.
-                        </p>
-                        
-                        <p class="text-lg mb-6">
-                            My work sits at the intersection of research and application - I'm equally excited by theoretical advances in AI and by building tools that make these technologies accessible and useful.
-                        </p>
-                        
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
-                                Generative AI
-                            </span>
-                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
-                                Deep Learning
-                            </span>
-                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
-                                Full-Stack Dev
-                            </span>
-                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
-                                Research
-                            </span>
+                        <div class="bg-purple-50 text-purple-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-robot mr-2"></i> Robotics
+                        </div>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-code mr-2"></i> Full-Stack Dev
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
-                
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Languages -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-code text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Languages</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Python</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">JavaScript</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">HTML/CSS</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">SQL</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">TypeScript</span>
-                        </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80" 
+                             alt="Smart Irrigation System" class="w-full h-full object-cover">
                     </div>
-                    
-                    <!-- ML/DL Frameworks -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-brain text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">ML/DL Frameworks</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">TensorFlow</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">PyTorch</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Keras</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">HuggingFace</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Scikit-learn</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Web Development -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-globe text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Web Development</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">React</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Next.js</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Flask</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">FastAPI</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Node.js</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Tools -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-tools text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Tools</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Git</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Docker</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Jupyter</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Colab</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">VS Code</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Areas of Expertise -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-lightbulb text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Expertise Areas</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Generative AI</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Computer Vision</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">NLP</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">APIs</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Geoprocessing</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Research -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-microscope text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Research Interests</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">VAEs</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">GANs</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Diffusion Models</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Multimodal AI</span>
-                            <span class="skill-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Explainable AI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-                
-                <div class="flex justify-center mb-8">
-                    <div class="flex flex-wrap gap-2" id="projectFilters">
-                        <button class="px-4 py-2 bg-primary-600 text-white rounded-lg filter-btn active-filter" data-filter="all">All</button>
-                        <button class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg filter-btn" data-filter="research">Research</button>
-                        <button class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg filter-btn" data-filter="web">Web Dev</button>
-                        <button class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg filter-btn" data-filter="ai">AI/ML</button>
-                        <button class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg filter-btn" data-filter="api">APIs</button>
-                    </div>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsContainer">
-                    <!-- Project 1 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="research ai">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Generative Art Project" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Generative Art with VAEs</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">Research</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Developed a variational autoencoder model that generates unique digital artwork based on artistic styles.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">Python</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">TensorFlow</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">VAE</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/generative-art-vae" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    Read Case Study →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="web api">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Data Dashboard" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">GeoData Dashboard</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">Web Dev</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Interactive dashboard for visualizing and analyzing geospatial data with real-time processing capabilities.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">React</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">FastAPI</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">PostGIS</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/geodata-dashboard" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    Live Demo →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 3 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="ai research">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Medical Image Analysis" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Medical Image Segmentation</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">Research</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Implemented a U-Net architecture for precise segmentation of medical images with 95% accuracy.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">PyTorch</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">OpenCV</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">DICOM</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/medical-image-segmentation" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    Read Paper →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 4 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="web ai">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Chatbot Interface" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Educational Chatbot</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">Web Dev</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                AI-powered chatbot for STEM education with personalized learning paths and interactive exercises.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">React</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">Node.js</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">NLP</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/educational-chatbot" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    Try Demo →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 5 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="api">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="API Architecture" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Automation API Suite</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">APIs</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Comprehensive API suite for business process automation with 50+ endpoints and JWT authentication.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">FastAPI</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">PostgreSQL</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">Docker</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/automation-api" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    API Docs →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 6 -->
-                    <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="ai research">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="GAN Architecture" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">Conditional GAN for Fashion</h3>
-                                <span class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full">Research</span>
-                            </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Developed a conditional GAN that generates fashion items based on textual descriptions and style parameters.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">PyTorch</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">GAN</span>
-                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded-full">NLP</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/sebaslopez147/fashion-gan" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                                    <i class="fab fa-github mr-2"></i> View Code
-                                </a>
-                                <a href="#" class="text-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-                                    View Samples →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12">
-                    <a href="https://github.com/sebaslopez147?tab=repositories" target="_blank" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition-colors inline-flex items-center">
-                        <i class="fab fa-github mr-2"></i> View All Projects on GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Experience & Education</h2>
-                
-                <div class="max-w-3xl mx-auto relative timeline">
-                    <!-- Experience 1 -->
-                    <div class="mb-12 pl-16 relative timeline-item">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                            <div class="flex justify-between items-start mb-2 flex-wrap">
-                                <h3 class="text-xl font-bold">Full-Stack Developer</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">2025 - Present</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">Dataconstructors.ai</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                                <li>Developed automation tools and APIs that reduced manual processes by 70%</li>
-                                <li>Built interactive web interfaces for AI-powered data analysis</li>
-                                <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
-                                <li>Collaborated with ML team to productionize models</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience 2 -->
-                    <div class="mb-12 pl-16 relative timeline-item">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                            <div class="flex justify-between items-start mb-2 flex-wrap">
-                                <h3 class="text-xl font-bold">Research Assistant</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">2023 - Present</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">Intelligent Systems Laboratory (LISI), National University</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                                <li>Research on generative models (VAEs, GANs) for image synthesis</li>
-                                <li>Developed novel architectures for few-shot learning scenarios</li>
-                                <li>Published 2 conference papers on deep learning applications</li>
-                                <li>Mentored 3 undergraduate students in research projects</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience 3 -->
-                    <div class="mb-12 pl-16 relative timeline-item">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                            <div class="flex justify-between items-start mb-2 flex-wrap">
-                                <h3 class="text-xl font-bold">Teaching Volunteer</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">2022 - 2023</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">Aspirantes.org</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                                <li>Taught programming fundamentals to high school students</li>
-                                <li>Developed curriculum for Python and web development courses</li>
-                                <li>Mentored 50+ students in their first coding projects</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience 4 -->
-                    <div class="mb-12 pl-16 relative timeline-item">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                            <div class="flex justify-between items-start mb-2 flex-wrap">
-                                <h3 class="text-xl font-bold">B.Sc. Computer Science</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">2021 - 2025</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">National University of Colombia</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                                <li>Specialized in Artificial Intelligence and Software Engineering</li>
-                                <li>Graduated with honors (GPA: 4.2/5.0)</li>
-                                <li>Thesis: "Improving Few-Shot Learning with Hybrid Generative Models"</li>
-                                <li>President of Computer Science Student Association</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Research Section -->
-        <section class="py-20 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Research & Publications</h2>
-                
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                    <!-- Publication 1 -->
-                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-file-alt text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Hybrid VAE-GAN for Few-Shot Learning</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">
-                            Proposed a novel architecture combining variational autoencoders and generative adversarial networks for improved few-shot classification performance.
-                        </p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Irrigation System</h3>
+                        <p class="text-gray-600 mb-4">IoT-based system that monitors soil moisture and automatically waters plants when needed.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">ICML 2024</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Generative AI</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Deep Learning</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Arduino</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">IoT</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">C++</span>
                         </div>
-                        <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                            <i class="fas fa-external-link-alt mr-2"></i> View Publication
-                        </a>
-                    </div>
-                    
-                    <!-- Publication 2 -->
-                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-file-alt text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Attention Mechanisms in Geospatial AI</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">
-                            Investigated the application of transformer architectures for processing satellite imagery and geospatial data with improved efficiency.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">CVPR 2023</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Computer Vision</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Transformers</span>
-                        </div>
-                        <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                            <i class="fas fa-external-link-alt mr-2"></i> View Publication
-                        </a>
-                    </div>
-                    
-                    <!-- Publication 3 -->
-                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-chalkboard-teacher text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Generative Models Workshop</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">
-                            Organized and led a 3-day workshop on generative models for 50+ participants, covering VAEs, GANs, and diffusion models.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">LISI 2023</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Workshop</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Education</span>
-                        </div>
-                        <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                            <i class="fas fa-external-link-alt mr-2"></i> View Materials
-                        </a>
-                    </div>
-                    
-                    <!-- Publication 4 -->
-                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                <i class="fas fa-file-alt text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Multimodal Learning Survey</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">
-                            Comprehensive survey of multimodal learning approaches, focusing on cross-modal generation and representation learning.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Preprint</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Survey</span>
-                            <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-full">Multimodal AI</span>
-                        </div>
-                        <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center">
-                            <i class="fas fa-external-link-alt mr-2"></i> Read Draft
-                        </a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
                     </div>
                 </div>
                 
-                <div class="text-center mt-12">
-                    <a href="#" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition-colors">
-                        View Full Publication List
-                    </a>
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                             alt="Robotic Arm" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Robotic Arm Controller</h3>
+                        <p class="text-gray-600 mb-4">6-DOF robotic arm controlled via hand gestures using computer vision.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">OpenCV</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Raspberry Pi</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                             alt="Attendance System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Face Recognition Attendance</h3>
+                        <p class="text-gray-600 mb-4">Automated attendance system using face recognition with Flask web interface.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Flask</span>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Machine Learning</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg transition">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Hardware Skills -->
+                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-microchip text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Hardware</h3>
+                    <ul class="text-center text-gray-600">
+                        <li>Arduino</li>
+                        <li>Raspberry Pi</li>
+                        <li>FPGA</li>
+                        <li>PCB Design</li>
+                    </ul>
+                </div>
                 
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-                    <div class="animate-fade-in">
-                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                        
+                <!-- Programming -->
+                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-4">
+                        <i class="fas fa-code text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Programming</h3>
+                    <ul class="text-center text-gray-600">
+                        <li>C/C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                
+                <!-- Web Dev -->
+                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-4">
+                        <i class="fas fa-globe text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Web Development</h3>
+                    <ul class="text-center text-gray-600">
+                        <li>HTML/CSS</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+                
+                <!-- Tools -->
+                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-4">
+                        <i class="fas fa-tools text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Tools</h3>
+                    <ul class="text-center text-gray-600">
+                        <li>Git/GitHub</li>
+                        <li>Docker</li>
+                        <li>Linux</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Skill Progress Bars -->
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold mb-6 text-center">Skill Proficiency</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Embedded C</span>
+                            <span class="text-gray-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Python</span>
+                            <span class="text-gray-500">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">JavaScript/React</span>
+                            <span class="text-gray-500">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">PCB Design</span>
+                            <span class="text-gray-500">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-purple-500 h-2.5 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                    <i class="fas fa-envelope"></i>
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-envelope text-lg"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-medium">Email</h4>
-                                    <a href="mailto:sebastian@example.com" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">sebastian@example.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                    <i class="fab fa-linkedin"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">LinkedIn</h4>
-                                    <a href="https://linkedin.com/in/sebastian-lopez" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">linkedin.com/in/sebastian-lopez</a>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p>alex.carter@university.edu</p>
                                 </div>
                             </div>
-                            
                             <div class="flex items-start">
-                                <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                    <i class="fab fa-github"></i>
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-phone-alt text-lg"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-medium">GitHub</h4>
-                                    <a href="https://github.com/sebaslopez147" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">github.com/sebaslopez147</a>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p>+1 (123) 456-7890</p>
                                 </div>
                             </div>
-                            
                             <div class="flex items-start">
-                                <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mr-4">
-                                    <i class="fas fa-map-marker-alt"></i>
+                                <div class="flex-shrink-0 pt-1">
+                                    <i class="fas fa-map-marker-alt text-lg"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-medium">Location</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Bogotá, Colombia</p>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p>San Francisco, CA</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-8">
-                            <h3 class="text-xl font-semibold mb-4">Let's Connect</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                I'm always open to discussing new projects, research collaborations, or opportunities. Feel free to reach out!
-                            </p>
+                        <div class="mt-12">
+                            <h4 class="font-semibold mb-4">Connect with me</h4>
                             <div class="flex space-x-4">
-                                <a href="https://twitter.com/sebaslopez" target="_blank" class="p-3 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="https://medium.com/@sebaslopez" target="_blank" class="p-3 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
-                                    <i class="fab fa-medium"></i>
-                                </a>
-                                <a href="https://scholar.google.com/sebaslopez" target="_blank" class="p-3 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
-                                    <i class="fas fa-graduation-cap"></i>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="animate-fade-in">
-                        <form id="contactForm" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700">
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700">
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2">Subject</label>
-                                <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700">
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700"></textarea>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
                             </div>
-                            
-                            <button type="submit" class="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors shadow-md">
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition">
                                 Send Message
                             </button>
                         </form>
-                        
-                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg">
-                            <i class="fas fa-check-circle mr-2"></i> Your message has been sent successfully!
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-gray-950 text-gray-300 py-12">
-        <div class="container mx-auto px-6">
+    <footer class="bg-gray-800 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="#home" class="text-2xl font-bold text-white">Sebastian Lopez</a>
-                    <p class="mt-2">ML Researcher | Software Developer | Generative AI Enthusiast</p>
+                    <span class="text-xl font-bold gradient-text">Alex Carter</span>
+                    <p class="text-gray-400 mt-2">Computer Engineering Student</p>
                 </div>
-                
                 <div class="flex space-x-6">
-                    <a href="https://github.com/sebaslopez147" target="_blank" class="text-gray-300 hover:text-white text-xl">
-                        <i class="fab fa-github"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="https://linkedin.com/in/sebastian-lopez" target="_blank" class="text-gray-300 hover:text-white text-xl">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="mailto:sebastian@example.com" class="text-gray-300 hover:text-white text-xl">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="#" target="_blank" class="text-gray-300 hover:text-white text-xl">
-                        <i class="fas fa-file-pdf"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
                     </a>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p>© 2023 Sebastian Lopez. All rights reserved.</p>
-                
-                <div class="mt-4 md:mt-0">
-                    <a href="#" class="text-gray-300 hover:text-white mr-4">Privacy Policy</a>
-                    <a href="#" class="text-gray-300 hover:text-white">Terms of Service</a>
-                </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Alex Carter. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Dark mode toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        
-        // Check for saved user preference or use system preference
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-        });
-        
         // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuButton.addEventListener('click', () => {
+        menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
         
@@ -952,124 +456,28 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Active nav link highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active-nav');
-                }
-            });
-        });
-        
-        // Project filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active filter button
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active-filter', 'bg-primary-600', 'text-white');
-                    btn.classList.add('bg-gray-200', 'dark:bg-gray-700');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
                 
-                button.classList.add('active-filter', 'bg-primary-600', 'text-white');
-                button.classList.remove('bg-gray-200', 'dark:bg-gray-700');
-                
-                // Filter projects
-                const filter = button.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
         
-        // Scroll progress bar
-        const progressBar = document.getElementById('progressBar');
-        
-        window.addEventListener('scroll', () => {
-            const totalHeight = document.body.scrollHeight - window.innerHeight;
-            const progress = (window.pageYOffset / totalHeight) * 100;
-            progressBar.style.width = progress + '%';
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        const formSuccess = document.getElementById('formSuccess');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simulate form submission
-            setTimeout(() => {
-                contactForm.reset();
-                formSuccess.classList.remove('hidden');
-                
+        // Skill bars animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillBars = document.querySelectorAll('[style*="width"]');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
                 setTimeout(() => {
-                    formSuccess.classList.add('hidden');
-                }, 5000);
-            }, 1000);
-        });
-        
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
+                    bar.style.width = width;
+                }, 100);
             });
-        };
-        
-        // Set initial state for animated elements
-        document.querySelectorAll('.animate-fade-in').forEach(el => {
-            el.style.opacity = '0';
         });
-        
-        document.querySelectorAll('.animate-slide-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
