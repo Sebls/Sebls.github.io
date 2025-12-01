@@ -107,6 +107,65 @@
             padding-left: 5px;
             transition: 0.2s;
         }
+
+        footer {
+            display: none;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        footer .contact-info {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            .sidebar .contact-info {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                margin: 5px 10px;
+                display: inline-block;
+            }
+            nav a:hover {
+                padding-left: 0;
+            }
+            footer {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .entry-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .entry-header span:last-child {
+                margin-top: 2px;
+                color: #666;
+                font-size: 0.9em;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -302,6 +361,17 @@
     </section>
 
     </div> <!-- End of main-content -->
+
+    <footer>
+        <div class="contact-info">
+            <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
+            <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
+            <div><a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a></div>
+            <div><a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a></div>
+            <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
+            <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
+        </div>
+    </footer>
 
 </body>
 </html>
