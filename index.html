@@ -4,181 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sebastian Lopez Silva - CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            display: flex;
-        }
-        .sidebar {
-            width: 300px;
-            background-color: #f4f4f4;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            overflow-y: auto;
-            border-right: 1px solid #ddd;
-            box-sizing: border-box;
-        }
-        .main-content {
-            margin-left: 300px;
-            padding: 20px 40px;
-            flex-grow: 1;
-        }
-        h1 {
-            margin-bottom: 5px;
-            font-size: 1.8em;
-        }
-        .subtitle {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #555;
-            font-size: 0.9em;
-        }
-        .contact-info {
-            margin-bottom: 30px;
-            font-size: 0.9em;
-        }
-        .contact-info div {
-            margin-bottom: 8px;
-        }
-        .contact-info a, .contact-info span {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            overflow-wrap: break-word; /* Soft wrapping: breaks words only if they overflow the line */
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 0;
-            text-transform: uppercase;
-            font-size: 1.2em;
-        }
-        section {
-            margin-bottom: 40px;
-            scroll-margin-top: 20px;
-        }
-        .entry {
-            margin-bottom: 15px;
-        }
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-weight: bold;
-        }
-        .entry-subheader {
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-        ul {
-            margin-top: 5px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 3px;
-        }
-        .skills-category {
-            font-weight: bold;
-        }
-        nav {
-            margin-top: 30px;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        nav a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #555;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9em;
-        }
-        nav a:hover {
-            color: #000;
-            padding-left: 5px;
-            transition: 0.2s;
-        }
-
-        footer {
-            display: none;
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-top: 1px solid #ddd;
-            text-align: center;
-        }
-        footer .contact-info {
-            margin-bottom: 0;
-        }
-
-        /* Responsive Design for Mobile */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 1px solid #ddd;
-            }
-            .sidebar .contact-info {
-                display: none;
-            }
-            .sidebar header {
-                text-align: center;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav a {
-                margin: 5px 10px;
-                display: inline-block;
-            }
-            nav a:hover {
-                padding-left: 0;
-            }
-            footer {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .entry-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .entry-header span:last-child {
-                margin-top: 2px;
-                color: #666;
-                font-size: 0.9em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div class="sidebar">
-        <header>
-            <h1>Sebastian Lopez Silva </h1>
-            <div class="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
-            
+        <div class="sidebar-main">
+            <header>
+                <h1>Sebastian Lopez Silva </h1>
+                <div class="subtitle" data-i18n="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
+            </header>
+
+            <nav>
+                <a href="#profile" data-i18n="nav.profile">Profile</a>
+                <a href="#education" data-i18n="nav.education">Education</a>
+                <a href="#employment" data-i18n="nav.experience">Experience</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" data-i18n="nav.projects">Projects</a>
+                <a href="#achievements" data-i18n="nav.achievements">Achievements</a>
+                <a href="#volunteering" data-i18n="nav.volunteering">Volunteering</a>
+                <a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
             <div class="contact-info">
                 <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
                 <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
@@ -187,181 +37,68 @@
                 <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
                 <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
             </div>
-        </header>
-
-        <nav>
-            <a href="#profile">Profile</a>
-            <a href="#education">Education</a>
-            <a href="#employment">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#volunteering">Volunteering</a>
-            <a href="#hobbies">Hobbies</a>
-        </nav>
+            <div class="language-switcher">
+                <button class="language-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="language-btn" onclick="setLanguage('es')">ES</button>
+                <button class="language-btn" onclick="setLanguage('fr')">FR</button>
+            </div>
+        </div>
     </div>
 
     <div class="main-content">
         <section id="profile">
-            <h2>Profile</h2>
-        <p>Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
-    </section>
+            <h2 data-i18n="section.profile">Profile</h2>
+        <p data-i18n="profile.text">Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
+        </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <span>Mines Paris PSL</span>
-                <span>Aug 2025 – Jul 2027</span>
-            </div>
-            <div class="entry-subheader">Master of Science in Engineering, Computational and Applied Mathematics</div>
+        <section id="education">
+        <h2 data-i18n="section.education">Education</h2>
+        <div id="education-list">
+            <!-- Populated by JS -->
         </div>
+        </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Universidad Nacional de Colombia</span>
-                <span>Oct 2021 – Sep 2027</span>
-            </div>
-            <div class="entry-subheader">Bachelor's degree in Computer Engineering</div>
+        <section id="employment">
+        <h2 data-i18n="section.employment">Employment History</h2>
+        <div id="employment-list">
+            <!-- Populated by JS -->
         </div>
+        </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Czech Technical University in Prague</span>
-                <span>Nov 2025</span>
-            </div>
-            <div class="entry-subheader">ATHENS Programme - Probabilistic Methods in Combinatorics</div>
-        </div>
-    </section>
-
-    <section id="employment">
-        <h2>Employment History</h2>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <span>Engin AI</span>
-                <span>Aug 2025 – Nov 2025</span>
-            </div>
-            <div class="entry-subheader">Software Engineer – Miami, United States (Remote)</div>
-            <ul>
-                <li>Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.</li>
-                <li>Implemented automated workflows to convert, validate, and debug annotations across formats (YOLO, COCO) to support training pipelines.</li>
-                <li>Assisted in diagnosing and resolving data integrity and labeling issues from the internal annotation platform.</li>
-                <li>Contributed to model training experiments (e.g., RT-DETR) to verify dataset correctness and improve training reliability.</li>
-            </ul>
-        </div>
-
-        <div class="entry">
-            <div class="entry-header">
-                <span>Dataconstructors AI</span>
-                <span>Mar 2025 – Aug 2025</span>
-            </div>
-            <div class="entry-subheader">Software Engineer – Bogotá, Colombia (Remote)</div>
-            <ul>
-                <li>Participated in developing three web applications: two for automating geospatial file processing in civil engineering consulting (backend role), and one for project management and cost estimation (full-stack role).</li>
-                <li>Designed and implemented user interfaces, cost automation features, and data integration workflows with external APIs.</li>
-                <li>Developed algorithms for external data handling, file parsers, and authentication systems.</li>
-                <li>Integrated and managed MySQL/PostgreSQL databases, applying clean architecture principles for scalable and maintainable code.</li>
-            </ul>
-        </div>
-
-        <div class="entry">
-            <div class="entry-header">
-                <span>Intelligent Systems Lab (LISI)</span>
-                <span>Aug 2023 – Present</span>
-            </div>
-            <div class="entry-subheader">Undergraduate Student Researcher – Bogotá, Colombia</div>
-            <ul>
-                <li>Active member of research group, participating in seminars on artificial intelligence and collaborative projects with undergraduate and graduate students.</li>
-                <li>Prepared and presented materials for seminars on deep learning techniques and architectures (CNNs, VAEs, Transformers, etc.).</li>
-                <li>Contributed to the formulation of proposals submitted to Minciencias Calls 950 and 966, integrating artificial intelligence and virtual reality for environmental education.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><span class="skills-category">Languages:</span> Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)</li>
-            <li><span class="skills-category">Soft Skills:</span> Teamwork • Problem-solving • Adaptability • Communication • Creativity • Critical thinking</li>
-            <li><span class="skills-category">Programming:</span> Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)</li>
-            <li><span class="skills-category">Technical Tools:</span> Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office</li>
+        <section id="skills">
+        <h2 data-i18n="section.skills">Skills</h2>
+        <ul id="skills-list">
+            <!-- Populated by JS -->
         </ul>
-    </section>
+        </section>
 
-    <section id="projects">
-        <h2>University Projects</h2>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <span>Automated Pipeline for Gaussian Splatting Model Generation</span>
-                <span>Sep 2025 – Nov 2025</span>
-            </div>
-            <div class="entry-subheader">Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels</div>
-            <ul>
-                <li>Developed an immersive virtual exhibition of geological artifacts using Gaussian splats to enhance reflectance, translucency, and realism.</li>
-                <li>Built an automated pipeline integrating GCP, RealityScan and LightField Studio for Gaussian Splatting dataset and model generation.</li>
-            </ul>
+        <section id="projects">
+        <h2 data-i18n="section.projects">University Projects</h2>
+        <div id="projects-list">
+            <!-- Populated by JS -->
         </div>
+        </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>TransMilenio Congestion Prediction System using Temporal Graphs Neural Networks</span>
-                <span>Nov 2024 – Feb 2025</span>
-            </div>
-            <div class="entry-subheader">Universidad Nacional de Colombia - Neural Networks</div>
-            <ul>
-                <li>Researched the application of neural networks on spatio-temporal graphs to analyze articulated bus occupancy data in Bogotá’s Bus Rapid Transit system, aiming to make short-term occupancy predictions.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <ul>
-            <li><span class="skills-category">Tuition exemption for the 2025–2026 academic year</span>, Mines Paris PSL (Present)</li>
-            <li><span class="skills-category">Tuition exemption during all academic periods</span>, Universidad Nacional de Colombia (Present)</li>
-            <li><span class="skills-category">Recognition: Top University GPA in Bogotá</span>, Premios Jóvenes a la Excelencia (2024)</li>
-            <li><span class="skills-category">Recognition: Top STEM University GPA in Bogotá</span>, Premios Jóvenes a la Excelencia (2024)</li>
-            <li><span class="skills-category">Honor Roll 2022-2</span>, Universidad Nacional de Colombia (2022)</li>
-            <li><span class="skills-category">Recognition: Resilience and personal improvement</span>, Colegio Rodrigo Arenas Betancourt (2020)</li>
+        <section id="achievements">
+        <h2 data-i18n="section.achievements">Achievements</h2>
+        <ul id="achievements-list">
+            <!-- Populated by JS -->
         </ul>
-    </section>
+        </section>
 
-    <section id="volunteering">
-        <h2>Volunteering</h2>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <span>AspirantesVirtual</span>
-                <span>Jan 2025 – Jun 2025</span>
-            </div>
-            <div class="entry-subheader">Teacher – Colombia</div>
-            <ul>
-                <li>Development of classes and tutoring in Physics and Mathematics topics for Universidad Nacional de Colombia applicants.</li>
-            </ul>
+        <section id="volunteering">
+        <h2 data-i18n="section.volunteering">Volunteering</h2>
+        <div id="volunteering-list">
+            <!-- Populated by JS -->
         </div>
+        </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Colombian Virtual Reality Foundation</span>
-                <span>Mar 2020 – Jun 2021</span>
-            </div>
-            <div class="entry-subheader">Developer – Colombia</div>
-            <ul>
-                <li>Developed game features to raise funds and supported social initiatives aiding vulnerable communities during the COVID-19 pandemic.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="hobbies">
-        <h2>Hobbies</h2>
-        <ul>
-            <li><span class="skills-category">Competitive Programming:</span> Passionate about competitive programming, interested in solving algorithmic problems and participating in programming competitions. Member of a team participating in the ICPC Unal event in July 2024.</li>
-            <li><span class="skills-category">Video Games:</span> Curious player, exploring various genres and platforms, appreciating the graphic art and narrative within video games.</li>
+        <section id="hobbies">
+        <h2 data-i18n="section.hobbies">Hobbies</h2>
+        <ul id="hobbies-list">
+            <!-- Populated by JS -->
         </ul>
-    </section>
+        </section>
 
     </div> <!-- End of main-content -->
 
@@ -376,5 +113,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
