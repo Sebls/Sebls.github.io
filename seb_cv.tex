@@ -1,0 +1,369 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1 cm, % seperation between body and page edge from the top
+    bottom=1 cm, % seperation between body and page edge from the bottom
+    left=1.5 cm, % seperation between body and page edge from the left
+    right=1.5 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={slopezsi CV},
+    pdfauthor={Sebastian Lopez Silva},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.0 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+% symmetric two-column block (manual switch with \switchcolumn)
+\newenvironment{twocolblock}{
+    \onecolentry
+    \setcolumnwidth{\fill, \fill} % equal width columns
+    \begin{paracol}{2}
+}{
+    \end{paracol}
+    \endonecolentry
+}
+
+
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in October 2025}\hspace{\widthof{Last updated in October 2025}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont \textbf{Sebastian Lopez Silva}
+
+        \vspace{1 pt}
+
+        \normalsize
+        \textit{Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia}
+
+        \vspace{1 pt}
+
+        \normalsize
+        \mbox{\faIcon{map-marker-alt} Paris, France}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faIcon{envelope} \hrefWithoutArrow{mailto:sebastian.lopez\_silva@etu.minesparis.psl.eu}{sebastian.lopez\_silva@etu.minesparis.psl.eu}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faIcon{envelope} \hrefWithoutArrow{mailto:slopezsi@unal.edu.co}{slopezsi@unal.edu.co}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faIcon{phone} \hrefWithoutArrow{tel:+33 7 59 32 58 83}{+33 7 59 32 58 83}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faIcon{linkedin} \hrefWithoutArrow{https://www.linkedin.com/in/slopezsi}{linkedin.com/in/slopezsi}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\faIcon{github} \hrefWithoutArrow{https://github.com/Sebls}{github.com/Sebls}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+
+    \section{Profile}
+        \begin{onecolentry}
+        \textit{Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!}
+        \end{onecolentry}
+
+
+    
+    \section{Education}
+        \begin{twocolentry}{
+            Aug 2025 – Jul 2027
+        }
+            \textbf{Mines Paris  PSL}, Master of Science in Engineering, Computational and Applied Mathematics\end{twocolentry}
+
+        \begin{twocolentry}{Oct 2021 – Sep 2027}
+            \textbf{Universidad Nacional de Colombia}, Bachelor's degree in Computer Engineering\end{twocolentry}
+
+        \begin{twocolentry}{
+            Nov 2025
+        }
+            \textbf{Czech Technical University in Prague}, ATHENS Programme - Randomized Algorithms\end{twocolentry}
+
+    
+    \section{Employment History}
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+        
+        \item \textbf{Engin AI} - \textit{Software Engineer} (Aug 2025 – Nov 2025) – Miami, United States (Remote)
+        \begin{itemize}
+            \item Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.
+
+            \item Implemented automated workflows to convert, validate, and debug annotations across formats (YOLO, COCO) to support training pipelines.
+            
+            \item Assisted in diagnosing and resolving data integrity and labeling issues from the internal annotation platform.
+            
+            \item Contributed to model training experiments (e.g., RT-DETR) to verify dataset correctness and improve training reliability.
+        \end{itemize}
+
+        \item \textbf{Dataconstructors AI} - \textit{Software Engineer} (Mar 2025 – Aug 2025) – Bogotá, Colombia (Remote)
+    \begin{itemize}
+        \item Participated in developing three web applications: two for automating geospatial file processing in civil engineering consulting (backend role), and one for project management and cost estimation (full-stack role).
+    \item Designed and implemented user interfaces, cost automation features, and data integration workflows with external APIs.
+    \item Developed algorithms for external data handling, file parsers, and authentication systems.
+    \item Integrated and managed MySQL/PostgreSQL databases, applying clean architecture principles for scalable and maintainable code.
+    \end{itemize}
+
+
+        \item \textbf{Intelligent Systems Lab (LISI)} – \textit{Undergraduate Student Researcher} (Aug 2023 – Present) – Bogotá, Colombia
+    \begin{itemize}
+        \item Active member of research group, participating in seminars on artificial intelligence and collaborative projects with undergraduate and graduate students.
+        \item Prepared and presented materials for seminars on deep learning techniques and architectures (CNNs, VAEs, Transformers, etc.).
+        \item Contributed to the formulation of proposals submitted to Minciencias Calls 950 and 966, integrating artificial intelligence and virtual reality for environmental education.
+        % \item Served as \textit{Student Research Assistant} during two research cycles (Jul–Dec 2024 and Jan–Aug 2025).
+    \end{itemize}
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Skills}
+
+        
+        \begin{onecolentry}
+                \textbf{Languages:} Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Soft Skills:} Teamwork • Problem-solving • Adaptability • Communication • Creativity • Critical thinking
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Programming:} Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Technical Tools:} Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office
+        \end{onecolentry}
+
+    
+    \section{University Projects}
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+
+        \item \textbf{Automated Pipeline for Gaussian Splatting Model Generation} - \textit{Mines Paris  PSL - MOVIE: Ingénierie des Mondes Virtuels} (Sep 2025 – Nov 2025)
+        \begin{itemize}
+            \item Developed an immersive virtual exhibition of geological artifacts using Gaussian splats to enhance reflectance, translucency, and realism
+            \item Built an automated pipeline integrating GCP, RealityScan and LightField Studio for Gaussian Splatting dataset and model generation
+        \end{itemize}
+        
+        
+
+        \item \textbf{TransMilenio Congestion Prediction System using Temporal Graphs Neural Networks} - \textit{Universidad Nacional de Colombia - Neural Networks} (Nov 2024 – Feb 2025)
+        \begin{itemize}
+        \item Researched the application of neural networks on spatio-temporal graphs to analyze articulated bus occupancy data in Bogotá’s Bus Rapid Transit system, aiming to make short-term occupancy predictions.
+    \end{itemize}
+    
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+
+    \section{Achievements}
+
+
+        \begin{twocolentry}{
+            Present
+        }
+        \textbf{Tuition exemption for the 2025–2026 academic year}, Mines Paris PSL\end{twocolentry}
+    
+
+        \begin{twocolentry}{
+            Present
+        }
+            \textbf{Tuition exemption during all academic periods}, Universidad Nacional de Colombia\end{twocolentry}
+    
+        \begin{twocolentry}{
+            2024
+        }
+            \textbf{Recognition: Top University GPA in Bogotá}, Premios Jóvenes a la Excelencia
+        \end{twocolentry}
+        
+        \begin{twocolentry}{
+            2024
+        }
+            \textbf{Recognition: Top STEM University GPA in Bogotá}, Premios Jóvenes a la Excelencia
+        \end{twocolentry}
+
+        \begin{twocolentry}{
+            2022
+        }
+            \textbf{Honor Roll 2022-2}, Universidad Nacional de Colombia\end{twocolentry}
+
+        \begin{twocolentry}{
+            2020
+        }
+            \textbf{Recognition: Resilience and personal improvement}, Colegio Rodrigo Arenas Betancourt\end{twocolentry}
+
+    
+    \section{Volunteering}
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+        \item \textbf{AspirantesVirtual} - \textit{Teacher} (Jan 2025 – Jun 2025) – Colombia
+        \begin{itemize}
+            \item Development of classes and tutoring in Physics and Mathematics topics for Universidad Nacional de Colombia applicants
+        \end{itemize}
+
+        \item \textbf{Colombian Virtual Reality Foundation} - \textit{Developer} (Mar 2020 – Jun 2021) – Colombia
+        \begin{itemize}
+            \item Developed game features to raise funds and supported social initiatives aiding vulnerable communities during the COVID-19 pandemic.
+        \end{itemize}
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Hobbies}
+        
+        \begin{onecolentry}
+            \textbf{Competitive Programming:} Passionate about competitive programming, interested in solving algorithmic problems and participating in programming competitions. Member of a team participating in the ICPC Unal event in July 2024.
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Video Games:} Curious player, exploring various genres and platforms, appreciating the graphic art and narrative within video games.
+        \end{onecolentry}        
+\end{document}

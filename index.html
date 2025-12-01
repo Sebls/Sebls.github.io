@@ -3,481 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Engineering Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sebastian Lopez Silva - CV</title>
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid #3b82f6;
-            white-space: nowrap;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
             margin: 0 auto;
-            letter-spacing: .15em;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            padding: 20px;
+            color: #333;
         }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        h1 {
+            margin-bottom: 5px;
         }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #3b82f6; }
+        .subtitle {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .contact-info {
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+        }
+        .entry {
+            margin-bottom: 15px;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+        }
+        .entry-subheader {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        .skills-category {
+            font-weight: bold;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold gradient-text">CEPortfolio</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-700">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
-            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600 transition">Home</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">About</a>
-            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600 transition">Projects</a>
-            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-600 transition">Skills</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contact</a>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <section id="home" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Alex Carter</span></h1>
-                <div class="typewriter text-2xl md:text-3xl font-medium mb-6">
-                    Computer Engineering Student
-                </div>
-                <p class="text-gray-600 mb-8 text-lg">
-                    Passionate about building innovative solutions through hardware and software integration.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">Get In Touch</a>
-                    <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg transition">View Projects</a>
-                </div>
+    <header>
+        <h1>Sebastian Lopez Silva</h1>
+        <div class="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
+        
+        <div class="contact-info">
+            <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+            <br>
+            <a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a>
+            <a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a>
+            <br>
+            <a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a>
+            <a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a>
+            <a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Profile</h2>
+        <p>Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>Mines Paris PSL</span>
+                <span>Aug 2025 – Jul 2027</span>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
-                             alt="Student Profile" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-md">
-                        <div class="text-center">
-                            <p class="font-bold gradient-text text-lg">4th Year</p>
-                            <p class="text-gray-500">University of Tech</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="entry-subheader">Master of Science in Engineering, Computational and Applied Mathematics</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>Universidad Nacional de Colombia</span>
+                <span>Oct 2021 – Sep 2027</span>
             </div>
+            <div class="entry-subheader">Bachelor's degree in Computer Engineering</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>Czech Technical University in Prague</span>
+                <span>Nov 2025</span>
+            </div>
+            <div class="entry-subheader">ATHENS Programme - Randomized Algorithms</div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-48 h-48 rounded-full overflow-hidden shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
-                             alt="Student working" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <p class="text-gray-600 mb-6 text-lg">
-                        I'm a fourth-year Computer Engineering student at University of Technology with a passion for embedded systems and IoT solutions. My academic journey has equipped me with strong foundations in computer architecture, digital systems, and software development.
-                    </p>
-                    <p class="text-gray-600 mb-6 text-lg">
-                        Beyond coursework, I actively participate in hackathons and robotics competitions, where I've honed my problem-solving skills and ability to work in teams. I'm particularly interested in the intersection of hardware and software, and how we can leverage both to create intelligent systems.
-                    </p>
-                    <div class="flex flex-wrap gap-4 mt-8">
-                        <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-lg">
-                            <i class="fas fa-microchip mr-2"></i> Embedded Systems
-                        </div>
-                        <div class="bg-purple-50 text-purple-700 px-4 py-2 rounded-lg">
-                            <i class="fas fa-robot mr-2"></i> Robotics
-                        </div>
-                        <div class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg">
-                            <i class="fas fa-code mr-2"></i> Full-Stack Dev
-                        </div>
-                    </div>
-                </div>
+    <section>
+        <h2>Employment History</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>Engin AI</span>
+                <span>Aug 2025 – Nov 2025</span>
             </div>
+            <div class="entry-subheader">Software Engineer – Miami, United States (Remote)</div>
+            <ul>
+                <li>Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.</li>
+                <li>Implemented automated workflows to convert, validate, and debug annotations across formats (YOLO, COCO) to support training pipelines.</li>
+                <li>Assisted in diagnosing and resolving data integrity and labeling issues from the internal annotation platform.</li>
+                <li>Contributed to model training experiments (e.g., RT-DETR) to verify dataset correctness and improve training reliability.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>Dataconstructors AI</span>
+                <span>Mar 2025 – Aug 2025</span>
+            </div>
+            <div class="entry-subheader">Software Engineer – Bogotá, Colombia (Remote)</div>
+            <ul>
+                <li>Participated in developing three web applications: two for automating geospatial file processing in civil engineering consulting (backend role), and one for project management and cost estimation (full-stack role).</li>
+                <li>Designed and implemented user interfaces, cost automation features, and data integration workflows with external APIs.</li>
+                <li>Developed algorithms for external data handling, file parsers, and authentication systems.</li>
+                <li>Integrated and managed MySQL/PostgreSQL databases, applying clean architecture principles for scalable and maintainable code.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>Intelligent Systems Lab (LISI)</span>
+                <span>Aug 2023 – Present</span>
+            </div>
+            <div class="entry-subheader">Undergraduate Student Researcher – Bogotá, Colombia</div>
+            <ul>
+                <li>Active member of research group, participating in seminars on artificial intelligence and collaborative projects with undergraduate and graduate students.</li>
+                <li>Prepared and presented materials for seminars on deep learning techniques and architectures (CNNs, VAEs, Transformers, etc.).</li>
+                <li>Contributed to the formulation of proposals submitted to Minciencias Calls 950 and 966, integrating artificial intelligence and virtual reality for environmental education.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-50 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80" 
-                             alt="Smart Irrigation System" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Smart Irrigation System</h3>
-                        <p class="text-gray-600 mb-4">IoT-based system that monitors soil moisture and automatically waters plants when needed.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Arduino</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">IoT</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">C++</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
-                             alt="Robotic Arm" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Robotic Arm Controller</h3>
-                        <p class="text-gray-600 mb-4">6-DOF robotic arm controlled via hand gestures using computer vision.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">OpenCV</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Raspberry Pi</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
-                             alt="Attendance System" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Face Recognition Attendance</h3>
-                        <p class="text-gray-600 mb-4">Automated attendance system using face recognition with Flask web interface.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Flask</span>
-                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Machine Learning</span>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
-                    </div>
-                </div>
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li><span class="skills-category">Languages:</span> Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)</li>
+            <li><span class="skills-category">Soft Skills:</span> Teamwork • Problem-solving • Adaptability • Communication • Creativity • Critical thinking</li>
+            <li><span class="skills-category">Programming:</span> Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)</li>
+            <li><span class="skills-category">Technical Tools:</span> Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>University Projects</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>Automated Pipeline for Gaussian Splatting Model Generation</span>
+                <span>Sep 2025 – Nov 2025</span>
             </div>
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg transition">View All Projects</a>
+            <div class="entry-subheader">Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels</div>
+            <ul>
+                <li>Developed an immersive virtual exhibition of geological artifacts using Gaussian splats to enhance reflectance, translucency, and realism.</li>
+                <li>Built an automated pipeline integrating GCP, RealityScan and LightField Studio for Gaussian Splatting dataset and model generation.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>TransMilenio Congestion Prediction System using Temporal Graphs Neural Networks</span>
+                <span>Nov 2024 – Feb 2025</span>
             </div>
+            <div class="entry-subheader">Universidad Nacional de Colombia - Neural Networks</div>
+            <ul>
+                <li>Researched the application of neural networks on spatio-temporal graphs to analyze articulated bus occupancy data in Bogotá’s Bus Rapid Transit system, aiming to make short-term occupancy predictions.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-white px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Hardware Skills -->
-                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-                        <i class="fas fa-microchip text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Hardware</h3>
-                    <ul class="text-center text-gray-600">
-                        <li>Arduino</li>
-                        <li>Raspberry Pi</li>
-                        <li>FPGA</li>
-                        <li>PCB Design</li>
-                    </ul>
-                </div>
-                
-                <!-- Programming -->
-                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-4">
-                        <i class="fas fa-code text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Programming</h3>
-                    <ul class="text-center text-gray-600">
-                        <li>C/C++</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                    </ul>
-                </div>
-                
-                <!-- Web Dev -->
-                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-4">
-                        <i class="fas fa-globe text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Web Development</h3>
-                    <ul class="text-center text-gray-600">
-                        <li>HTML/CSS</li>
-                        <li>React</li>
-                        <li>Node.js</li>
-                        <li>MongoDB</li>
-                    </ul>
-                </div>
-                
-                <!-- Tools -->
-                <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-4">
-                        <i class="fas fa-tools text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Tools</h3>
-                    <ul class="text-center text-gray-600">
-                        <li>Git/GitHub</li>
-                        <li>Docker</li>
-                        <li>Linux</li>
-                        <li>VS Code</li>
-                    </ul>
-                </div>
+    <section>
+        <h2>Achievements</h2>
+        <ul>
+            <li><span class="skills-category">Tuition exemption for the 2025–2026 academic year</span>, Mines Paris PSL (Present)</li>
+            <li><span class="skills-category">Tuition exemption during all academic periods</span>, Universidad Nacional de Colombia (Present)</li>
+            <li><span class="skills-category">Recognition: Top University GPA in Bogotá</span>, Premios Jóvenes a la Excelencia (2024)</li>
+            <li><span class="skills-category">Recognition: Top STEM University GPA in Bogotá</span>, Premios Jóvenes a la Excelencia (2024)</li>
+            <li><span class="skills-category">Honor Roll 2022-2</span>, Universidad Nacional de Colombia (2022)</li>
+            <li><span class="skills-category">Recognition: Resilience and personal improvement</span>, Colegio Rodrigo Arenas Betancourt (2020)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Volunteering</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <span>AspirantesVirtual</span>
+                <span>Jan 2025 – Jun 2025</span>
             </div>
-            
-            <!-- Skill Progress Bars -->
-            <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-6 text-center">Skill Proficiency</h3>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-700">Embedded C</span>
-                            <span class="text-gray-500">90%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-700">Python</span>
-                            <span class="text-gray-500">85%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-700">JavaScript/React</span>
-                            <span class="text-gray-500">80%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-700">PCB Design</span>
-                            <span class="text-gray-500">75%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-purple-500 h-2.5 rounded-full" style="width: 75%"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="entry-subheader">Teacher – Colombia</div>
+            <ul>
+                <li>Development of classes and tutoring in Physics and Mathematics topics for Universidad Nacional de Colombia applicants.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span>Colombian Virtual Reality Foundation</span>
+                <span>Mar 2020 – Jun 2021</span>
             </div>
+            <div class="entry-subheader">Developer – Colombia</div>
+            <ul>
+                <li>Developed game features to raise funds and supported social initiatives aiding vulnerable communities during the COVID-19 pandemic.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-8 md:p-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 pt-1">
-                                    <i class="fas fa-envelope text-lg"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-semibold">Email</h4>
-                                    <p>alex.carter@university.edu</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 pt-1">
-                                    <i class="fas fa-phone-alt text-lg"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-semibold">Phone</h4>
-                                    <p>+1 (123) 456-7890</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 pt-1">
-                                    <i class="fas fa-map-marker-alt text-lg"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="font-semibold">Location</h4>
-                                    <p>San Francisco, CA</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-12">
-                            <h4 class="font-semibold mb-4">Connect with me</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 p-8 md:p-12">
-                        <form class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-gray-700 mb-2">Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section>
+        <h2>Hobbies</h2>
+        <ul>
+            <li><span class="skills-category">Competitive Programming:</span> Passionate about competitive programming, interested in solving algorithmic problems and participating in programming competitions. Member of a team participating in the ICPC Unal event in July 2024.</li>
+            <li><span class="skills-category">Video Games:</span> Curious player, exploring various genres and platforms, appreciating the graphic art and narrative within video games.</li>
+        </ul>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-xl font-bold gradient-text">Alex Carter</span>
-                    <p class="text-gray-400 mt-2">Computer Engineering Student</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2023 Alex Carter. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="hidden fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Back to top button
-        const backToTopBtn = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.remove('hidden');
-            } else {
-                backToTopBtn.classList.add('hidden');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-        
-        // Skill bars animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const skillBars = document.querySelectorAll('[style*="width"]');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        });
-    </script>
 </body>
 </html>
