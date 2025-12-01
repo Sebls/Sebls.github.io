@@ -8,27 +8,48 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
             color: #333;
+            display: flex;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .main-content {
+            margin-left: 300px;
+            padding: 20px 40px;
+            flex-grow: 1;
         }
         h1 {
             margin-bottom: 5px;
+            font-size: 1.8em;
         }
         .subtitle {
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             color: #555;
+            font-size: 0.9em;
         }
         .contact-info {
             margin-bottom: 30px;
             font-size: 0.9em;
         }
-        .contact-info a {
+        .contact-info div {
+            margin-bottom: 8px;
+        }
+        .contact-info a, .contact-info span {
             color: #333;
             text-decoration: none;
-            margin-right: 15px;
+            display: block;
+            overflow-wrap: break-word; /* Soft wrapping: breaks words only if they overflow the line */
         }
         .contact-info a:hover {
             text-decoration: underline;
@@ -36,9 +57,13 @@
         h2 {
             border-bottom: 1px solid #ccc;
             padding-bottom: 5px;
-            margin-top: 30px;
+            margin-top: 0;
             text-transform: uppercase;
             font-size: 1.2em;
+        }
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 20px;
         }
         .entry {
             margin-bottom: 15px;
@@ -63,33 +88,64 @@
         .skills-category {
             font-weight: bold;
         }
+        nav {
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        nav a:hover {
+            color: #000;
+            padding-left: 5px;
+            transition: 0.2s;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <h1>Sebastian Lopez Silva</h1>
-        <div class="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
-        
-        <div class="contact-info">
-            <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
-            <br>
-            <a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a>
-            <a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a>
-            <br>
-            <a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a>
-            <a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a>
-            <a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a>
-        </div>
-    </header>
+    <div class="sidebar">
+        <header>
+            <h1>Sebastian <br> Lopez Silva </h1>
+            <div class="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
+            
+            <div class="contact-info">
+                <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
+                <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
+                <div><a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a></div>
+                <div><a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a></div>
+                <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
+                <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
+            </div>
+        </header>
 
-    <section>
-        <h2>Profile</h2>
+        <nav>
+            <a href="#profile">Profile</a>
+            <a href="#education">Education</a>
+            <a href="#employment">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#volunteering">Volunteering</a>
+            <a href="#hobbies">Hobbies</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <section id="profile">
+            <h2>Profile</h2>
         <p>Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
     </section>
 
-    <section>
+    <section id="education">
         <h2>Education</h2>
         
         <div class="entry">
@@ -113,11 +169,11 @@
                 <span>Czech Technical University in Prague</span>
                 <span>Nov 2025</span>
             </div>
-            <div class="entry-subheader">ATHENS Programme - Randomized Algorithms</div>
+            <div class="entry-subheader">ATHENS Programme - Probabilistic Methods in Combinatorics</div>
         </div>
     </section>
 
-    <section>
+    <section id="employment">
         <h2>Employment History</h2>
         
         <div class="entry">
@@ -162,7 +218,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="skills">
         <h2>Skills</h2>
         <ul>
             <li><span class="skills-category">Languages:</span> Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)</li>
@@ -172,7 +228,7 @@
         </ul>
     </section>
 
-    <section>
+    <section id="projects">
         <h2>University Projects</h2>
         
         <div class="entry">
@@ -199,7 +255,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="achievements">
         <h2>Achievements</h2>
         <ul>
             <li><span class="skills-category">Tuition exemption for the 2025–2026 academic year</span>, Mines Paris PSL (Present)</li>
@@ -211,7 +267,7 @@
         </ul>
     </section>
 
-    <section>
+    <section id="volunteering">
         <h2>Volunteering</h2>
         
         <div class="entry">
@@ -237,13 +293,15 @@
         </div>
     </section>
 
-    <section>
+    <section id="hobbies">
         <h2>Hobbies</h2>
         <ul>
             <li><span class="skills-category">Competitive Programming:</span> Passionate about competitive programming, interested in solving algorithmic problems and participating in programming competitions. Member of a team participating in the ICPC Unal event in July 2024.</li>
             <li><span class="skills-category">Video Games:</span> Curious player, exploring various genres and platforms, appreciating the graphic art and narrative within video games.</li>
         </ul>
     </section>
+
+    </div> <!-- End of main-content -->
 
 </body>
 </html>
