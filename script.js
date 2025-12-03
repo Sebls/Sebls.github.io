@@ -44,7 +44,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Aug 2025 – Nov 2025",
+                date: "Aug 2025 – Dec 2025",
                 role: "Software Engineer – Miami, United States (Remote)",
                 tasks: [
                     "Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.",
@@ -176,7 +176,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Ago 2025 – Nov 2025",
+                date: "Ago 2025 – Dic 2025",
                 role: "Ingeniero de Software – Miami, Estados Unidos (Remoto)",
                 tasks: [
                     "Desarrollo y mantenimiento de herramientas para la creación, preprocesamiento y aseguramiento de calidad de datasets para modelos de visión por computadora basados en video.",
@@ -308,7 +308,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Août 2025 – Nov 2025",
+                date: "Août 2025 – Déc 2025",
                 role: "Ingénieur Logiciel – Miami, États-Unis (Télétravail)",
                 tasks: [
                     "Développement et maintenance d'outils pour la création, le prétraitement et l'assurance qualité de jeux de données pour modèles de vision par ordinateur basés sur la vidéo.",
