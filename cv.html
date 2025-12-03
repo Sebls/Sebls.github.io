@@ -20,6 +20,12 @@
     <div class="cv-layout">
         <!-- Sidebar Index -->
         <aside class="cv-sidebar">
+            <div class="language-switcher">
+                <button class="language-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="language-btn" onclick="setLanguage('es')">ES</button>
+                <button class="language-btn" onclick="setLanguage('fr')">FR</button>
+            </div>
+
             <nav>
                 <a href="#profile" data-i18n="nav.profile">Profile</a>
                 <a href="#education" data-i18n="nav.education">Education</a>
@@ -30,12 +36,6 @@
                 <a href="#volunteering" data-i18n="nav.volunteering">Volunteering</a>
                 <a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a>
             </nav>
-            
-            <div class="language-switcher">
-                <button class="language-btn active" onclick="setLanguage('en')">EN</button>
-                <button class="language-btn" onclick="setLanguage('es')">ES</button>
-                <button class="language-btn" onclick="setLanguage('fr')">FR</button>
-            </div>
         </aside>
 
         <!-- Main CV Content -->

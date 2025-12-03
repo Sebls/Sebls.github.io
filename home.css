@@ -18,6 +18,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: top 0.3s; /* Smooth transition for hiding/showing */
 }
 
 .nav-brand {
@@ -127,7 +128,7 @@ h1 {
 .social-links a {
     color: #333;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 0.95em;
     transition: color 0.2s;
 }
 
@@ -283,7 +284,7 @@ li {
 
 /* Language Switcher */
 .language-switcher {
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .language-btn {
@@ -327,8 +328,15 @@ li {
         height: auto;
         border-right: none;
         border-bottom: 1px solid #eee;
-        padding: 20px;
+        padding: 0;
+        margin: 0;
+        margin-top: 20px; /* Separate from navbar */
         background-color: transparent;
+        text-align: center;
+    }
+
+    .cv-sidebar nav a {
+        text-align: center;
     }
     
     .cv-main {

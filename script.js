@@ -540,3 +540,25 @@ function setLanguage(lang) {
 // Initialize language
 const savedLang = localStorage.getItem('preferredLanguage') || 'en';
 setLanguage(savedLang);
+
+// Mobile Navbar Hiding Logic
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', function() {
+    // Only apply on mobile view (768px matches CSS breakpoint)
+    if (window.innerWidth <= 768) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            navbar.style.top = '-200px'; // Adjust based on navbar height
+        } else {
+            // Scrolling up
+            navbar.style.top = '0';
+        }
+        lastScrollTop = scrollTop;
+    } else {
+        // Reset for desktop
+        navbar.style.top = '0';
+    }
+});
