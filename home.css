@@ -1,0 +1,357 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #f4f4f4;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #000;
+    background-color: #e0e0e0;
+}
+
+/* Main Content Container */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center; /* Center align content for a profile landing page */
+}
+
+.about-image {
+    max-width: 300px;
+    border-radius: 50%; /* Make it circular for a modern profile look */
+    border-radius: 8px; /* Keeping consistent with previous request unless specified */
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.bio-text {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    text-align: left; /* Keep bio text readable */
+    line-height: 1.8;
+}
+
+/* Tech Stack */
+.tech-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tech-icons img {
+    height: 50px;
+    transition: transform 0.2s;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #000;
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+/* CV Layout & Styles */
+.cv-layout {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.cv-sidebar {
+    position: fixed;
+    top: 70px; /* Offset for top navbar */
+    left: 0;
+    width: 160px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+    padding: 40px 40px;
+}
+
+.cv-sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-sidebar nav a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+.cv-sidebar nav a:hover {
+    color: #000;
+    padding-left: 5px;
+    transition: 0.2s;
+}
+
+.cv-main {
+    width: 100%;
+    margin-left: 0;
+    padding: 40px 60px;
+    padding-left: 200px; /* Sidebar width + some padding */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-main > * {
+    width: 100%;
+    max-width: 800px;
+}
+
+.cv-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.cv-contact-info {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.95em;
+}
+
+.cv-contact-info div {
+    display: flex;
+    align-items: center;
+}
+
+.cv-contact-info a, .cv-contact-info span {
+    color: #333;
+    text-decoration: none;
+}
+
+.cv-contact-info a:hover {
+    text-decoration: underline;
+}
+
+.cv-contact-info i {
+    margin-right: 6px;
+    color: #555;
+}
+
+/* CV Components (from style.css) */
+h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+/* First h2 shouldn't have top margin if it's top of section but sections have margin */
+section h2 {
+    margin-top: 0; 
+}
+
+section {
+    margin-bottom: 40px;
+    scroll-margin-top: 100px; /* Offset for sticky header */
+}
+
+.entry {
+    margin-bottom: 20px;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: bold;
+}
+
+.entry-subheader {
+    font-style: italic;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 3px;
+}
+
+.skills-category {
+    font-weight: bold;
+}
+
+/* Language Switcher */
+.language-switcher {
+    margin-top: 20px;
+}
+
+.language-btn {
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    color: #555;
+}
+
+.language-btn:hover, .language-btn.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cv-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cv-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+        background-color: transparent;
+    }
+    
+    .cv-main {
+        margin-left: 0;
+        padding: 20px;
+        width: auto;
+    }
+
+    .cv-contact-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .entry-header span:last-child {
+        margin-top: 2px;
+        color: #666;
+        font-size: 0.9em;
+    }
+}

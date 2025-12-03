@@ -4,7 +4,7 @@
 
 ###
 
-<!-- ![Profile Image or GIF](URL_TO_YOUR_IMAGE) -->
+![This is me](media/me.jpg)
 
 ###
 
@@ -18,7 +18,7 @@
 
 
 
-<p align="left">✨ Passionate about AI, Generative Models and Compilers<br>📚 Currently pursuing a Master in Computational and Applied Mathematics</p>
+<p align="left">Passionate about AI, Generative Models and Compilers <br> Currently pursuing a Master in Computational and Applied Mathematics</p>
 
 
 
@@ -36,15 +36,11 @@
 
 <div align="left">
 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 
-  <img width="12" />
+<img width="12" />
 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
-
-  <img width="12" />
-
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
 
 </div>
 

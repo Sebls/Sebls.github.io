@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastian Lopez Silva - CV</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sebastian Lopez - CV</title>
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="sidebar-main">
-            <header>
-                <h1>Sebastian Lopez Silva </h1>
-                <div class="subtitle" data-i18n="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
-            </header>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Sebastian Lopez Silva</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Curriculum Vitae</a>
+        </div>
+    </nav>
 
+    <div class="cv-layout">
+        <!-- Sidebar Index -->
+        <aside class="cv-sidebar">
             <nav>
                 <a href="#profile" data-i18n="nav.profile">Profile</a>
                 <a href="#education" data-i18n="nav.education">Education</a>
@@ -26,92 +30,88 @@
                 <a href="#volunteering" data-i18n="nav.volunteering">Volunteering</a>
                 <a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a>
             </nav>
-        </div>
-
-        <div class="sidebar-footer">
-            <div class="contact-info">
-                <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
-                <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
-                <div><a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a></div>
-                <div><a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a></div>
-                <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
-                <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
-            </div>
+            
             <div class="language-switcher">
                 <button class="language-btn active" onclick="setLanguage('en')">EN</button>
                 <button class="language-btn" onclick="setLanguage('es')">ES</button>
                 <button class="language-btn" onclick="setLanguage('fr')">FR</button>
             </div>
-        </div>
+        </aside>
+
+        <!-- Main CV Content -->
+        <main class="cv-main">
+            
+            <div class="cv-header">
+                <h1>Sebastian Lopez Silva</h1>
+                <div class="subtitle" data-i18n="subtitle">Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia</div>
+                
+                <!-- Contact Info moved here -->
+                <div class="cv-contact-info">
+                    <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
+                    <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
+                    <div><a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a></div>
+                    <div><a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a></div>
+                    <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
+                    <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
+                </div>
+            </div>
+
+            <section id="profile">
+                <h2 data-i18n="section.profile">Profile</h2>
+                <p data-i18n="profile.text">Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
+            </section>
+
+            <section id="education">
+                <h2 data-i18n="section.education">Education</h2>
+                <div id="education-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <section id="employment">
+                <h2 data-i18n="section.employment">Employment History</h2>
+                <div id="employment-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2 data-i18n="section.skills">Skills</h2>
+                <ul id="skills-list">
+                    <!-- Populated by JS -->
+                </ul>
+            </section>
+
+            <section id="projects">
+                <h2 data-i18n="section.projects">University Projects</h2>
+                <div id="projects-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <section id="achievements">
+                <h2 data-i18n="section.achievements">Achievements</h2>
+                <ul id="achievements-list">
+                    <!-- Populated by JS -->
+                </ul>
+            </section>
+
+            <section id="volunteering">
+                <h2 data-i18n="section.volunteering">Volunteering</h2>
+                <div id="volunteering-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <section id="hobbies">
+                <h2 data-i18n="section.hobbies">Hobbies</h2>
+                <ul id="hobbies-list">
+                    <!-- Populated by JS -->
+                </ul>
+            </section>
+
+        </main>
     </div>
-
-    <div class="main-content">
-        <section id="profile">
-            <h2 data-i18n="section.profile">Profile</h2>
-        <p data-i18n="profile.text">Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!</p>
-        </section>
-
-        <section id="education">
-        <h2 data-i18n="section.education">Education</h2>
-        <div id="education-list">
-            <!-- Populated by JS -->
-        </div>
-        </section>
-
-        <section id="employment">
-        <h2 data-i18n="section.employment">Employment History</h2>
-        <div id="employment-list">
-            <!-- Populated by JS -->
-        </div>
-        </section>
-
-        <section id="skills">
-        <h2 data-i18n="section.skills">Skills</h2>
-        <ul id="skills-list">
-            <!-- Populated by JS -->
-        </ul>
-        </section>
-
-        <section id="projects">
-        <h2 data-i18n="section.projects">University Projects</h2>
-        <div id="projects-list">
-            <!-- Populated by JS -->
-        </div>
-        </section>
-
-        <section id="achievements">
-        <h2 data-i18n="section.achievements">Achievements</h2>
-        <ul id="achievements-list">
-            <!-- Populated by JS -->
-        </ul>
-        </section>
-
-        <section id="volunteering">
-        <h2 data-i18n="section.volunteering">Volunteering</h2>
-        <div id="volunteering-list">
-            <!-- Populated by JS -->
-        </div>
-        </section>
-
-        <section id="hobbies">
-        <h2 data-i18n="section.hobbies">Hobbies</h2>
-        <ul id="hobbies-list">
-            <!-- Populated by JS -->
-        </ul>
-        </section>
-
-    </div> <!-- End of main-content -->
-
-    <footer>
-        <div class="contact-info">
-            <div><span style="display:inline"><i class="fas fa-map-marker-alt"></i> Paris, France</span></div>
-            <div><a href="mailto:sebastian.lopez_silva@etu.minesparis.psl.eu"><i class="fas fa-envelope"></i> sebastian.lopez_silva@etu.minesparis.psl.eu</a></div>
-            <div><a href="mailto:slopezsi@unal.edu.co"><i class="fas fa-envelope"></i> slopezsi@unal.edu.co</a></div>
-            <div><a href="tel:+33759325883"><i class="fas fa-phone"></i> +33 7 59 32 58 83</a></div>
-            <div><a href="https://www.linkedin.com/in/slopezsi" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/slopezsi</a></div>
-            <div><a href="https://github.com/Sebls" target="_blank"><i class="fab fa-github"></i> github.com/Sebls</a></div>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
