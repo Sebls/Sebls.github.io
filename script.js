@@ -44,7 +44,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Aug 2025 – Dec 2025",
+                date: "Apr 2025 – Aug 2025",
                 role: "Software Engineer – Miami, United States (Remote)",
                 tasks: [
                     "Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.",
@@ -55,7 +55,7 @@ const translations = {
             },
             {
                 company: "Dataconstructors AI",
-                date: "Mar 2025 – Aug 2025",
+                date: "Nov 2024 – Apr 2025",
                 role: "Software Engineer – Bogotá, Colombia (Remote)",
                 tasks: [
                     "Participated in developing three web applications: two for automating geospatial file processing in civil engineering consulting (backend role), and one for project management and cost estimation (full-stack role).",
@@ -88,15 +88,7 @@ const translations = {
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
                     "Developed an immersive virtual exhibition of geological artifacts using Gaussian splats to enhance reflectance, translucency, and realism.",
-                    "Built an automated pipeline integrating GCP, RealityScan and LightField Studio for Gaussian Splatting dataset and model generation."
-                ]
-            },
-            {
-                title: "TransMilenio Congestion Prediction System using Temporal Graphs Neural Networks",
-                date: "Nov 2024 – Feb 2025",
-                subheader: "Universidad Nacional de Colombia - Neural Networks",
-                tasks: [
-                    "Researched the application of neural networks on spatio-temporal graphs to analyze articulated bus occupancy data in Bogotá’s Bus Rapid Transit system, aiming to make short-term occupancy predictions."
+                    "Built an automated pipeline integrating AWS (S3 and Lambda), RealityScan and LightField Studio for Gaussian Splatting dataset and model generation."
                 ]
             }
         ],
@@ -176,7 +168,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Ago 2025 – Dic 2025",
+                date: "Abr 2025 – Ago 2025",
                 role: "Ingeniero de Software – Miami, Estados Unidos (Remoto)",
                 tasks: [
                     "Desarrollo y mantenimiento de herramientas para la creación, preprocesamiento y aseguramiento de calidad de datasets para modelos de visión por computadora basados en video.",
@@ -187,7 +179,7 @@ const translations = {
             },
             {
                 company: "Dataconstructors AI",
-                date: "Mar 2025 – Ago 2025",
+                date: "Nov 2024 – Abr 2025",
                 role: "Ingeniero de Software – Bogotá, Colombia (Remoto)",
                 tasks: [
                     "Participación en el desarrollo de tres aplicaciones web: dos para automatizar el procesamiento de archivos geoespaciales en consultoría de ingeniería civil (backend), y una para gestión de proyectos y estimación de costos (full-stack).",
@@ -220,15 +212,7 @@ const translations = {
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
                     "Desarrollo de una exposición virtual inmersiva de artefactos geológicos utilizando Gaussian splats para mejorar reflectancia, translucidez y realismo.",
-                    "Construcción de un pipeline automatizado integrando GCP, RealityScan y LightField Studio para la generación de datasets y modelos de Gaussian Splatting."
-                ]
-            },
-            {
-                title: "Sistema de Predicción de Congestión en TransMilenio usando Redes Neuronales de Grafos Temporales",
-                date: "Nov 2024 – Feb 2025",
-                subheader: "Universidad Nacional de Colombia - Neural Networks",
-                tasks: [
-                    "Investigación sobre la aplicación de redes neuronales en grafos espacio-temporales para analizar datos de ocupación de buses articulados en el sistema de transporte masivo de Bogotá, con el objetivo de realizar predicciones de ocupación a corto plazo."
+                    "Construcción de un pipeline automatizado integrando AWS (S3 y Lambda), RealityScan y LightField Studio para la generación de datasets y modelos de Gaussian Splatting."
                 ]
             }
         ],
@@ -286,7 +270,7 @@ const translations = {
             hobbies: "Loisirs"
         },
         profile: {
-            text: "Étudiant en génie informatique avec une expérience en tant qu'ingénieur logiciel et une forte passion pour les mathématiques et l'informatique. Actuellement en double diplôme international entre l'Universidad Nacional de Colombia et Mines Paris PSL. Toujours désireux d'apprendre, de créer des outils significatifs et de participer à des projets ayant un impact. J'adore l'IA et l'apprentissage automatique !"
+            text: "Étudiant en ingénierie informatique en double diplôme international entre l’Universidad Nacional de Colombia et l’École des Mines de Paris. Fort d’une première expérience en développement logiciel et d’un solide socle en mathématiques, je suis motivé par la création de solutions utiles et l’innovation technologique. Passionné par l’IA et le Machine Learning, je suis disponible à partir de mai 2026 pour des opportunités en France ou à l’international."
         },
         education: [
             {
@@ -308,7 +292,7 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Août 2025 – Déc 2025",
+                date: "Avr 2025 – Aoû 2025",
                 role: "Ingénieur Logiciel – Miami, États-Unis (Télétravail)",
                 tasks: [
                     "Développement et maintenance d'outils pour la création, le prétraitement et l'assurance qualité de jeux de données pour modèles de vision par ordinateur basés sur la vidéo.",
@@ -319,7 +303,7 @@ const translations = {
             },
             {
                 company: "Dataconstructors AI",
-                date: "Mar 2025 – Août 2025",
+                date: "Nov 2024 – Avr 2025",
                 role: "Ingénieur Logiciel – Bogotá, Colombie (Télétravail)",
                 tasks: [
                     "Participation au développement de trois applications web : deux pour l'automatisation du traitement de fichiers géospatiaux dans le conseil en génie civil (backend), et une pour la gestion de projets et l'estimation des coûts (full-stack).",
@@ -331,7 +315,7 @@ const translations = {
             {
                 company: "Laboratoire des Systèmes Intelligents (LISI)",
                 date: "Août 2023 – Présent",
-                role: "Étudiant Chercheur de Premier Cycle – Bogotá, Colombie",
+                role: "Chercheur Étudiant – Bogotá, Colombie",
                 tasks: [
                     "Membre actif du groupe de recherche, participant à des séminaires sur l'intelligence artificielle et à des projets collaboratifs avec des étudiants de premier et deuxième cycles.",
                     "Préparation et présentation de matériels pour des séminaires sur les techniques et architectures d'apprentissage profond (CNN, VAE, Transformers, etc.).",
@@ -352,23 +336,15 @@ const translations = {
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
                     "Développement d'une exposition virtuelle immersive d'artefacts géologiques utilisant des Gaussian splats pour améliorer la réflectance, la translucidité et le réalisme.",
-                    "Construction d'un pipeline automatisé intégrant GCP, RealityScan et LightField Studio pour la génération de jeux de données et de modèles Gaussian Splatting."
-                ]
-            },
-            {
-                title: "Système de Prédiction de Congestion TransMilenio utilisant des Réseaux de Neurones sur Graphes Temporels",
-                date: "Nov 2024 – Fév 2025",
-                subheader: "Universidad Nacional de Colombia - Neural Networks",
-                tasks: [
-                    "Recherche sur l'application de réseaux de neurones sur graphes spatio-temporels pour analyser les données d'occupation des bus articulés dans le système de transport en commun de Bogotá, visant à faire des prédictions d'occupation à court terme."
+                    "Construction d'un pipeline automatisé intégrant AWS (S3 et Lambda), RealityScan et LightField Studio pour la génération de jeux de données et de modèles Gaussian Splatting."
                 ]
             }
         ],
         achievements: [
-            { text: "Exonération des frais de scolarité pour l'année académique 2025–2026", sub: ", Mines Paris PSL (Présent)" },
-            { text: "Exonération des frais de scolarité durant toutes les périodes académiques", sub: ", Universidad Nacional de Colombia (Présent)" },
-            { text: "Reconnaissance : Meilleure Moyenne Universitaire à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Reconnaissance : Meilleure Moyenne Universitaire STEM à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
+            { text: "Exonération des frais de scolarité 2025–2026", sub: ", Mines Paris PSL (Présent)" },
+            { text: "Exonération des frais pour toutes les périodes académiques", sub: ", Universidad Nacional de Colombia (Présent)" },
+            { text: "Reconnaissance : Meilleur GPA universitaire à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
+            { text: "Reconnaissance : Meilleur GPA STEM à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
             { text: "Tableau d'Honneur 2022-2", sub: ", Universidad Nacional de Colombia (2022)" },
             { text: "Reconnaissance : Résilience et dépassement personnel", sub: ", Colegio Rodrigo Arenas Betancourt (2020)" }
         ],
@@ -507,9 +483,9 @@ function setLanguage(lang) {
         entry.innerHTML = `
                 <div class="entry-header">
                 <span>${vol.company}</span>
-                    <span>${vol.date}</span>
-                </div>
-                <div class="entry-subheader">${vol.role}</div>
+                <span>${vol.date}</span>
+            </div>
+            <div class="entry-subheader">${vol.role}</div>
             ${tasksHtml}
         `;
         volunteeringList.appendChild(entry);
