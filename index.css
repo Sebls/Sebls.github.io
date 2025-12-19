@@ -1,0 +1,6 @@
+/* Backwards-compat: keep existing pages working if they still link index.css. */
+@import url("assets/css/base.css");
+@import url("assets/css/navbar.css");
+@import url("assets/css/home-page.css");
+@import url("assets/css/cv.css");
+@import url("assets/css/blog.css");
