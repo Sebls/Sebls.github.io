@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="assets/css/cv.css">
     <link rel="stylesheet" href="assets/css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Apply saved sidebar state BEFORE first paint to avoid "auto-animations" on navigation.
+        (function () {
+            try {
+                document.documentElement.classList.add('sidebar-preload');
+                if (localStorage.getItem('sidebarCollapsed') === '1') {
+                    document.documentElement.classList.add('sidebar-collapsed');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
 
@@ -23,7 +35,11 @@
 
     <div class="cv-layout">
         <!-- Sidebar Index -->
-        <aside class="cv-sidebar">
+        <button class="sidebar-toggle" type="button" aria-controls="cv-sidebar" aria-expanded="true" aria-label="Hide sidebar">
+            <i class="fas fa-angle-left" aria-hidden="true"></i>
+        </button>
+
+        <aside class="cv-sidebar" id="cv-sidebar">
             <nav aria-label="Blog index">
                 <a href="#abstract">Abstract</a>
                 <a href="#introduction">Introduction</a>
@@ -244,5 +260,6 @@
         </main>
     </div>
 
+    <script src="assets/js/sidebar-toggle.js"></script>
 </body>
 </html>
