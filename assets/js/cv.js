@@ -9,7 +9,8 @@ const translations = {
             projects: "Projects",
             achievements: "Achievements",
             volunteering: "Volunteering",
-            hobbies: "Hobbies"
+            hobbies: "Hobbies",
+            pdf: "PDF Version"
         },
         section: {
             profile: "Profile",
@@ -133,7 +134,8 @@ const translations = {
             projects: "Proyectos",
             achievements: "Logros",
             volunteering: "Voluntariado",
-            hobbies: "Aficiones"
+            hobbies: "Aficiones",
+            pdf: "Versión PDF"
         },
         section: {
             profile: "Perfil",
@@ -257,7 +259,8 @@ const translations = {
             projects: "Projets",
             achievements: "Réalisations",
             volunteering: "Bénévolat",
-            hobbies: "Loisirs"
+            hobbies: "Loisirs",
+            pdf: "Version PDF"
         },
         section: {
             profile: "Profil",
