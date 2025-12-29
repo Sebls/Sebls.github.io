@@ -1,12 +1,12 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[9pt, letterpaper]{extarticle}
 
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=1 cm, % seperation between body and page edge from the top
-    bottom=1 cm, % seperation between body and page edge from the bottom
-    left=1.5 cm, % seperation between body and page edge from the left
-    right=1.5 cm, % seperation between body and page edge from the right
+    top=1.5 cm, % seperation between body and page edge from the top
+    bottom=1.5 cm, % seperation between body and page edge from the bottom
+    left=1.3 cm, % seperation between body and page edge from the left
+    right=1.3 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
@@ -21,7 +21,7 @@
 \usepackage[
     pdftitle={slopezsi CV},
     pdfauthor={Sebastian Lopez Silva},
-    pdfcreator={LaTeX with RenderCV},
+    pdfcreator={Sebls},
     colorlinks=true,
     urlcolor=primaryColor
 ]{hyperref} % for links, metadata and bookmarks
@@ -171,11 +171,14 @@
     \newsavebox\ANDbox
     \sbox\ANDbox{$|$}
 
-    % English version
+    % English version (general / EU-style)
     \input{cv_en}
 
-    \clearpage
+    % English version (Big Tech / US-style)
+    %\input{cv_en_bigtech}
+
+    %\clearpage
 
     % French version
-    \input{cv_fr}
+    %\input{cv_fr}
 \end{document}
