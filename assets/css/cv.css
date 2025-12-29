@@ -15,9 +15,12 @@
     position: fixed;
     top: 70px; /* Offset for top navbar */
     left: 0;
-    width: 160px;
+    width: 240px; /* 160px content + 40px padding on each side (border-box) */
     height: calc(100vh - 70px);
-    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* nav becomes the scroll container, so the bottom switcher stays visible */
     border-right: 1px solid #eee;
     padding: 40px 40px;
     transform: translateX(var(--cv-sidebar-translate-x));
@@ -28,6 +31,9 @@
 .cv-sidebar nav {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-height: 0; /* critical: allow this flex child to shrink and scroll */
+    overflow-y: auto;
 }
 
 .cv-sidebar nav a {
@@ -123,7 +129,9 @@
 
 /* Language Switcher */
 .language-switcher {
-    margin-bottom: 20px;
+    margin-top: auto; /* push to bottom of sidebar */
+    padding-top: 16px;
+    border-top: 1px solid #eee;
 }
 
 /* Sidebar Toggle Button (desktop) */
@@ -218,6 +226,13 @@ html.sidebar-preload .sidebar-toggle {
         opacity: 1;
         pointer-events: auto;
         transition: none;
+        display: block;
+        overflow: visible;
+    }
+
+    .cv-sidebar nav {
+        overflow: visible;
+        min-height: auto;
     }
 
     .cv-sidebar nav a {

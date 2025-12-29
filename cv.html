@@ -24,7 +24,7 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="nav-brand">Sebastian Lopez Silva</a>
+        <a href="index.html" class="nav-brand"></a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="#" class="active">Curriculum Vitae</a>
@@ -39,12 +39,6 @@
         </button>
 
         <aside class="cv-sidebar" id="cv-sidebar">
-            <div class="language-switcher">
-                <button class="language-btn active" onclick="setLanguage('en')">EN</button>
-                <button class="language-btn" onclick="setLanguage('es')">ES</button>
-                <button class="language-btn" onclick="setLanguage('fr')">FR</button>
-            </div>
-
             <nav>
                 <a href="#profile" data-i18n="nav.profile">Profile</a>
                 <a href="#education" data-i18n="nav.education">Education</a>
@@ -55,6 +49,12 @@
                 <a href="#volunteering" data-i18n="nav.volunteering">Volunteering</a>
                 <a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a>
             </nav>
+
+            <div class="language-switcher" aria-label="Language selector">
+                <button class="language-btn active" type="button" onclick="setLanguage('en')">EN</button>
+                <button class="language-btn" type="button" onclick="setLanguage('es')">ES</button>
+                <button class="language-btn" type="button" onclick="setLanguage('fr')">FR</button>
+            </div>
         </aside>
 
         <!-- Main CV Content -->
