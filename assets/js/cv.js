@@ -23,23 +23,18 @@ const translations = {
             hobbies: "Hobbies"
         },
         profile: {
-            text: "Computer Engineering student with experience as software engineer and with a strong passion for mathematics and computer science. Currently pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Always looking to learn, build meaningful tools, and be part of projects that make an impact. I adore AI and Machine Learning!"
+            text: "Computer Engineering student pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Experienced in building backend services and data/ML pipelines, with strong CS fundamentals (data structures, algorithms, and system design). Interested in performance, scalability, and media-oriented workflows. Available for a Summer internship starting May 2026 (France or abroad); motivated to learn quickly and contribute in a fast-paced, collaborative environment."
         },
         education: [
             {
-                school: "Mines Paris PSL",
-                date: "Aug 2025 – Jul 2027",
-                degree: "Master of Science in Engineering, Computational and Applied Mathematics"
+                school: "École des Mines de Paris - PSL",
+                date: "2025 – Expected 2027",
+                degree: "M.Sc. in Engineering and Applied Mathematics"
             },
             {
                 school: "Universidad Nacional de Colombia",
-                date: "Oct 2021 – Sep 2027",
-                degree: "Bachelor's degree in Computer Engineering"
-            },
-            {
-                school: "Czech Technical University in Prague",
-                date: "Nov 2025",
-                degree: "ATHENS Programme - Probabilistic Methods in Combinatorics"
+                date: "2021 – Expected 2027",
+                degree: "B.Sc. in Computer Engineering (GPA: 4.74/5.0)"
             }
         ],
         employment: [
@@ -48,10 +43,10 @@ const translations = {
                 date: "Apr 2025 – Aug 2025",
                 role: "Software Engineer – Miami, United States (Remote)",
                 tasks: [
-                    "Developed and maintained tools for dataset creation, preprocessing, and quality assurance for video-based computer vision models.",
-                    "Implemented automated workflows to convert, validate, and debug annotations across formats (YOLO, COCO) to support training pipelines.",
-                    "Assisted in diagnosing and resolving data integrity and labeling issues from the internal annotation platform.",
-                    "Contributed to model training experiments (e.g., RT-DETR) to verify dataset correctness and improve training reliability."
+                    "Improved dataset preparation and creation workflows for video and audio ML models, achieving 70–80% faster processing times.",
+                    "Implemented automated annotation conversion, validation, and debugging across YOLO and COCO, reducing manual QA from 15–18 steps to 3–4 steps.",
+                    "Deployed and maintained production inference endpoints handling thousands of daily requests, including autoscaling/scale-to-zero to optimize performance and infrastructure costs.",
+                    "Contributed to training and evaluation of audio classification models, increasing accuracy from 83% to 91%."
                 ]
             },
             {
@@ -59,28 +54,27 @@ const translations = {
                 date: "Nov 2024 – Apr 2025",
                 role: "Software Engineer – Bogotá, Colombia (Remote)",
                 tasks: [
-                    "Participated in developing three web applications: two for automating geospatial file processing in civil engineering consulting (backend role), and one for project management and cost estimation (full-stack role).",
-                    "Designed and implemented user interfaces, cost automation features, and data integration workflows with external APIs.",
-                    "Developed algorithms for external data handling, file parsers, and authentication systems.",
-                    "Integrated and managed MySQL/PostgreSQL databases, applying clean architecture principles for scalable and maintainable code."
+                    "Developed backend pipelines for automated geospatial file processing in civil engineering projects, reducing processing time from ~1 week to ~3 hours.",
+                    "Designed and implemented automation for report generation and live business statistics, improving delivery speed by ~80% across client workflows.",
+                    "Built and maintained backend systems integrating external APIs and MySQL/PostgreSQL databases using clean architecture principles."
                 ]
             },
             {
                 company: "Intelligent Systems Lab (LISI)",
-                date: "Aug 2023 – Present",
-                role: "Undergraduate Student Researcher – Bogotá, Colombia",
+                date: "Aug 2023 – Aug 2025",
+                role: "Research Assistant (ML) – Bogotá, Colombia",
                 tasks: [
-                    "Active member of research group, participating in seminars on artificial intelligence and collaborative projects with undergraduate and graduate students.",
-                    "Prepared and presented materials for seminars on deep learning techniques and architectures (CNNs, VAEs, Transformers, etc.).",
-                    "Contributed to the formulation of proposals submitted to Minciencias Calls 950 and 966, integrating artificial intelligence and virtual reality for environmental education."
+                    "Collaborated on applied machine learning research and internal projects with undergraduate and graduate researchers.",
+                    "Led 10+ deep learning seminars (theory + hands-on labs) for 30–40 undergraduate/master’s students, covering neural networks and core ML techniques."
                 ]
             }
         ],
         skills: [
-            { category: "Languages:", list: "Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)" },
             { category: "Soft Skills:", list: "Teamwork • Problem-solving • Adaptability • Communication • Creativity • Critical thinking" },
-            { category: "Programming:", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)" },
-            { category: "Technical Tools:", list: "Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office" }
+            { category: "CS Fundamentals:", list: "Data structures • Algorithms • System design fundamentals" },
+            { category: "Programming:", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • C/C++ • Julia • Java • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • NoSQL (Redis, MongoDB)" },
+            { category: "Technical Tools:", list: "Git • Docker • Amazon Web Services • Azure • Google Cloud Platform" },
+            { category: "Languages:", list: "Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)" }
         ],
         projects: [
             {
@@ -88,18 +82,16 @@ const translations = {
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
-                    "Developed an immersive virtual exhibition of geological artifacts using Gaussian splats to enhance reflectance, translucency, and realism.",
-                    "Built an automated pipeline integrating AWS (S3 and Lambda), RealityScan and LightField Studio for Gaussian Splatting dataset and model generation."
+                    "Developed an immersive virtual exhibition of geological artifacts using Gaussian Splatting to improve realism and visual quality.",
+                    "Built a ~90% automated pipeline for Gaussian Splatting dataset and model generation, reducing preparation time from ~5 hours to ~30 minutes (excluding training runtime)."
                 ]
             }
         ],
         achievements: [
             { text: "Tuition exemption for the 2025–2026 academic year", sub: ", Mines Paris PSL (Present)" },
-            { text: "Tuition exemption during all academic periods", sub: ", Universidad Nacional de Colombia (Present)" },
-            { text: "Recognition: Top University GPA in Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Recognition: Top STEM University GPA in Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Honor Roll 2022-2", sub: ", Universidad Nacional de Colombia (2022)" },
-            { text: "Recognition: Resilience and personal improvement", sub: ", Colegio Rodrigo Arenas Betancourt (2020)" }
+            { text: "Tuition exemption during all academic periods; Honor Roll recipient (2022)", sub: ", Universidad Nacional de Colombia (Present)" },
+            { text: "Top 1% GPA among university students in Bogotá (~40 universities)", sub: ", Youth for Excellence (2024)" },
+            { text: "ICPC UNAL contest", sub: ", Competitive Programming Contest participant (2024)" }
         ],
         volunteering: [
             {
@@ -119,10 +111,7 @@ const translations = {
                 ]
             }
         ],
-        hobbies: [
-            { category: "Competitive Programming:", desc: "Passionate about competitive programming, interested in solving algorithmic problems and participating in programming competitions. Member of a team participating in the ICPC Unal event in July 2024." },
-            { category: "Video Games:", desc: "Curious player, exploring various genres and platforms, appreciating the graphic art and narrative within video games." }
-        ]
+        hobbies: []
     },
     es: {
         subtitle: "Estudiante de Doble Titulación en Mines Paris PSL y Universidad Nacional de Colombia",
@@ -148,23 +137,18 @@ const translations = {
             hobbies: "Aficiones"
         },
         profile: {
-            text: "Estudiante de Ingeniería de Sistemas con experiencia como ingeniero de software y una fuerte pasión por las matemáticas y la informática. Actualmente cursando una doble titulación internacional entre la Universidad Nacional de Colombia y Mines Paris PSL. Siempre buscando aprender, construir herramientas significativas y ser parte de proyectos que generen impacto. ¡Adoro la IA y el Aprendizaje Automático!"
+            text: "Estudiante de Ingeniería de Sistemas en doble titulación internacional entre la Universidad Nacional de Colombia y Mines Paris PSL. Experiencia construyendo servicios backend y pipelines de datos/ML, con sólidos fundamentos (estructuras de datos, algoritmos y diseño de sistemas). Interesado en performance, escalabilidad y flujos de trabajo orientados a medios. Disponible para una práctica de verano desde mayo de 2026 (Francia o en el exterior); con alta motivación por aprender rápido y aportar en entornos colaborativos."
         },
         education: [
             {
-                school: "Mines Paris PSL",
-                date: "Ago 2025 – Jul 2027",
-                degree: "Máster en Ingeniería, Matemáticas Computacionales y Aplicadas"
+                school: "École des Mines de Paris - PSL",
+                date: "2025 – Previsto 2027",
+                degree: "M.Sc. en Ingeniería y Matemáticas Aplicadas"
             },
             {
                 school: "Universidad Nacional de Colombia",
-                date: "Oct 2021 – Sep 2027",
-                degree: "Pregrado en Ingeniería de Sistemas"
-            },
-            {
-                school: "Universidad Técnica Checa en Praga",
-                date: "Nov 2025",
-                degree: "Programa ATHENS - Métodos Probabilísticos en Combinatoria"
+                date: "2021 – Previsto 2027",
+                degree: "Pregrado en Ingeniería de Sistemas (Promedio: 4.74/5.0)"
             }
         ],
         employment: [
@@ -173,10 +157,10 @@ const translations = {
                 date: "Abr 2025 – Ago 2025",
                 role: "Ingeniero de Software – Miami, Estados Unidos (Remoto)",
                 tasks: [
-                    "Desarrollo y mantenimiento de herramientas para la creación, preprocesamiento y aseguramiento de calidad de datasets para modelos de visión por computadora basados en video.",
-                    "Implementación de flujos de trabajo automatizados para convertir, validar y depurar anotaciones entre formatos (YOLO, COCO) para apoyar pipelines de entrenamiento.",
-                    "Asistencia en el diagnóstico y resolución de problemas de integridad de datos y etiquetado de la plataforma de anotación interna.",
-                    "Contribución a experimentos de entrenamiento de modelos (ej. RT-DETR) para verificar la corrección del dataset y mejorar la fiabilidad del entrenamiento."
+                    "Mejoré los flujos de preparación y creación de datasets para modelos de ML de video y audio, logrando 70–80% de mejora en tiempos de procesamiento.",
+                    "Implementé conversión, validación y depuración automática de anotaciones entre YOLO y COCO, reduciendo QA manual de 15–18 pasos a 3–4 pasos.",
+                    "Desplegué y mantuve endpoints de inferencia en producción manejando miles de solicitudes diarias, incluyendo autoscaling/scale-to-zero para optimizar performance y costos.",
+                    "Contribuí al entrenamiento y evaluación de modelos de clasificación de audio, aumentando la precisión de 83% a 91%."
                 ]
             },
             {
@@ -184,28 +168,27 @@ const translations = {
                 date: "Nov 2024 – Abr 2025",
                 role: "Ingeniero de Software – Bogotá, Colombia (Remoto)",
                 tasks: [
-                    "Participación en el desarrollo de tres aplicaciones web: dos para automatizar el procesamiento de archivos geoespaciales en consultoría de ingeniería civil (backend), y una para gestión de proyectos y estimación de costos (full-stack).",
-                    "Diseño e implementación de interfaces de usuario, funciones de automatización de costos y flujos de integración de datos con APIs externas.",
-                    "Desarrollo de algoritmos para manejo de datos externos, parsers de archivos y sistemas de autenticación.",
-                    "Integración y gestión de bases de datos MySQL/PostgreSQL, aplicando principios de arquitectura limpia para código escalable y mantenible."
+                    "Desarrollé pipelines backend para automatizar el procesamiento de archivos geoespaciales en proyectos de ingeniería civil, reduciendo el tiempo de ~1 semana a ~3 horas.",
+                    "Diseñé e implementé automatización para generación de reportes y estadísticas de negocio en tiempo real, mejorando la velocidad de entrega en ~80% en flujos de clientes.",
+                    "Construí y mantuve sistemas backend integrando APIs externas y bases de datos MySQL/PostgreSQL usando principios de arquitectura limpia."
                 ]
             },
             {
                 company: "Laboratorio de Sistemas Inteligentes (LISI)",
-                date: "Ago 2023 – Presente",
-                role: "Estudiante Investigador de Pregrado – Bogotá, Colombia",
+                date: "Ago 2023 – Ago 2025",
+                role: "Asistente de Investigación (ML) – Bogotá, Colombia",
                 tasks: [
-                    "Miembro activo del grupo de investigación, participando en seminarios sobre inteligencia artificial y proyectos colaborativos con estudiantes de pregrado y posgrado.",
-                    "Preparación y presentación de materiales para seminarios sobre técnicas y arquitecturas de aprendizaje profundo (CNNs, VAEs, Transformers, etc.).",
-                    "Contribución a la formulación de propuestas presentadas a convocatorias de Minciencias 950 y 966, integrando inteligencia artificial y realidad virtual para educación ambiental."
+                    "Colaboré en investigación aplicada en ML y proyectos internos con investigadores de pregrado y posgrado.",
+                    "Lideré 10+ seminarios de deep learning (teoría + laboratorios) para 30–40 estudiantes de pregrado/maestría, cubriendo redes neuronales y técnicas base."
                 ]
             },
         ],
         skills: [
-            { category: "Idiomas:", list: "Español (Nativo) • Inglés (C1) • Francés (B2) • Portugués (Conversacional)" },
             { category: "Habilidades Blandas:", list: "Trabajo en equipo • Resolución de problemas • Adaptabilidad • Comunicación • Creatividad • Pensamiento crítico" },
-            { category: "Programación:", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)" },
-            { category: "Herramientas Técnicas:", list: "Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office" }
+            { category: "Fundamentos CS:", list: "Estructuras de datos • Algoritmos • Fundamentos de diseño de sistemas" },
+            { category: "Programación:", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • C/C++ • Julia • Java • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • NoSQL (Redis, MongoDB)" },
+            { category: "Herramientas Técnicas:", list: "Git • Docker • Amazon Web Services • Azure • Google Cloud Platform" },
+            { category: "Idiomas:", list: "Español (Nativo) • Inglés (C1) • Francés (B2) • Portugués (Conversacional)" }
         ],
         projects: [
             {
@@ -213,18 +196,16 @@ const translations = {
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
-                    "Desarrollo de una exposición virtual inmersiva de artefactos geológicos utilizando Gaussian splats para mejorar reflectancia, translucidez y realismo.",
-                    "Construcción de un pipeline automatizado integrando AWS (S3 y Lambda), RealityScan y LightField Studio para la generación de datasets y modelos de Gaussian Splatting."
+                    "Desarrollé una exposición virtual inmersiva de artefactos geológicos usando Gaussian Splatting para mejorar el realismo y la calidad visual.",
+                    "Construí un pipeline ~90% automatizado para generar datasets y modelos de Gaussian Splatting, reduciendo el tiempo de preparación de ~5 horas a ~30 minutos (sin contar tiempo de entrenamiento)."
                 ]
             }
         ],
         achievements: [
             { text: "Exención de matrícula para el año académico 2025–2026", sub: ", Mines Paris PSL (Presente)" },
-            { text: "Exención de matrícula durante todos los periodos académicos", sub: ", Universidad Nacional de Colombia (Presente)" },
-            { text: "Reconocimiento: Mejor Promedio Universitario en Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Reconocimiento: Mejor Promedio Universitario STEM en Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Cuadro de Honor 2022-2", sub: ", Universidad Nacional de Colombia (2022)" },
-            { text: "Reconocimiento: Resiliencia y superación personal", sub: ", Colegio Rodrigo Arenas Betancourt (2020)" }
+            { text: "Exención de matrícula durante todos los periodos; Cuadro de Honor (2022)", sub: ", Universidad Nacional de Colombia (Presente)" },
+            { text: "Top 1% del GPA entre estudiantes universitarios en Bogotá (~40 universidades)", sub: ", Youth for Excellence (2024)" },
+            { text: "Concurso ICPC UNAL", sub: ", participante en programación competitiva (2024)" }
         ],
         volunteering: [
             {
@@ -244,10 +225,7 @@ const translations = {
                 ]
             }
         ],
-        hobbies: [
-            { category: "Programación Competitiva:", desc: "Apasionado por la programación competitiva, interesado en resolver problemas algorítmicos y participar en competiciones de programación. Miembro de un equipo participante en el evento ICPC Unal en Julio de 2024." },
-            { category: "Videojuegos:", desc: "Jugador curioso, explorando varios géneros y plataformas, apreciando el arte gráfico y la narrativa dentro de los videojuegos." }
-        ]
+        hobbies: []
     },
     fr: {
         subtitle: "Étudiant en Double Diplôme à Mines Paris PSL et Universidad Nacional de Colombia",
@@ -273,64 +251,57 @@ const translations = {
             hobbies: "Loisirs"
         },
         profile: {
-            text: "Étudiant en ingénierie informatique en double diplôme international entre l’Universidad Nacional de Colombia et l’École des Mines de Paris. Fort d’une première expérience en développement logiciel et d’un solide socle en mathématiques, je suis motivé par la création de solutions utiles et l’innovation technologique. Passionné par l’IA et le Machine Learning, je suis disponible à partir de mai 2026 pour des opportunités en France ou à l’international."
+            text: "Étudiant en ingénierie informatique poursuivant un double diplôme international entre l’Universidad Nacional de Colombia et Mines Paris PSL. Avec une expérience en développement logiciel et une solide base en mathématiques, je suis motivé par la création de solutions utiles et l’innovation technologique. Passionné par l’IA et l’apprentissage automatique, je suis disponible à partir de mai 2026 pour des opportunités en France ou à l’international."
         },
         education: [
             {
-                school: "Mines Paris PSL",
-                date: "Août 2025 – Juil 2027",
-                degree: "Master en Sciences et Ingénierie, Mathématiques Appliquées et Calcul"
+                school: "École des Mines de Paris - PSL",
+                date: "2025 – Prévu 2027",
+                degree: "M.Sc. en ingénierie et mathématiques appliquées"
             },
             {
                 school: "Universidad Nacional de Colombia",
-                date: "Oct 2021 – Sep 2027",
-                degree: "Licence en Génie Informatique"
-            },
-            {
-                school: "Université Technique Tchèque de Prague",
-                date: "Nov 2025",
-                degree: "Programme ATHENS - Méthodes Probabilistes en Combinatoire"
+                date: "2021 – Prévu 2027",
+                degree: "Licence en ingénierie informatique (GPA : 4,74/5,0)"
             }
         ],
         employment: [
             {
                 company: "Engin AI",
-                date: "Avr 2025 – Aoû 2025",
-                role: "Ingénieur Logiciel – Miami, États-Unis (Télétravail)",
+                date: "avr. 2025 – août 2025",
+                role: "Ingénieur logiciel – Miami, États-Unis (à distance)",
                 tasks: [
-                    "Développement et maintenance d'outils pour la création, le prétraitement et l'assurance qualité de jeux de données pour modèles de vision par ordinateur basés sur la vidéo.",
-                    "Mise en œuvre de flux de travail automatisés pour convertir, valider et déboguer les annotations entre formats (YOLO, COCO) pour soutenir les pipelines d'entraînement.",
-                    "Assistance au diagnostic et à la résolution des problèmes d'intégrité des données et d'étiquetage de la plateforme d'annotation interne.",
-                    "Contribution aux expériences d'entraînement de modèles (ex. RT-DETR) pour vérifier la correction des données et améliorer la fiabilité de l'entraînement."
+                    "Amélioration des flux de travail de création et de préparation de jeux de données pour des modèles d’IA audio et vidéo, avec 70–80% de gains de performance.",
+                    "Mise en place de conversions, validations et débogages automatisés d’annotations entre YOLO et COCO, réduisant le contrôle qualité manuel de 15–18 étapes à 3–4.",
+                    "Déploiement de services d’inférence en production traitant des milliers de requêtes quotidiennes, incluant une mise à l’échelle automatique jusqu’à zéro pour réduire les coûts d’infrastructure.",
+                    "Contribution à l’entraînement et à l’évaluation de modèles de classification audio, augmentant la précision de 83% à 91%."
                 ]
             },
             {
                 company: "Dataconstructors AI",
                 date: "Nov 2024 – Avr 2025",
-                role: "Ingénieur Logiciel – Bogotá, Colombie (Télétravail)",
+                role: "Ingénieur logiciel – Bogotá, Colombie (à distance)",
                 tasks: [
-                    "Participation au développement de trois applications web : deux pour l'automatisation du traitement de fichiers géospatiaux dans le conseil en génie civil (backend), et une pour la gestion de projets et l'estimation des coûts (full-stack).",
-                    "Conception et mise en œuvre d'interfaces utilisateur, de fonctionnalités d'automatisation des coûts et de flux d'intégration de données avec des API externes.",
-                    "Développement d'algorithmes pour la gestion de données externes, d'analyseurs de fichiers et de systèmes d'authentification.",
-                    "Intégration et gestion de bases de données MySQL/PostgreSQL, application des principes d'architecture propre pour un code évolutif et maintenable."
+                    "Développement de pipelines back-end pour automatiser le traitement de fichiers géospatiaux pour des projets de génie civil, réduisant le temps de traitement de ~1 semaine à ~3 heures.",
+                    "Conception et implémentation d’automatisations pour la génération de rapports et des statistiques métier en temps réel, améliorant la vitesse de livraison d’environ ~80% dans les processus clients.",
+                    "Développement et maintenance de systèmes full-stack et back-end intégrant des API externes et des bases MySQL/PostgreSQL, en appliquant les principes de Clean Architecture."
                 ]
             },
             {
                 company: "Laboratoire des Systèmes Intelligents (LISI)",
-                date: "Août 2023 – Présent",
-                role: "Chercheur Étudiant – Bogotá, Colombie",
+                date: "Août 2023 – Août 2025",
+                role: "Assistant de recherche (IA) – Bogotá, Colombie",
                 tasks: [
-                    "Membre actif du groupe de recherche, participant à des séminaires sur l'intelligence artificielle et à des projets collaboratifs avec des étudiants de premier et deuxième cycles.",
-                    "Préparation et présentation de matériels pour des séminaires sur les techniques et architectures d'apprentissage profond (CNN, VAE, Transformers, etc.).",
-                    "Contribution à la formulation de propositions soumises aux appels Minciencias 950 et 966, intégrant l'intelligence artificielle et la réalité virtuelle pour l'éducation environnementale."
+                    "Collaboration sur des travaux de recherche appliquée en IA et des projets internes avec des chercheurs de licence et master.",
+                    "Animation de 10+ séminaires en apprentissage profond (théorie + TP) pour 30–40 étudiants de licence/master, couvrant les réseaux de neurones et les techniques fondamentales d’IA."
                 ]
             }
         ],
         skills: [
-            { category: "Langues :", list: "Espagnol (Natif) • Anglais (C1) • Français (B2) • Portugais (Conversationnel)" },
             { category: "Compétences Transversales :", list: "Travail d'équipe • Résolution de problèmes • Adaptabilité • Communication • Créativité • Pensée critique" },
-            { category: "Programmation :", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • Julia • Java • C/C++ • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • No SQL (Redis, MongoDB)" },
-            { category: "Outils Techniques :", list: "Git • AWS • Azure • GCP • Jira • Wolfram Mathematica • LaTeX (Overleaf) • Microsoft Office" }
+            { category: "Programmation :", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • C/C++ • Julia • Java • TypeScript (React) • SQL (PostgreSQL, MySQL, Sqlite) • NoSQL (Redis, MongoDB)" },
+            { category: "Outils techniques :", list: "Git • Docker • Amazon Web Services • Azure • Google Cloud Platform" },
+            { category: "Langues :", list: "Espagnol (natif) • Anglais (C1) • Français (B2) • Portugais (conversationnel)" }
         ],
         projects: [
             {
@@ -338,41 +309,36 @@ const translations = {
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
-                    "Développement d'une exposition virtuelle immersive d'artefacts géologiques utilisant des Gaussian splats pour améliorer la réflectance, la translucidité et le réalisme.",
-                    "Construction d'un pipeline automatisé intégrant AWS (S3 et Lambda), RealityScan et LightField Studio pour la génération de jeux de données et de modèles Gaussian Splatting."
+                    "Développement d’une exposition virtuelle immersive d’artefacts géologiques avec le Gaussian Splatting pour améliorer le réalisme et la qualité visuelle.",
+                    "Conception d’un pipeline automatisé à ~90% pour générer des jeux de données et des modèles de Gaussian Splatting, réduisant le temps de préparation de ~5 heures à ~30 minutes (hors temps d’entraînement)."
                 ]
             }
         ],
         achievements: [
-            { text: "Exonération des frais de scolarité 2025–2026", sub: ", Mines Paris PSL (Présent)" },
-            { text: "Exonération des frais pour toutes les périodes académiques", sub: ", Universidad Nacional de Colombia (Présent)" },
-            { text: "Reconnaissance : Meilleur GPA universitaire à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Reconnaissance : Meilleur GPA STEM à Bogotá", sub: ", Premios Jóvenes a la Excelencia (2024)" },
-            { text: "Tableau d'Honneur 2022-2", sub: ", Universidad Nacional de Colombia (2022)" },
-            { text: "Reconnaissance : Résilience et dépassement personnel", sub: ", Colegio Rodrigo Arenas Betancourt (2020)" }
+            { text: "Exonération des frais de scolarité pour l’année académique 2025–2026", sub: ", Mines Paris PSL (Présent)" },
+            { text: "Exonération des frais sur toutes les périodes académiques ; récipiendaire du tableau d’honneur (2022)", sub: ", Universidad Nacional de Colombia (Présent)" },
+            { text: "Top 1% du GPA parmi les étudiants universitaires à Bogotá (~40 universités)", sub: ", Youth for Excellence (2024)" },
+            { text: "Concours ICPC UNAL", sub: ", participant au concours de programmation compétitive (2024)" }
         ],
         volunteering: [
             {
                 company: "AspirantesVirtual",
-                date: "Jan 2025 – Juin 2025",
+                date: "janv. 2025 – juin 2025",
                 role: "Enseignant – Colombie",
                 tasks: [
-                    "Développement de cours et tutorats en Physique et Mathématiques pour les candidats à l'Universidad Nacional de Colombia."
+                    "Développement de cours et tutorats en Physique et Mathématiques pour les candidats à l’Universidad Nacional de Colombia."
                 ]
             },
             {
                 company: "Fondation Colombienne de Réalité Virtuelle",
-                date: "Mar 2020 – Juin 2021",
+                date: "mars 2020 – juin 2021",
                 role: "Développeur – Colombie",
                 tasks: [
                     "Développement de fonctionnalités de jeu pour collecter des fonds et soutenir des initiatives sociales aidant les communautés vulnérables pendant la pandémie de COVID-19."
                 ]
             }
         ],
-        hobbies: [
-            { category: "Programmation Compétitive :", desc: "Passionné par la programmation compétitive, intéressé par la résolution de problèmes algorithmiques et la participation à des concours de programmation. Membre d'une équipe participant à l'événement ICPC Unal en juillet 2024." },
-            { category: "Jeux Vidéo :", desc: "Joueur curieux, explorant divers genres et plateformes, appréciant l'art graphique et la narration dans les jeux vidéo." }
-        ]
+        hobbies: []
     }
 };
 
@@ -476,7 +442,7 @@ function setLanguage(lang) {
     // 7. Render Volunteering
     const volunteeringList = document.getElementById('volunteering-list');
     volunteeringList.innerHTML = '';
-    data.volunteering.forEach(vol => {
+    (Array.isArray(data.volunteering) ? data.volunteering : []).forEach(vol => {
         const entry = document.createElement('div');
         entry.className = 'entry';
         let tasksHtml = '<ul>';
@@ -497,11 +463,22 @@ function setLanguage(lang) {
     // 8. Render Hobbies
     const hobbiesList = document.getElementById('hobbies-list');
     hobbiesList.innerHTML = '';
-    data.hobbies.forEach(hobby => {
+    (Array.isArray(data.hobbies) ? data.hobbies : []).forEach(hobby => {
         const li = document.createElement('li');
         li.innerHTML = `<span class="skills-category">${hobby.category}</span> ${hobby.desc}`;
         hobbiesList.appendChild(li);
     });
+
+    // 9. Hide/Show optional sections (if empty)
+    function toggleSection(sectionId, hasData) {
+        const section = document.getElementById(sectionId);
+        const link = document.querySelector(`.cv-sidebar a[href="#${sectionId}"]`);
+        if (section) section.style.display = hasData ? '' : 'none';
+        if (link) link.style.display = hasData ? '' : 'none';
+    }
+
+    toggleSection('volunteering', Array.isArray(data.volunteering) && data.volunteering.length > 0);
+    toggleSection('hobbies', Array.isArray(data.hobbies) && data.hobbies.length > 0);
 
     // Update language switcher active state
     document.querySelectorAll('.language-btn').forEach(btn => {
