@@ -1,6 +1,6 @@
 const translations = {
     en: {
-        subtitle: "Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia",
+        subtitle: "Computer Engineering student pursuing a Master’s degree in Engineering and Applied Mathematics at Mines Paris–PSL",
         nav: {
             profile: "Profile",
             education: "Education",
@@ -23,7 +23,7 @@ const translations = {
             hobbies: "Hobbies"
         },
         profile: {
-            text: "Computer Engineering student pursuing an international double degree between Universidad Nacional de Colombia and Mines Paris PSL. Experienced in building backend services and data/ML pipelines, with strong CS fundamentals (data structures, algorithms, and system design). Interested in performance, scalability, and media-oriented workflows. Available for a Summer internship starting May 2026 (France or abroad); motivated to learn quickly and contribute in a fast-paced, collaborative environment."
+            text: "Computer Engineering student pursuing a Master’s degree in Engineering and Applied Mathematics at Mines Paris–PSL. Experienced in building backend services and AI models, with strong computer science fundamentals (data structures, algorithms, system design, and machine learning). Interested in performance, scalability, and media-oriented workflows."
         },
         education: [
             {
@@ -40,18 +40,19 @@ const translations = {
         employment: [
             {
                 company: "Engin AI",
-                date: "Apr 2025 – Aug 2025",
+                date: "Sep 2025 – Dec 2025",
                 role: "Software Engineer – Miami, United States (Remote)",
                 tasks: [
-                    "Improved dataset preparation and creation workflows for video and audio ML models, achieving 70–80% faster processing times.",
+                    "Improved dataset preparation and creation workflows for computer vision models, achieving 60–70% faster processing times.",
                     "Implemented automated annotation conversion, validation, and debugging across YOLO and COCO, reducing manual QA from 15–18 steps to 3–4 steps.",
-                    "Deployed and maintained production inference endpoints handling thousands of daily requests, including autoscaling/scale-to-zero to optimize performance and infrastructure costs.",
+                    "Designed and developed an end-to-end deepfake detection application, integrating model inference, backend services, and user-facing workflows for video and audio analysis.",
+                    "Deployed and maintained production inference endpoints, including autoscaling/scale-to-zero to optimize performance and infrastructure costs.",
                     "Contributed to training and evaluation of audio classification models, increasing accuracy from 83% to 91%."
                 ]
             },
             {
                 company: "Dataconstructors AI",
-                date: "Nov 2024 – Apr 2025",
+                date: "Mar 2024 – Sep 2025",
                 role: "Software Engineer – Bogotá, Colombia (Remote)",
                 tasks: [
                     "Developed backend pipelines for automated geospatial file processing in civil engineering projects, reducing processing time from ~1 week to ~3 hours.",
@@ -64,16 +65,15 @@ const translations = {
                 date: "Aug 2023 – Aug 2025",
                 role: "Research Assistant (ML) – Bogotá, Colombia",
                 tasks: [
-                    "Collaborated on applied machine learning research and internal projects with undergraduate and graduate researchers.",
+                    "Collaborated on applied ML/DL research and internal projects with undergraduate and graduate researchers, with a focus on computer vision (detection, classification, recognition).",
                     "Led 10+ deep learning seminars (theory + hands-on labs) for 30–40 undergraduate/master’s students, covering neural networks and core ML techniques."
                 ]
             }
         ],
         skills: [
             { category: "Soft Skills:", list: "Teamwork • Problem-solving • Adaptability • Communication • Creativity • Critical thinking" },
-            { category: "CS Fundamentals:", list: "Data structures • Algorithms • System design fundamentals" },
-            { category: "Programming:", list: "Python (FastAPI, Pandas, NumPy, PyTorch, TensorFlow, etc.) • C/C++ • Julia • Java • Typescript (React) • SQL (PostgreSQL, MySQL, Sqlite) • NoSQL (Redis, MongoDB)" },
-            { category: "Technical Tools:", list: "Git • Docker • Amazon Web Services • Azure • Google Cloud Platform" },
+            { category: "Programming:", list: "Python (FastAPI, PyTorch, TensorFlow, OpenCV, etc.) • C/C++ • Julia • SQL (PostgreSQL, MySQL, Sqlite) • NoSQL (Redis, MongoDB)" },
+            { category: "Technical Tools:", list: "Git • Docker • Amazon Web Service • Azure • Google Cloud Platform" },
             { category: "Languages:", list: "Spanish (Native) • English (C1) • French (B2) • Portuguese (Conversational)" }
         ],
         projects: [
@@ -90,7 +90,7 @@ const translations = {
         achievements: [
             { text: "Tuition exemption for the 2025–2026 academic year", sub: ", Mines Paris PSL (Present)" },
             { text: "Tuition exemption during all academic periods; Honor Roll recipient (2022)", sub: ", Universidad Nacional de Colombia (Present)" },
-            { text: "Top 1% GPA among university students in Bogotá (~40 universities)", sub: ", Youth for Excellence (2024)" },
+            { text: "Top 1% GPA among university students in Bogotá (≈40 universities)", sub: `, <a href="https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024" target="_blank" rel="noopener">Youth for Excellence</a> (2024)` },
             { text: "ICPC UNAL contest", sub: ", Competitive Programming Contest participant (2024)" }
         ],
         volunteering: [
