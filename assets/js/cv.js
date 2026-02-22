@@ -78,6 +78,17 @@ const translations = {
         ],
         projects: [
             {
+                title: "Smart Irrigation IoT Platform (End-to-End System)",
+                date: "Sep 2025 – Dec 2025",
+                subheader: "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+                tasks: [
+                    "Designed and implemented a full-stack smart irrigation system integrating Raspberry Pi/Arduino hardware, a REST API, and a real-time monitoring dashboard.",
+                    "Developed the edge orchestrator and sensor nodes featuring multi-zone control, rule-based irrigation, and resilient telemetry with local buffering.",
+                    "Built a high-performance backend using FastAPI and SQLAlchemy (Clean Architecture), implementing auto-provisioning and hierarchical domain modeling.",
+                    "Created a responsive Next.js dashboard with real-time visualization, historical data analysis, and centralized irrigation management using TypeScript and TailwindCSS."
+                ]
+            },
+            {
                 title: "Automated Pipeline for Gaussian Splatting Model Generation",
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
@@ -192,6 +203,17 @@ const translations = {
         ],
         projects: [
             {
+                title: "Plataforma IoT de Riego Inteligente (Sistema End-to-End)",
+                date: "Sep 2025 – Dic 2025",
+                subheader: "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+                tasks: [
+                    "Diseñé e implementé un sistema de riego inteligente integral con hardware (Raspberry Pi + Arduino), una API RESTful y un dashboard de monitoreo en tiempo real.",
+                    "Desarrollé el orquestador edge y nodos sensores con control multizona, decisiones automatizadas por reglas y telemetría resiliente con búfer local.",
+                    "Construí el backend con FastAPI y SQLAlchemy bajo principios de arquitectura limpia, implementando auto-provisionamiento y modelado jerárquico de dominio.",
+                    "Desarrollé un dashboard responsivo en Next.js con visualización en tiempo real, análisis histórico y gestión centralizada de riego usando TypeScript y TailwindCSS."
+                ]
+            },
+            {
                 title: "Pipeline Automatizado para Generación de Modelos Gaussian Splatting",
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
@@ -305,12 +327,23 @@ const translations = {
         ],
         projects: [
             {
+                title: "Plateforme IoT d'Irrigation Intelligente (Système End-to-End)",
+                date: "Sep 2025 – Déc 2025",
+                subheader: "Mines Paris PSL - IDS : Intelligent and Digital Systems",
+                tasks: [
+                    "Conception et réalisation d'un système d'irrigation intelligent complet intégrant du matériel (Raspberry Pi + Arduino), une API RESTful et un tableau de bord de suivi.",
+                    "Développement de l'orchestrateur edge et des capteurs avec contrôle multizone, irrigation automatisée par règles et télémétrie résiliente avec stockage local.",
+                    "Construction du backend avec FastAPI et SQLAlchemy (Clean Architecture), incluant l'auto-provisionnement et la modélisation hiérarchique du domaine.",
+                    "Création d'un tableau de bord réactif en Next.js avec visualisation en temps réel, analyse historique et gestion centralisée de l'irrigation via TypeScript et TailwindCSS."
+                ]
+            },
+            {
                 title: "Pipeline Automatisé pour la Génération de Modèles Gaussian Splatting",
                 date: "Sep 2025 – Nov 2025",
                 subheader: "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
                 tasks: [
                     "Développement d’une exposition virtuelle immersive d’artefacts géologiques avec le Gaussian Splatting pour améliorer le réalisme et la qualité visuelle.",
-                    "Conception d’un pipeline automatisé à ~90% pour générer des jeux de données et des modèles de Gaussian Splatting, réduisant le temps de préparation de ~5 heures à ~30 minutes (hors temps d’entraînement)."
+                    "Conception d’un pipeline automatisé à ~90% pour générer des jeux de données et des modèles de Gaussian Splatting, avec une réduction du temps de préparation de ~5 heures à ~30 minutes (hors temps d’entraînement)."
                 ]
             }
         ],
