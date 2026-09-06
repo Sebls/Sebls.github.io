@@ -50,13 +50,21 @@ jobs:
         run: |
           python3 scripts/sync_cv.py
 
+      - name: Build Clean Web Distribution Directory
+        run: |
+          mkdir -p _site
+          cp *.html _site/ 2>/dev/null || true
+          cp -r assets _site/
+          [ -f CNAME ] && cp CNAME _site/ || true
+          [ -f robots.txt ] && cp robots.txt _site/ || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
   deploy:
     environment:

@@ -37,7 +37,7 @@
         // 2. Update PDF Download Link
         const pdfLink = document.getElementById('cv-pdf-link');
         if (pdfLink) {
-            const pdfPath = data.pdf_path || (lang === 'fr' ? 'sebls_cv/cv/fr/cv.pdf' : 'sebls_cv/cv/en/cv.pdf');
+            const pdfPath = data.pdf_path || (lang === 'fr' ? 'assets/pdf/cv_fr.pdf' : 'assets/pdf/cv_en.pdf');
             pdfLink.setAttribute('href', pdfPath);
         }
 

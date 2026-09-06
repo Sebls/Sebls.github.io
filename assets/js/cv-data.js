@@ -12,7 +12,7 @@ const cvTranslations = {
       "website": "https://Sebls.github.io"
     },
     "subtitle": "AI Engineer · Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia",
-    "pdf_path": "sebls_cv/cv/en/cv.pdf",
+    "pdf_path": "assets/pdf/cv_en.pdf",
     "nav": {
       "profile": "Profile",
       "education": "Education",
@@ -222,7 +222,7 @@ const cvTranslations = {
       "website": "https://Sebls.github.io"
     },
     "subtitle": "Étudiant Ingénieur en Double Diplôme à Mines Paris PSL et Universidad Nacional de Colombia",
-    "pdf_path": "sebls_cv/cv/fr/cv.pdf",
+    "pdf_path": "assets/pdf/cv_fr.pdf",
     "nav": {
       "profile": "Profil",
       "education": "Formation",
@@ -414,7 +414,7 @@ const cvTranslations = {
       "website": "https://Sebls.github.io"
     },
     "subtitle": "Estudiante de Doble Titulación en Mines Paris PSL y Universidad Nacional de Colombia",
-    "pdf_path": "sebls_cv/cv/en/cv.pdf",
+    "pdf_path": "assets/pdf/cv_en.pdf",
     "nav": {
       "profile": "Perfil",
       "education": "Educación",

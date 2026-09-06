@@ -353,7 +353,7 @@ def main():
     en_dataset = {
         "personal": canonical_en["personal"],
         "subtitle": extra_en.get("subtitle", canonical_en["personal"].get("title", "AI Engineer")),
-        "pdf_path": "sebls_cv/cv/en/cv.pdf",
+        "pdf_path": "assets/pdf/cv_en.pdf",
         "nav": extra_en.get("nav", {
             "profile": "Profile",
             "education": "Education",
@@ -395,7 +395,7 @@ def main():
     fr_dataset = {
         "personal": canonical_fr["personal"],
         "subtitle": extra_fr.get("subtitle", "Étudiant Ingénieur en Double Diplôme à Mines Paris PSL et Universidad Nacional de Colombia"),
-        "pdf_path": "sebls_cv/cv/fr/cv.pdf",
+        "pdf_path": "assets/pdf/cv_fr.pdf",
         "nav": extra_fr.get("nav", {
             "profile": "Profil",
             "education": "Formation",
@@ -450,7 +450,7 @@ def main():
     es_dataset = {
         "personal": canonical_en["personal"],
         "subtitle": extra_es.get("subtitle", "Estudiante de Doble Titulación en Mines Paris PSL y Universidad Nacional de Colombia"),
-        "pdf_path": "sebls_cv/cv/en/cv.pdf",
+        "pdf_path": "assets/pdf/cv_en.pdf",
         "nav": extra_es.get("nav", {
             "profile": "Perfil",
             "education": "Educación",
