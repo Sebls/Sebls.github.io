@@ -25,9 +25,9 @@ jobs:
       - name: Checkout Repository with Submodules
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.CV_SUBMODULE_TOKEN }}
           submodules: recursive
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Submodules to Latest Remote Commit
         run: |
