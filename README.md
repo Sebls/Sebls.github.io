@@ -4,7 +4,7 @@
 
 ###
 
-![This is me](media/me.jpg)
+![This is me](assets/img/me.jpg)
 
 ###
 
