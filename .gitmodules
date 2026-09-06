@@ -1,0 +1,4 @@
+[submodule "sebls_cv"]
+	path = sebls_cv
+	url = https://github.com/Sebls/sebls_cv.git
+	branch = main

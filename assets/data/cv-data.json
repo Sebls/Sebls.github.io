@@ -1,0 +1,614 @@
+{
+  "en": {
+    "personal": {
+      "name": "Sebastian Lopez Silva",
+      "title": "AI Engineer",
+      "location": "Paris, France",
+      "email": "sebas.lopezsilva147@gmail.com",
+      "phone": "+33 07 59 32 58 83",
+      "linkedin": "slopezsi",
+      "github": "Sebls",
+      "website": "https://Sebls.github.io"
+    },
+    "subtitle": "AI Engineer · Double Degree Student at Mines Paris PSL and Universidad Nacional de Colombia",
+    "pdf_path": "sebls_cv/cv/en/cv.pdf",
+    "nav": {
+      "profile": "Profile",
+      "education": "Education",
+      "experience": "Experience",
+      "skills": "Skills",
+      "projects": "Projects",
+      "achievements": "Achievements",
+      "volunteering": "Volunteering",
+      "hobbies": "Hobbies",
+      "pdf": "PDF Version"
+    },
+    "section": {
+      "profile": "Profile",
+      "education": "Education",
+      "employment": "Employment History",
+      "skills": "Skills",
+      "projects": "Projects",
+      "achievements": "Achievements",
+      "volunteering": "Volunteering",
+      "hobbies": "Hobbies"
+    },
+    "profile": {
+      "text": "<strong>AI Engineer</strong>, with solid experience in software engineering and the <strong>production deployment of AI services</strong> for text, image-based and <strong>multimodal</strong> applications. Particularly interested in <strong>LLM systems</strong>, <strong>scalable AI platforms</strong>, and production-grade intelligent systems."
+    },
+    "education": [
+      {
+        "school": "École des Mines de Paris - PSL",
+        "degree": "<strong>Engineering Degree</strong> (M.Sc.) (GPA: 4.0/4.0)",
+        "date": "2025 - Expected 2027",
+        "gpa": null
+      },
+      {
+        "school": "Universidad Nacional de Colombia",
+        "degree": "<strong>Computer Engineering</strong> (B.Sc.) (GPA: 4.0/4.0)",
+        "date": "2021 - Expected 2027",
+        "gpa": null
+      }
+    ],
+    "employment": [
+      {
+        "company": "Engin AI",
+        "role": "AI Engineer",
+        "role_display": "AI Engineer – Miami, United States (Independent Contractor)",
+        "date": "Jan 2026 – May 2026",
+        "location": "Miami, United States",
+        "contract": "Independent Contractor",
+        "tasks": [
+          "Designed and implemented an <strong>AI agent</strong> for <strong>deepfake classification</strong>, orchestrating <strong>inference</strong> across private classification models.",
+          "Developed the <strong>agent architecture</strong> and tool ecosystem, integrating <strong>OpenKB</strong>-based long-term memory, short-term conversational memory, and structured model-interaction workflows.",
+          "Designed and executed <strong>production evaluations</strong> to assess classification performance, agent decision-making, and reliability across <strong>multimodal</strong> deepfake detection scenarios."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Machine Learning Engineer",
+        "role_display": "Machine Learning Engineer – Miami, United States (Independent Contractor)",
+        "date": "Nov 2025 – Jan 2026",
+        "location": "Miami, United States",
+        "contract": "Independent Contractor",
+        "tasks": [
+          "Designed and deployed over 5 production-ready <strong>multimodal inference endpoints</strong> (audio, image, video), processing approximately 4,000 daily requests with an average latency of 126 ms.",
+          "Extended <strong>deep learning</strong> architectures for <strong>audio detection</strong>, processing more than 1 million samples and improving experiment reproducibility by 40%.",
+          "Built <strong>scalable data pipelines</strong> for datasets exceeding 100 GB, reducing deployment time by 60% through automated validations and configuration-driven workflows."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Software Engineer",
+        "role_display": "Software Engineer – Miami, United States (Independent Contractor)",
+        "date": "Sept 2025 – Nov 2025",
+        "location": "Miami, United States",
+        "contract": "Independent Contractor",
+        "tasks": [
+          "Reduced <strong>ML pipeline</strong> latency by 70-80% by redesigning data preprocessing workflows and optimizing resource utilization in containerized environments.",
+          "Automated annotation validation and debugging workflows (<strong>YOLO/COCO</strong>) via Python scripts, eliminating 75% of manual QA steps and improving dataset reliability."
+        ]
+      },
+      {
+        "company": "Dataconstructors AI",
+        "role": "Junior Software Engineer",
+        "role_display": "Junior Software Engineer – Bogotá, Colombia",
+        "date": "Mar 2025 – Sept 2025",
+        "location": "Bogotá, Colombia",
+        "contract": "",
+        "tasks": [
+          "Reduced geospatial processing time from one week to three hours by designing automated orchestration of Python pipelines interconnected with database-backed services.",
+          "Designed <strong>AI-assisted pipelines</strong> for structured technical documentation and validation workflows.",
+          "Developed Python scripts integrating <strong>LLMs</strong> for <strong>semantic extraction</strong> and automatic validation of critical fields, improving database consistency and decreasing operational errors by 60%.",
+          "Developed and maintained backend services integrating external APIs and relational databases (MySQL/PostgreSQL), applying clean architecture principles to ensure maintainability and scalability."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "PhraseCrack",
+        "role": "Personal Project",
+        "date": "2026",
+        "url": "https://github.com/Guess-the-phrase",
+        "subheader": "Personal Project",
+        "tasks": [
+          "Developed an open-source daily word-guessing game with <strong>semantic similarity</strong> scoring applying <strong>transformer-based embeddings</strong>.",
+          "Implemented a clean, domain-driven full-stack architecture using Next.js (TypeScript) for the frontend and FastAPI (Python) for the backend, including automated tests and clear documentation."
+        ]
+      },
+      {
+        "title": "Smart Irrigation IoT Platform (End-to-End System)",
+        "role": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+        "subheader": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+        "date": "Sep 2025 – Dec 2025",
+        "url": "",
+        "tasks": [
+          "Designed and implemented a full-stack smart irrigation system integrating Raspberry Pi/Arduino hardware, a REST API, and a real-time monitoring dashboard.",
+          "Developed the edge orchestrator and sensor nodes featuring multi-zone control, rule-based irrigation, and resilient telemetry with local buffering.",
+          "Built a high-performance backend using FastAPI and SQLAlchemy (Clean Architecture), implementing auto-provisioning and hierarchical domain modeling.",
+          "Created a responsive Next.js dashboard with real-time visualization, historical data analysis, and centralized irrigation management using TypeScript and TailwindCSS."
+        ]
+      },
+      {
+        "title": "Automated Pipeline for Gaussian Splatting Model Generation",
+        "role": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "subheader": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "date": "Sep 2025 – Nov 2025",
+        "url": "",
+        "tasks": [
+          "Developed an immersive virtual exhibition of geological artifacts using Gaussian Splatting to improve realism and visual quality.",
+          "Built a ~90% automated pipeline for Gaussian Splatting dataset and model generation, reducing preparation time from ~5 hours to ~30 minutes (excluding training runtime)."
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Programming Languages:",
+        "list": "Python • TypeScript • C/C++"
+      },
+      {
+        "category": "Frameworks & Libraries:",
+        "list": "FastAPI • React • Next.js • Pandas • NumPy • PyTorch • TensorFlow"
+      },
+      {
+        "category": "Databases:",
+        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB)"
+      },
+      {
+        "category": "Infrastructure & Systems:",
+        "list": "Linux • Git • GitHub Actions • Testing • CI/CD • Docker"
+      },
+      {
+        "category": "Cloud:",
+        "list": "Google Cloud Platform (Compute Engine, Cloud Storage, Vertex AI)"
+      },
+      {
+        "category": "Artificial Intelligence:",
+        "list": "LLM (OpenAI API, OpenRouter, Claude Platform) • Computer Vision (segmentation, object detection, classification) • Deep Learning (CNNs, embeddings) • Model evaluation, ablation studies & reproducibility"
+      },
+      {
+        "category": "Languages:",
+        "list": "Spanish (C2) • English (C1) • French (C1) • Portuguese (A2)"
+      }
+    ],
+    "achievements": [
+      {
+        "text": "Tuition exemption for the 2025–2026 academic year",
+        "sub": ", Mines Paris PSL (Present)"
+      },
+      {
+        "text": "Tuition exemption during all academic periods; Honor Roll recipient (2022)",
+        "sub": ", Universidad Nacional de Colombia (Present)"
+      },
+      {
+        "text": "Top 1% GPA among university students in Bogotá (≈40 universities)",
+        "sub": ", <a href=\"https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024\" target=\"_blank\" rel=\"noopener noreferrer\">Youth for Excellence</a> (2024)"
+      },
+      {
+        "text": "ICPC UNAL contest",
+        "sub": ", Competitive Programming Contest participant (2024)"
+      }
+    ],
+    "volunteering": [
+      {
+        "company": "AspirantesVirtual",
+        "date": "Jan 2025 – Jun 2025",
+        "role": "Teacher – Colombia",
+        "tasks": [
+          "Development of classes and tutoring in Physics and Mathematics topics for Universidad Nacional de Colombia applicants."
+        ]
+      },
+      {
+        "company": "Colombian Virtual Reality Foundation",
+        "date": "Mar 2020 – Jun 2021",
+        "role": "Developer – Colombia",
+        "tasks": [
+          "Developed game features to raise funds and supported social initiatives aiding vulnerable communities during the COVID-19 pandemic."
+        ]
+      }
+    ],
+    "hobbies": []
+  },
+  "fr": {
+    "personal": {
+      "name": "Sebastian Lopez Silva",
+      "title": "",
+      "location": "Paris, France",
+      "email": "slopezsi@unal.edu.co",
+      "phone": "+33 07 59 32 58 83",
+      "linkedin": "slopezsi",
+      "github": "Sebls",
+      "website": "https://Sebls.github.io"
+    },
+    "subtitle": "Étudiant Ingénieur en Double Diplôme à Mines Paris PSL et Universidad Nacional de Colombia",
+    "pdf_path": "sebls_cv/cv/fr/cv.pdf",
+    "nav": {
+      "profile": "Profil",
+      "education": "Formation",
+      "experience": "Expérience",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "achievements": "Réalisations",
+      "volunteering": "Bénévolat",
+      "hobbies": "Loisirs",
+      "pdf": "Version PDF"
+    },
+    "section": {
+      "profile": "Profil",
+      "education": "Formation",
+      "employment": "Expérience Professionnelle",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "achievements": "Réalisations",
+      "volunteering": "Bénévolat",
+      "hobbies": "Loisirs"
+    },
+    "profile": {
+      "text": "Étudiant ingénieur à <strong>Mines Paris PSL</strong>, spécialisé en intelligence artificielle et machine learning. Expérience dans l’automatisation de processus à l’aide de modèles de machine learning et de LLM, ainsi que dans la structuration et la transformation de données. Solide base en ingénierie logicielle et en déploiement de services d’IA en production. À la recherche d’un stage de 3–4 mois à partir de mai 2026 en data et intelligence artificielle, en France ou à l’international."
+    },
+    "education": [
+      {
+        "school": "École des Mines de Paris – PSL",
+        "degree": "Diplôme d’Ingénieur (équivalent M.Sc.) (GPA: 4.0/4.0)",
+        "date": "2025 – 2027 (prévu)",
+        "gpa": null
+      },
+      {
+        "school": "Universidad Nacional de Colombia",
+        "degree": "Ingénierie informatique (B.Sc.) (GPA: 4.0/4.0)",
+        "date": "2021 – 2027 (prévu)",
+        "gpa": null
+      }
+    ],
+    "employment": [
+      {
+        "company": "Engin AI",
+        "role": "Ingénieur Machine Learning",
+        "role_display": "Ingénieur Machine Learning – Miami, États-Unis",
+        "date": "nov. 2025 – janv. 2026",
+        "location": "Miami, États-Unis",
+        "contract": "",
+        "tasks": [
+          "Conçu et déployé plus de 5 endpoints d’inférence multimodale prêts pour la production (audio, image, vidéo), traitant environ 4 000 requêtes quotidiennes avec une latence moyenne de 250 ms.",
+          "Étendu des architectures de deep learning pour la détection audio, en traitant plus de 1 million d’échantillons et en améliorant la reproductibilité des expérimentations de 40 %.",
+          "Construit des pipelines de données scalables pour des jeux de données de plus de 100 Go, réduisant le temps de déploiement de 60 % grâce à des validations automatisées et des workflows pilotés par la configuration."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Ingénieur logiciel",
+        "role_display": "Ingénieur logiciel – Miami, États-Unis",
+        "date": "sept. 2025 – nov. 2025",
+        "location": "Miami, États-Unis",
+        "contract": "",
+        "tasks": [
+          "Réduit la latence des pipelines ML de 70 à 80 % en repensant les workflows de prétraitement des données et en optimisant l’utilisation des ressources dans des environnements conteneurisés.",
+          "Automatisé les workflows de validation et de débogage des annotations (YOLO/COCO) via des scripts Python, éliminant 75 % des étapes manuelles de QA et améliorant la fiabilité des jeux de données."
+        ]
+      },
+      {
+        "company": "Dataconstructors AI",
+        "role": "Ingénieur logiciel junior",
+        "role_display": "Ingénieur logiciel junior – Bogotá, Colombie",
+        "date": "mars 2025 – sept. 2025",
+        "location": "Bogotá, Colombie",
+        "contract": "",
+        "tasks": [
+          "Réduit le temps de traitement géospatial d’une semaine à trois heures en concevant une orchestration automatisée de pipelines Python interconnectés à des services adossés à des bases de données.",
+          "Conçu des pipelines assistés par IA pour la documentation technique structurée et les flux de validation.",
+          "Développé des scripts Python intégrant des LLM pour l’extraction sémantique et la validation automatique des champs critiques, améliorant la cohérence des bases de données et diminuant les erreurs opérationnelles de 60 %.",
+          "Développé et maintenu des services backend intégrant des API externes et des bases de données relationnelles (MySQL/PostgreSQL), en appliquant les principes d’architecture propre afin d’assurer la maintenabilité et la scalabilité."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Système d’irrigation intelligent",
+        "role": "Mines Paris PSL",
+        "date": "Présent",
+        "url": "",
+        "subheader": "Mines Paris PSL",
+        "tasks": [
+          "Architecturé un système IoT distribué utilisant des nœuds Raspberry Pi et Arduino pour collecter et traiter des données de télémétrie en temps réel sur plusieurs zones d’irrigation.",
+          "Conteneurisé les services de contrôle avec Docker et mis en œuvre une communication HTTPS sécurisée pour la supervision à distance et l’intégration via API.",
+          "Conçu une architecture modulaire permettant l’identification des dispositifs, l’orchestration indépendante des stations et un déploiement multi-nœuds scalable."
+        ]
+      },
+      {
+        "title": "PhraseCrack",
+        "role": "Projet personnel",
+        "date": "2026",
+        "url": "https://github.com/Guess-the-phrase",
+        "subheader": "Projet personnel",
+        "tasks": [
+          "Développement d’un jeu quotidien de devinettes de mots open source, utilisant un score de similarité sémantique basé sur des embeddings issus de modèles transformers.",
+          "Implémentation d’une architecture full-stack propre et pilotée par le domaine (DDD) utilisant Next.js (TypeScript) pour le front-end et FastAPI (Python) pour le back-end, incluant des tests automatisés et une documentation claire."
+        ]
+      },
+      {
+        "title": "Pipeline Automatisé pour la Génération de Modèles Gaussian Splatting",
+        "role": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "subheader": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "date": "Sep 2025 – Nov 2025",
+        "url": "",
+        "tasks": [
+          "Développement d’une exposition virtuelle immersive d’artefacts géologiques avec le Gaussian Splatting pour améliorer le réalisme et la qualité visuelle.",
+          "Conception d’un pipeline automatisé à ~90% pour générer des jeux de données et des modèles de Gaussian Splatting, avec une réduction du temps de préparation de ~5 heures à ~30 minutes (hors temps d’entraînement)."
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Compétences transversales:",
+        "list": "Adaptabilité • Communication efficace • Travail en équipe • Résolution de problèmes • Créativité"
+      },
+      {
+        "category": "Langages de programmation:",
+        "list": "Python (Pandas, NumPy, PyTorch, TensorFlow, FastAPI) • C/C++"
+      },
+      {
+        "category": "Bases de données:",
+        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB)"
+      },
+      {
+        "category": "Infrastructure & Systèmes:",
+        "list": "Linux • Git • GitHub Actions • Tests logiciels • CI/CD • Docker"
+      },
+      {
+        "category": "Intelligence artificielle:",
+        "list": "LLM (OpenAI API, Claude) • Extraction et transformation de données par IA • Évaluation de modèles et reproductibilité"
+      },
+      {
+        "category": "Langues:",
+        "list": "Espagnol (langue maternelle) • Anglais (C1) • Français (B2) • Portugais (conversationnel)"
+      }
+    ],
+    "achievements": [
+      {
+        "text": "Exonération des frais de scolarité pour l’année académique 2025–2026",
+        "sub": ", Mines Paris PSL (Présent)"
+      },
+      {
+        "text": "Exonération des frais sur toutes les périodes académiques ; récipiendaire du tableau d’honneur (2022)",
+        "sub": ", Universidad Nacional de Colombia (Présent)"
+      },
+      {
+        "text": "Top 1% du GPA parmi les étudiants universitaires à Bogotá (≈40 universités)",
+        "sub": ", <a href=\"https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024\" target=\"_blank\" rel=\"noopener noreferrer\">Youth for Excellence</a> (2024)"
+      },
+      {
+        "text": "Concours ICPC UNAL",
+        "sub": ", participant au concours de programmation compétitive (2024)"
+      }
+    ],
+    "volunteering": [
+      {
+        "company": "AspirantesVirtual",
+        "date": "Janv. 2025 – Juin 2025",
+        "role": "Enseignant – Colombie",
+        "tasks": [
+          "Développement de cours et tutorats en Physique et Mathématiques pour les candidats à l’Universidad Nacional de Colombia."
+        ]
+      },
+      {
+        "company": "Fondation Colombienne de Réalité Virtuelle",
+        "date": "Mars 2020 – Juin 2021",
+        "role": "Développeur – Colombie",
+        "tasks": [
+          "Développement de fonctionnalités de jeu pour collecter des fonds et soutenir des initiatives sociales aidant les communautés vulnérables pendant la pandémie de COVID-19."
+        ]
+      }
+    ],
+    "hobbies": []
+  },
+  "es": {
+    "personal": {
+      "name": "Sebastian Lopez Silva",
+      "title": "AI Engineer",
+      "location": "Paris, France",
+      "email": "sebas.lopezsilva147@gmail.com",
+      "phone": "+33 07 59 32 58 83",
+      "linkedin": "slopezsi",
+      "github": "Sebls",
+      "website": "https://Sebls.github.io"
+    },
+    "subtitle": "Estudiante de Doble Titulación en Mines Paris PSL y Universidad Nacional de Colombia",
+    "pdf_path": "sebls_cv/cv/en/cv.pdf",
+    "nav": {
+      "profile": "Perfil",
+      "education": "Educación",
+      "experience": "Experiencia",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "achievements": "Logros",
+      "volunteering": "Voluntariado",
+      "hobbies": "Aficiones",
+      "pdf": "Versión PDF"
+    },
+    "section": {
+      "profile": "Perfil",
+      "education": "Educación",
+      "employment": "Historial Laboral",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "achievements": "Logros",
+      "volunteering": "Voluntariado",
+      "hobbies": "Aficiones"
+    },
+    "profile": {
+      "text": "<strong>Ingeniero de IA</strong>, con sólida experiencia en ingeniería de software y el <strong>despliegue en producción de servicios de IA</strong> para aplicaciones de texto, imágenes y <strong>multimodales</strong>. Particularmente interesado en <strong>sistemas de LLMs</strong>, <strong>plataformas de IA escalables</strong> y sistemas inteligentes de nivel de producción."
+    },
+    "education": [
+      {
+        "school": "École des Mines de Paris - PSL",
+        "degree": "<strong>Título de Ingeniero</strong> (M.Sc.)",
+        "date": "2025 – Previsto 2027",
+        "gpa": null
+      },
+      {
+        "school": "Universidad Nacional de Colombia",
+        "degree": "<strong>Ingeniería de Sistemas</strong> (B.Sc.) (Promedio: 4.74/5.0)",
+        "date": "2021 – Previsto 2027",
+        "gpa": null
+      }
+    ],
+    "employment": [
+      {
+        "company": "Engin AI",
+        "role": "Ingeniero de IA",
+        "role_display": "Ingeniero de IA – Miami, Estados Unidos (Contratista Independiente)",
+        "date": "Ene 2026 – May 2026",
+        "location": "Miami, Estados Unidos",
+        "contract": "Contratista Independiente",
+        "tasks": [
+          "Diseñé e implementé un <strong>agente de IA</strong> para <strong>clasificación de deepfakes</strong>, orquestando <strong>inferencia</strong> a través de modelos de clasificación privados.",
+          "Desarrollé la <strong>arquitectura del agente</strong> y el ecosistema de herramientas, integrando memoria a largo plazo basada en <strong>OpenKB</strong>, memoria conversacional a corto plazo y flujos de trabajo estructurados de interacción con modelos.",
+          "Diseñé y ejecuté <strong>evaluaciones en producción</strong> para medir el rendimiento de clasificación, la toma de decisiones del agente y la confiabilidad en escenarios <strong>multimodales</strong> de detección de deepfakes."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Ingeniero de Machine Learning",
+        "role_display": "Ingeniero de Machine Learning – Miami, Estados Unidos (Contratista Independiente)",
+        "date": "Nov 2025 – Ene 2026",
+        "location": "Miami, Estados Unidos",
+        "contract": "Contratista Independiente",
+        "tasks": [
+          "Diseñé y desplegué más de 5 <strong>endpoints de inferencia multimodal</strong> (audio, imagen, video) listos para producción, procesando ~4,000 solicitudes diarias con una latencia promedio de 126 ms.",
+          "Extendí arquitecturas de <strong>deep learning</strong> para <strong>detección de audio</strong>, procesando más de 1 millón de muestras y mejorando la reproducibilidad de experimentos en un 40%.",
+          "Construí <strong>pipelines de datos escalables</strong> para datasets superiores a 100 GB, reduciendo el tiempo de despliegue en un 60% mediante validaciones automatizadas."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Ingeniero de Software",
+        "role_display": "Ingeniero de Software – Miami, Estados Unidos (Contratista Independiente)",
+        "date": "Sep 2025 – Nov 2025",
+        "location": "Miami, Estados Unidos",
+        "contract": "Contratista Independiente",
+        "tasks": [
+          "Reduje la latencia de <strong>pipelines de ML</strong> en 70–80% mediante el rediseño de flujos de preprocesamiento de datos y optimización de recursos en contenedores.",
+          "Automaticé la validación y depuración de anotaciones (<strong>YOLO/COCO</strong>) con scripts en Python, eliminando el 75% de pasos manuales de QA."
+        ]
+      },
+      {
+        "company": "Dataconstructors AI",
+        "role": "Ingeniero de Software Junior",
+        "role_display": "Ingeniero de Software Junior – Bogotá, Colombia",
+        "date": "Mar 2025 – Sep 2025",
+        "location": "Bogotá, Colombia",
+        "contract": "",
+        "tasks": [
+          "Reduje el tiempo de procesamiento geoespacial de una semana a tres horas diseñando orquestación automatizada de pipelines en Python interconectados con bases de datos.",
+          "Diseñé <strong>pipelines asistidos por IA</strong> para documentación técnica estructurada y validación de datos.",
+          "Desarrollé scripts en Python integrando <strong>LLMs</strong> para <strong>extracción semántica</strong> y validación automática de campos críticos, disminuyendo errores operativos en un 60%.",
+          "Desarrollé y mantuve servicios backend integrando APIs externas y bases de datos relacionales (MySQL/PostgreSQL) aplicando arquitectura limpia."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "PhraseCrack",
+        "role": "Proyecto Personal",
+        "date": "2026",
+        "url": "https://github.com/Guess-the-phrase",
+        "subheader": "Personal Project",
+        "tasks": [
+          "Desarrollé un juego diario de adivinanza de palabras de código abierto con puntuación de <strong>similitud semántica</strong> aplicando <strong>embeddings basados en transformers</strong>.",
+          "Implementé una arquitectura full-stack limpia guiada por el dominio utilizando Next.js (TypeScript) en el frontend y FastAPI (Python) en el backend, con pruebas automatizadas y documentación clara."
+        ]
+      },
+      {
+        "title": "Plataforma IoT de Riego Inteligente (Sistema End-to-End)",
+        "role": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+        "subheader": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
+        "date": "Sep 2025 – Dic 2025",
+        "url": "",
+        "tasks": [
+          "Diseñé e implementé un sistema de riego inteligente integral con hardware (Raspberry Pi + Arduino), una API RESTful y un dashboard de monitoreo en tiempo real.",
+          "Desarrollé el orquestador edge y nodos sensores con control multizona, decisiones automatizadas por reglas y telemetría resiliente con búfer local.",
+          "Construí el backend con FastAPI y SQLAlchemy bajo principios de arquitectura limpia, implementando auto-provisionamiento y modelado jerárquico de dominio.",
+          "Desarrollé un dashboard responsivo en Next.js con visualización en tiempo real, análisis histórico y gestión centralizada de riego usando TypeScript y TailwindCSS."
+        ]
+      },
+      {
+        "title": "Pipeline Automatizado para Generación de Modelos Gaussian Splatting",
+        "role": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "subheader": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
+        "date": "Sep 2025 – Nov 2025",
+        "url": "",
+        "tasks": [
+          "Desarrollé una exposición virtual inmersiva de artefactos geológicos usando Gaussian Splatting para mejorar el realismo y la calidad visual.",
+          "Construí un pipeline ~90% automatizado para generar datasets y modelos de Gaussian Splatting, reduciendo el tiempo de preparación de ~5 horas a ~30 minutos (sin contar tiempo de entrenamiento)."
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Lenguajes de Programación:",
+        "list": "Python • TypeScript • C/C++"
+      },
+      {
+        "category": "Frameworks y Librerías:",
+        "list": "FastAPI • React • Next.js • Pandas • NumPy • PyTorch • TensorFlow"
+      },
+      {
+        "category": "Bases de Datos:",
+        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB)"
+      },
+      {
+        "category": "Infraestructura y Sistemas:",
+        "list": "Linux • Git • GitHub Actions • Testing • CI/CD • Docker"
+      },
+      {
+        "category": "Cloud:",
+        "list": "Google Cloud Platform (Compute Engine, Cloud Storage, Vertex AI)"
+      },
+      {
+        "category": "Inteligencia Artificial:",
+        "list": "LLM (OpenAI API, OpenRouter, Claude Platform) • Computer Vision • Deep Learning • Evaluación de modelos"
+      },
+      {
+        "category": "Idiomas:",
+        "list": "Español (C2 - Nativo) • Inglés (C1) • Francés (C1) • Portugués (A2)"
+      }
+    ],
+    "achievements": [
+      {
+        "text": "Exención de matrícula para el año académico 2025–2026",
+        "sub": ", Mines Paris PSL (Presente)"
+      },
+      {
+        "text": "Exención de matrícula durante todos los periodos académicos; Cuadro de Honor (2022)",
+        "sub": ", Universidad Nacional de Colombia (Presente)"
+      },
+      {
+        "text": "Top 1% del GPA entre estudiantes universitarios en Bogotá (≈40 universidades)",
+        "sub": ", <a href=\"https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024\" target=\"_blank\" rel=\"noopener noreferrer\">Youth for Excellence</a> (2024)"
+      },
+      {
+        "text": "Concurso ICPC UNAL",
+        "sub": ", participante en programación competitiva (2024)"
+      }
+    ],
+    "volunteering": [
+      {
+        "company": "AspirantesVirtual",
+        "date": "Ene 2025 – Jun 2025",
+        "role": "Profesor – Colombia",
+        "tasks": [
+          "Desarrollo de clases y tutorías en temas de Física y Matemáticas para aspirantes a la Universidad Nacional de Colombia."
+        ]
+      },
+      {
+        "company": "Fundación Colombiana de Realidad Virtual",
+        "date": "Mar 2020 – Jun 2021",
+        "role": "Desarrollador – Colombia",
+        "tasks": [
+          "Desarrollo de características de videojuegos para recaudar fondos e iniciativas sociales durante la pandemia de COVID-19."
+        ]
+      }
+    ],
+    "hobbies": []
+  }
+}
