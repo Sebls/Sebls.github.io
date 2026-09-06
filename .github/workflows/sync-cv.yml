@@ -22,16 +22,19 @@ jobs:
   build-and-sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository with Submodules
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.CV_SUBMODULE_TOKEN }}
-          submodules: recursive
           fetch-depth: 0
 
-      - name: Update Submodules to Latest Remote Commit
+      - name: Initialize and Update Submodules
+        env:
+          SUBMODULE_TOKEN: ${{ secrets.CV_SUBMODULE_TOKEN }}
         run: |
-          git submodule update --remote --recursive
+          git config --global url."https://x-access-token:${SUBMODULE_TOKEN}@github.com/".insteadOf "https://github.com/"
+          git submodule sync --recursive
+          git submodule update --init --force --recursive
 
       - name: Setup Typst
         uses: typst-community/setup-typst@v3
