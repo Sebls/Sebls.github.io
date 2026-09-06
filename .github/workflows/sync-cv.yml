@@ -1,0 +1,60 @@
+name: Sync CV Submodule and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run daily at 06:00 UTC to ensure any submodule updates are automatically pulled
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository with Submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Submodules to Latest Remote Commit
+        run: |
+          git submodule update --remote --recursive
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: "latest"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run CV Sync Script
+        run: |
+          python3 scripts/sync_cv.py
+
+      - name: Commit & Push changes if updated
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data assets/js assets/pdf sebls_cv || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-sync CV data from sebls_cv submodule [skip ci]"
+            git push
+          fi
