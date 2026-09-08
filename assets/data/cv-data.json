@@ -34,12 +34,12 @@
       "hobbies": "Hobbies"
     },
     "profile": {
-      "text": "<strong>AI Engineer</strong>, with solid experience in software engineering and the <strong>production deployment of AI services</strong> for text, image-based and <strong>multimodal</strong> applications. Particularly interested in <strong>LLM systems</strong>, <strong>scalable AI platforms</strong>, and production-grade intelligent systems."
+      "text": "<strong>AI Engineer</strong>, with solid experience in software engineering and the <strong>production deployment of AI services</strong> for text, image-based and <strong>multimodal</strong> applications. Particularly interested in <strong>autonomous AI agents</strong>, <strong>LLM systems</strong>, and production-grade intelligent platforms."
     },
     "education": [
       {
         "school": "École des Mines de Paris - PSL",
-        "degree": "<strong>Engineering Degree</strong> (M.Sc.) (GPA: 4.0/4.0)",
+        "degree": "<strong>Engineering Degree</strong> (M.Sc.) (GPA: 3.7/4.0)",
         "date": "2025 - Expected 2027",
         "gpa": null
       },
@@ -52,16 +52,30 @@
     ],
     "employment": [
       {
+        "company": "STMicroelectronics",
+        "role": "AI Engineer / Architect Intern",
+        "role_display": "AI Engineer / Architect Intern – Rousset, France (Internship)",
+        "date": "May 2026 – Aug 2026",
+        "location": "Rousset, France",
+        "contract": "Internship",
+        "tasks": [
+          "Engineered <strong>RAG</strong> and <strong>Knowledge Graph</strong> ingestion pipelines using vector databases and Google{'func': 'smartquote', 'double': False}s <strong>Open Knowledge Format (OKF)</strong>, processing >1,000 public documents for semantic retrieval.",
+          "Architected modular <strong>AI agent</strong> context systems and developed the underlying <strong>harness layer</strong> across diverse agent execution frameworks.",
+          "Developed <strong>LLM API services</strong> for AI infrastructure and automated operational workflows using <strong>AI agents</strong> in sandboxed, safe execution environments.",
+          "Conducted systematic <strong>evaluation and benchmarking</strong> of <strong>local LLM infrastructure</strong> to assess latency, throughput, and inference reliability."
+        ]
+      },
+      {
         "company": "Engin AI",
-        "role": "AI Engineer",
-        "role_display": "AI Engineer – Miami, United States (Independent Contractor)",
+        "role": "AI Engineer / Researcher",
+        "role_display": "AI Engineer / Researcher – Miami, United States (Independent Contractor)",
         "date": "Jan 2026 – May 2026",
         "location": "Miami, United States",
         "contract": "Independent Contractor",
         "tasks": [
-          "Designed and implemented an <strong>AI agent</strong> for <strong>deepfake classification</strong>, orchestrating <strong>inference</strong> across private classification models.",
-          "Developed the <strong>agent architecture</strong> and tool ecosystem, integrating <strong>OpenKB</strong>-based long-term memory, short-term conversational memory, and structured model-interaction workflows.",
-          "Designed and executed <strong>production evaluations</strong> to assess classification performance, agent decision-making, and reliability across <strong>multimodal</strong> deepfake detection scenarios."
+          "Conducted research, experimentation, and production deployment of an <strong>LLM AI agent</strong>, leveraging deepfake classification models within the agent{'func': 'smartquote', 'double': False}s <strong>harness layer</strong>.",
+          "Architected custom <strong>long-term memory</strong> and <strong>short-term conversational memory systems</strong> tailored to the project, integrating structured tool execution workflows.",
+          "Designed and executed <strong>internal comparative benchmarks</strong> to evaluate agent decision-making accuracy, inference latency, and detection reliability across multimodal scenarios."
         ]
       },
       {
@@ -106,17 +120,6 @@
     ],
     "projects": [
       {
-        "title": "PhraseCrack",
-        "role": "Personal Project",
-        "date": "2026",
-        "url": "https://github.com/Guess-the-phrase",
-        "subheader": "Personal Project",
-        "tasks": [
-          "Developed an open-source daily word-guessing game with <strong>semantic similarity</strong> scoring applying <strong>transformer-based embeddings</strong>.",
-          "Implemented a clean, domain-driven full-stack architecture using Next.js (TypeScript) for the frontend and FastAPI (Python) for the backend, including automated tests and clear documentation."
-        ]
-      },
-      {
         "title": "Smart Irrigation IoT Platform (End-to-End System)",
         "role": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
         "subheader": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
@@ -152,11 +155,11 @@
       },
       {
         "category": "Databases:",
-        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB)"
+        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB) • Vector DBs"
       },
       {
         "category": "Infrastructure & Systems:",
-        "list": "Linux • Git • GitHub Actions • Testing • CI/CD • Docker"
+        "list": "Linux • Git • GitHub Actions • Testing • CI/CD • Docker • MCP Servers"
       },
       {
         "category": "Cloud:",
@@ -164,7 +167,7 @@
       },
       {
         "category": "Artificial Intelligence:",
-        "list": "LLM (OpenAI API, OpenRouter, Claude Platform) • Computer Vision (segmentation, object detection, classification) • Deep Learning (CNNs, embeddings) • Model evaluation, ablation studies & reproducibility"
+        "list": "LLM (OpenAI API, Claude Platform, OpenRouter) • AI Agents & MCP Servers • RAG & Knowledge Graphs (OKF) • Computer Vision • Deep Learning • Local LLM Evaluation"
       },
       {
         "category": "Languages:",
@@ -212,9 +215,9 @@
   "fr": {
     "personal": {
       "name": "Sebastian Lopez Silva",
-      "title": "",
+      "title": "Ingénieur IA",
       "location": "Paris, France",
-      "email": "slopezsi@unal.edu.co",
+      "email": "sebas.lopezsilva147@gmail.com",
       "phone": "+33 07 59 32 58 83",
       "linkedin": "slopezsi",
       "github": "Sebls",
@@ -244,12 +247,12 @@
       "hobbies": "Loisirs"
     },
     "profile": {
-      "text": "Étudiant ingénieur à <strong>Mines Paris PSL</strong>, spécialisé en intelligence artificielle et machine learning. Expérience dans l’automatisation de processus à l’aide de modèles de machine learning et de LLM, ainsi que dans la structuration et la transformation de données. Solide base en ingénierie logicielle et en déploiement de services d’IA en production. À la recherche d’un stage de 3–4 mois à partir de mai 2026 en data et intelligence artificielle, en France ou à l’international."
+      "text": "Étudiant ingénieur à <strong>Mines Paris – PSL</strong>, spécialisé en intelligence artificielle et machine learning. Expérience en <strong>ingénierie logicielle</strong>, architectures d’<strong>agents IA</strong>, <strong>RAG</strong> et <strong>déploiement de services d’IA en production</strong> (LLM, multimodale). Particulièrement intéressé par les <strong>systèmes d’agents autonomes</strong>, les <strong>plateformes d’IA scalables</strong> et l’infrastructure LLM."
     },
     "education": [
       {
         "school": "École des Mines de Paris – PSL",
-        "degree": "Diplôme d’Ingénieur (équivalent M.Sc.) (GPA: 4.0/4.0)",
+        "degree": "Diplôme d’Ingénieur (équivalent M.Sc.) (GPA: 3.7/4.0)",
         "date": "2025 – 2027 (prévu)",
         "gpa": null
       },
@@ -262,6 +265,33 @@
     ],
     "employment": [
       {
+        "company": "STMicroelectronics",
+        "role": "Stagiaire Ingénieur IA / Architecte IA",
+        "role_display": "Stagiaire Ingénieur IA / Architecte IA – Rousset, France",
+        "date": "mai 2026 – août 2026",
+        "location": "Rousset, France",
+        "contract": "",
+        "tasks": [
+          "Conçu des pipelines de <strong>RAG</strong> et de <strong>Knowledge Graphs</strong> basés sur des bases vectorielles et l’<strong>Open Knowledge Format (OKF)</strong> de Google, traitant plus de 1 000 documents publics pour une recherche sémantique précise.",
+          "Architecturé des systèmes modulaires de gestion de contexte pour <strong>agents IA</strong> et développé la couche <strong>harness</strong> afin d’uniformiser l’orchestration et l’exécution multi-agents.",
+          "Développé des <strong>services d’API LLM</strong> pour l’infrastructure interne et automatisé des flux opérationnels via des <strong>agents IA</strong> dans des environnements d’exécution sécurisés.",
+          "Mis en place l’<strong>évaluation et le benchmarking</strong> de l’infrastructure <strong>LLM locale</strong>, analysant la latence, le débit et la fiabilité de l’inférence."
+        ]
+      },
+      {
+        "company": "Engin AI",
+        "role": "Ingénieur IA / Chercheur",
+        "role_display": "Ingénieur IA / Chercheur – Miami, États-Unis",
+        "date": "janv. 2026 – mai 2026",
+        "location": "Miami, États-Unis",
+        "contract": "",
+        "tasks": [
+          "Mené des travaux de recherche, d’expérimentation et de déploiement d’un <strong>agent IA LLM</strong>, exploitant des modèles de deepfakes au sein de la <strong>couche harness</strong> de l’agent.",
+          "Architecturé des systèmes sur mesure de <strong>mémoire à long terme</strong> et de <strong>mémoire conversationnelle à court terme</strong>, avec des workflows d’outils structurés.",
+          "Conçu et exécuté des <strong>benchmarks comparatifs internes</strong> pour évaluer la précision décisionnelle, la latence et la fiabilité de l’agent en scénarios multimodaux."
+        ]
+      },
+      {
         "company": "Engin AI",
         "role": "Ingénieur Machine Learning",
         "role_display": "Ingénieur Machine Learning – Miami, États-Unis",
@@ -269,9 +299,9 @@
         "location": "Miami, États-Unis",
         "contract": "",
         "tasks": [
-          "Conçu et déployé plus de 5 endpoints d’inférence multimodale prêts pour la production (audio, image, vidéo), traitant environ 4 000 requêtes quotidiennes avec une latence moyenne de 250 ms.",
+          "Conçu et déployé plus de 5 endpoints d’inférence multimodale prêts pour la production (audio, image, vidéo), traitant environ 4 000 requêtes quotidiennes avec une latence moyenne de 126 ms.",
           "Étendu des architectures de deep learning pour la détection audio, en traitant plus de 1 million d’échantillons et en améliorant la reproductibilité des expérimentations de 40 %.",
-          "Construit des pipelines de données scalables pour des jeux de données de plus de 100 Go, réduisant le temps de déploiement de 60 % grâce à des validations automatisées et des workflows pilotés par la configuration."
+          "Construit des pipelines de données scalables pour des jeux de données de plus de 100 Go, réduisant le temps de déploiement de 60 % grâce à des validations automatisées."
         ]
       },
       {
@@ -282,8 +312,8 @@
         "location": "Miami, États-Unis",
         "contract": "",
         "tasks": [
-          "Réduit la latence des pipelines ML de 70 à 80 % en repensant les workflows de prétraitement des données et en optimisant l’utilisation des ressources dans des environnements conteneurisés.",
-          "Automatisé les workflows de validation et de débogage des annotations (YOLO/COCO) via des scripts Python, éliminant 75 % des étapes manuelles de QA et améliorant la fiabilité des jeux de données."
+          "Réduit la latence des pipelines ML de 70 à 80 % en repensant les workflows de prétraitement des données et en optimisant l’utilisation des ressources en conteneurs.",
+          "Automatisé les workflows de validation et de débogage des annotations (YOLO/COCO) via Python, éliminant 75 % des étapes manuelles de QA et fiabilisant les données."
         ]
       },
       {
@@ -294,37 +324,14 @@
         "location": "Bogotá, Colombie",
         "contract": "",
         "tasks": [
-          "Réduit le temps de traitement géospatial d’une semaine à trois heures en concevant une orchestration automatisée de pipelines Python interconnectés à des services adossés à des bases de données.",
+          "Réduit le temps de traitement géospatial d’une semaine à trois heures en concevant une orchestration automatisée de pipelines Python interconnectés à des bases de données.",
           "Conçu des pipelines assistés par IA pour la documentation technique structurée et les flux de validation.",
-          "Développé des scripts Python intégrant des LLM pour l’extraction sémantique et la validation automatique des champs critiques, améliorant la cohérence des bases de données et diminuant les erreurs opérationnelles de 60 %.",
-          "Développé et maintenu des services backend intégrant des API externes et des bases de données relationnelles (MySQL/PostgreSQL), en appliquant les principes d’architecture propre afin d’assurer la maintenabilité et la scalabilité."
+          "Développé des scripts Python intégrant des LLM pour l’extraction sémantique et la validation automatique, diminuant les erreurs opérationnelles de 60 %.",
+          "Développé et maintenu des services backend intégrant des API externes et des bases de données relationnelles (MySQL/PostgreSQL), appliquant les principes d’architecture propre."
         ]
       }
     ],
     "projects": [
-      {
-        "title": "Système d’irrigation intelligent",
-        "role": "Mines Paris PSL",
-        "date": "Présent",
-        "url": "",
-        "subheader": "Mines Paris PSL",
-        "tasks": [
-          "Architecturé un système IoT distribué utilisant des nœuds Raspberry Pi et Arduino pour collecter et traiter des données de télémétrie en temps réel sur plusieurs zones d’irrigation.",
-          "Conteneurisé les services de contrôle avec Docker et mis en œuvre une communication HTTPS sécurisée pour la supervision à distance et l’intégration via API.",
-          "Conçu une architecture modulaire permettant l’identification des dispositifs, l’orchestration indépendante des stations et un déploiement multi-nœuds scalable."
-        ]
-      },
-      {
-        "title": "PhraseCrack",
-        "role": "Projet personnel",
-        "date": "2026",
-        "url": "https://github.com/Guess-the-phrase",
-        "subheader": "Projet personnel",
-        "tasks": [
-          "Développement d’un jeu quotidien de devinettes de mots open source, utilisant un score de similarité sémantique basé sur des embeddings issus de modèles transformers.",
-          "Implémentation d’une architecture full-stack propre et pilotée par le domaine (DDD) utilisant Next.js (TypeScript) pour le front-end et FastAPI (Python) pour le back-end, incluant des tests automatisés et une documentation claire."
-        ]
-      },
       {
         "title": "Pipeline Automatisé pour la Génération de Modèles Gaussian Splatting",
         "role": "Mines Paris PSL - MOVIE: Ingénierie des Mondes Virtuels",
@@ -339,28 +346,28 @@
     ],
     "skills": [
       {
-        "category": "Compétences transversales:",
-        "list": "Adaptabilité • Communication efficace • Travail en équipe • Résolution de problèmes • Créativité"
+        "category": "Langages de programmation:",
+        "list": "Python • TypeScript • C/C++"
       },
       {
-        "category": "Langages de programmation:",
-        "list": "Python (Pandas, NumPy, PyTorch, TensorFlow, FastAPI) • C/C++"
+        "category": "Frameworks & Bibliothèques:",
+        "list": "FastAPI • React • Next.js • Pandas • NumPy • PyTorch • TensorFlow"
       },
       {
         "category": "Bases de données:",
-        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB)"
+        "list": "SQL (PostgreSQL, SQLite) • NoSQL (Redis, MongoDB) • Bases vectorielles"
       },
       {
         "category": "Infrastructure & Systèmes:",
-        "list": "Linux • Git • GitHub Actions • Tests logiciels • CI/CD • Docker"
+        "list": "Linux • Git • GitHub Actions • Tests logiciels • CI/CD • Docker • Serveurs MCP"
       },
       {
         "category": "Intelligence artificielle:",
-        "list": "LLM (OpenAI API, Claude) • Extraction et transformation de données par IA • Évaluation de modèles et reproductibilité"
+        "list": "LLM (OpenAI API, Claude, OpenRouter) • Agents IA & Serveurs MCP • RAG & Knowledge Graphs (OKF) • Vision par ordinateur • Deep Learning • Évaluation de LLM locaux"
       },
       {
         "category": "Langues:",
-        "list": "Espagnol (langue maternelle) • Anglais (C1) • Français (B2) • Portugais (conversationnel)"
+        "list": "Espagnol (langue maternelle) • Anglais (C1) • Français (C1) • Portugais (A2)"
       }
     ],
     "achievements": [
@@ -507,17 +514,6 @@
       }
     ],
     "projects": [
-      {
-        "title": "PhraseCrack",
-        "role": "Proyecto Personal",
-        "date": "2026",
-        "url": "https://github.com/Guess-the-phrase",
-        "subheader": "Personal Project",
-        "tasks": [
-          "Desarrollé un juego diario de adivinanza de palabras de código abierto con puntuación de <strong>similitud semántica</strong> aplicando <strong>embeddings basados en transformers</strong>.",
-          "Implementé una arquitectura full-stack limpia guiada por el dominio utilizando Next.js (TypeScript) en el frontend y FastAPI (Python) en el backend, con pruebas automatizadas y documentación clara."
-        ]
-      },
       {
         "title": "Plataforma IoT de Riego Inteligente (Sistema End-to-End)",
         "role": "Mines Paris PSL - IDS: Intelligent and Digital Systems",
