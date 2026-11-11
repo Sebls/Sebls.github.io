@@ -34,6 +34,8 @@ pub struct Entry {
     pub id: String,
     pub title: String,
     pub organization: String,
+    #[serde(default)]
+    pub organization_url: String,
     pub dates: String,
     pub summary: String,
     #[serde(default)]

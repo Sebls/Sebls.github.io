@@ -115,7 +115,7 @@ fn page_index(props: &IndexProps) -> Html {
     })}</nav>}
 }
 pub fn entries(entries: Vec<content::Entry>) -> Html {
-    html! {<div class="entries">{for entries.into_iter().map(|e|html!{<section class="entry" id={e.id} tabindex="-1"><p class="eyebrow">{e.dates}</p><h3>if e.url.is_empty(){{e.title}}else{<a href={e.url}>{e.title}{arrow("up-right")}</a>}</h3><p class="organization">{e.organization}</p><p>{e.summary}</p>if !e.detail.is_empty(){<p>{e.detail}</p>}</section>})}</div>}
+    html! {<div class="entries">{for entries.into_iter().map(|e|html!{<section class="entry" id={e.id} tabindex="-1"><p class="eyebrow">{e.dates}</p><h3>if e.url.is_empty(){{e.title}}else{<a href={e.url}>{e.title}{arrow("up-right")}</a>}</h3><p class="organization">if e.organization_url.is_empty(){{e.organization}}else{<a href={e.organization_url}>{e.organization}</a>}</p><p>{e.summary}</p>if !e.detail.is_empty(){<p>{e.detail}</p>}</section>})}</div>}
 }
 
 /// Decorative arrows share a light stroke and rounded ends at every link size.
