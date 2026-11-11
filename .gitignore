@@ -1,0 +1,28 @@
+# Build output and local toolchains
+/target/
+/dist/
+/.tools/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Private source material; reconsider only after choosing repository visibility
+/docs/content/source-cv.md
+
+# OS, editor, and temporary files
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+__pycache__/
+*.py[cod]
+*.log
+
+# Keep Cargo.lock: this repository builds an application.
