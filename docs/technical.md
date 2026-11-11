@@ -18,7 +18,7 @@ One Rust crate shares Yew components between a native build-time renderer (`src/
 
 Yew Router defines and recognizes routes. An in-memory router renders the same component tree for generation and browser hydration. Page navigation deliberately uses normal document links, not client history interception. Trailing-slash URLs map directly to directories on GitHub Pages. Native fragment anchors serve the current-page index without conflicting with routes. Refresh, back/forward, and no-JavaScript reading use normal browser behavior.
 
-Yew hydrates the pre-rendered HTML to add menu state and the cat interaction. Native build dependencies are Tokio (Yew renderer runtime), pulldown-cmark (Markdown), and Ammonia (sanitization). Draft metadata and bodies are excluded by `build.rs` before either target is compiled. Missing published bodies fail the build. Content, page titles, descriptions, and Open Graph text are present in each HTML document. Canonical URLs, social images, and sitemap are deferred until the final hostname is confirmed; no search ranking or rich-preview guarantees are implied.
+Yew hydrates the pre-rendered HTML to add menu state and the cat interaction. Native build dependencies are Tokio (Yew renderer runtime), pulldown-cmark (Markdown), and Ammonia (sanitization). Draft metadata and bodies are excluded by `build.rs` before either target is compiled. Missing published bodies fail the build. Content, page titles, descriptions, and Open Graph text are present in each HTML document. The production hostname is `https://sebls.github.io/`; canonical URLs, social images, and a sitemap are still deferred improvements; no search ranking or rich-preview guarantees are implied.
 
 This modest build-time renderer is the additional work required by the selected separate-document architecture, not a separate content platform. The owner explicitly authorized this rendering choice. Official Yew SSR documentation was checked when implementing; hydration is marked experimental upstream.
 
@@ -55,7 +55,7 @@ styles/
 assets/
   images/                     # cat artwork and selected photos
   fonts/                      # only authorized local fonts
-.github/workflows/pages.yml   # future static build/deploy workflow
+.github/workflows/pages.yml   # automatic static build/deploy workflow
 ```
 
 The tree above is the organizational guide; small pages and components are grouped in module files. The implementation also contains `build.rs`, `src/bin/render.rs`, and `scripts/build.sh` for static generation. Merge tiny modules when it improves clarity; split styles only as they grow. Do not add repositories, services, dependency injection, global state libraries, a component package, or a custom CMS.
@@ -64,11 +64,11 @@ Load curated content locally, preferably at build time for this small site. A sm
 
 ## GitHub Pages deployment contract
 
-- Determine the actual published URL before final build setup. The CV profile URL does not prove whether this project will use an account root, repository subpath, or custom domain.
+- The owner confirmed `Sebls/Sebls.github.io` on 11 November 2026 and authorized automatic publication. Production URL: `https://sebls.github.io/`; build base path: `/`.
 - Configure Trunk's public URL for that location and use consistent base-aware asset URLs. Avoid root-absolute asset paths that fail under a repository subdirectory.
 - Serve the generated release output, including the WASM and browser loader, as static files. Do not deploy the repository root or documentation/source files.
 - Test root and repository-prefix hosting, routed deep links, refresh, back/forward, unknown routes, images, fonts, and article loading. Never assume the dev server reproduces GitHub Pages fallback behavior.
-- Configure a minimal Pages workflow only during implementation. Publishing requires a later instruction to deploy; preparing the workflow is distinct from triggering it.
+- The Pages workflow deploys automatically on pushes to `main` and supports manual reruns. Both triggers check and build the root-hosted site before deployment; GitHub Pages uses the Actions publishing source.
 - Generate page-specific titles, descriptions, and Open Graph text in every document; confirm final absolute metadata URLs before deployment.
 
 ## Verification after implementation begins

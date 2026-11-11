@@ -1,6 +1,6 @@
 # SEBLS — Personal portfolio
 
-Sebastian Lopez Silva's portfolio, built with Rust, Yew 0.23, Yew Router 0.20, Cargo, Trunk 0.22.1, and plain CSS. **Implementation stage; not published.**
+Sebastian Lopez Silva's portfolio, built with Rust, Yew 0.23, Yew Router 0.20, Cargo, Trunk 0.22.1, and plain CSS. **Automatic GitHub Pages deployment from `main`.**
 
 The owner selected **separately generated HTML pages** on 11 November 2026. Every main page and published article has its own HTML document and metadata. A native Yew renderer runs at build time, and the browser hydrates the same components for interaction. No backend is deployed. Normal page navigation and section anchors work without JavaScript; the mobile navigation remains expanded when JavaScript is disabled. Yew Router handles route definitions and recognition with a memory router, rather than intercepting document navigation.
 
@@ -23,7 +23,7 @@ For a GitHub project URL, build with the repository prefix:
 ./scripts/build.sh /sebls-portfolio/
 ```
 
-Serve the resulting `dist` at `/sebls-portfolio/` when previewing that variant. All links and generated assets include the chosen base. Use `/` for an account site or custom domain. The final public hostname and base path still need confirmation before deployment. Do not deploy the repository root.
+Serve the resulting `dist` at `/sebls-portfolio/` when previewing that variant. All links and generated assets include the chosen base. Use `/` for an account site or custom domain. The production site is `https://sebls.github.io/`, built with `/` as its base path. Do not deploy the repository root.
 
 ## Content
 
@@ -53,19 +53,19 @@ cargo clippy --locked --all-targets -- -D warnings
 ./scripts/build.sh /sebls-portfolio/
 ```
 
-The native generator emits a friendly `404.html`; GitHub Pages supplies the actual unknown-path HTTP status. Article metadata is static. Canonical URLs, sitemap, and social images are deferred until the publishing URL and assets are supplied. Yew hydration is experimental upstream; the generated content remains readable if WASM fails.
+The native generator emits a friendly `404.html`; GitHub Pages supplies the actual unknown-path HTTP status. Article metadata is static. Canonical URLs and a sitemap remain future improvements; social images require supplied assets. Yew hydration is experimental upstream; the generated content remains readable if WASM fails.
 
 See [the verification record](docs/verification.md) for checks actually run, browser findings, and remaining limitations.
 
 ## Deployment preparation
 
-`.github/workflows/pages.yml` is **manual only**, with publishing disabled by default. It checks and builds, then uploads a Pages artifact. The optional deployment job runs only when a later, explicitly authorized manual run selects `publish`. No push trigger or deployment has been enabled or executed here. GitHub Pages must eventually be configured to use GitHub Actions.
+The owner authorized automatic publication on 11 November 2026. `.github/workflows/pages.yml` checks, builds, verifies, and deploys the site on every push to `main`; it can also be run manually. Production always uses the root base path `/` for [sebls.github.io](https://sebls.github.io/). GitHub Pages uses GitHub Actions as its publishing source. Only `dist/` is uploaded as the site artifact. Failed checks prevent deployment.
 
 ## Project documentation
 
 Start with [AGENTS.md](AGENTS.md), [brief](docs/brief.md), [technical plan](docs/technical.md), [content guide](docs/content/README.md), and [design guide](docs/design.md). The [source CV](docs/content/source-cv.md) is preserved verbatim. [Archived specifications](docs/archive/README.md) are historical context.
 
-The source CV is local, private authoring material and is excluded from Git by `.gitignore` until repository visibility is decided. It will not be present in a fresh clone; the curated public content is sufficient to build the site. Keep `Cargo.lock` tracked; build output, local toolchains, environment files, and editor caches are ignored. The local repository uses `main` and Commitizen-style commit messages (`type(scope): description`). No remote is configured and nothing has been pushed or deployed.
+The source CV is local, private authoring material and is excluded from Git by `.gitignore` until repository visibility is decided. It will not be present in a fresh clone; the curated public content is sufficient to build the site. Keep `Cargo.lock` tracked; build output, local toolchains, environment files, and editor caches are ignored. The repository uses `main` and Commitizen-style commit messages (`type(scope): description`). Its `origin` remote is `https://github.com/Sebls/Sebls.github.io.git`. Pushing `main` triggers production deployment.
 
 The Colombian flag above the left end of the plant row uses `assets/images/colombia-flag-points.svg` (363 circles), with matching authoring JSON and the supplied transparent `colombia-flag.png` preserved alongside it. Regenerate with `swift scripts/generate-flag-points.swift` on macOS. The SVG is copied into the public build and the matching JSON supplies the shared particle effect.
 
