@@ -61,6 +61,8 @@ See [the verification record](../docs/verification.md) for checks actually run, 
 
 The owner authorized automatic publication on 11 November 2026. `.github/workflows/pages.yml` checks, builds, verifies, and deploys the site on every push to `main`; it can also be run manually. Production always uses the root base path `/` for [sebls.github.io](https://sebls.github.io/). GitHub Pages uses GitHub Actions as its publishing source. Only `dist/` is uploaded as the site artifact. Failed checks prevent deployment.
 
+CI downloads the official Linux x86-64 Trunk 0.22.1 release and verifies its pinned SHA-256 before extraction, avoiding source compilation on every run. When updating Trunk, update both the version and archive checksum in the workflow. `Swatinem/rust-cache@v2` restores Cargo dependencies and compiled dependency output for native and WASM checks/builds, with keys derived from the runner, Rust toolchain, and Cargo manifests/lockfile. Cargo-installed binaries are excluded. The first run populates the cache; cache misses still perform the full build. Newer runs cancel superseded builds on the same branch, while Pages publishing runs one job at a time without canceling an active publication. All existing checks remain required. Actual improved timings must be measured after the updated workflow runs on GitHub.
+
 ## Project documentation
 
 Start with [AGENTS.md](../AGENTS.md), [brief](../docs/brief.md), [technical plan](../docs/technical.md), [content guide](../docs/content/README.md), and [design guide](../docs/design.md). The [source CV](../docs/content/source-cv.md) is preserved verbatim. [Archived specifications](../docs/archive/README.md) are historical context.

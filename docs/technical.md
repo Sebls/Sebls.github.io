@@ -69,6 +69,7 @@ Load curated content locally, preferably at build time for this small site. A sm
 - Serve the generated release output, including the WASM and browser loader, as static files. Do not deploy the repository root or documentation/source files.
 - Test root and repository-prefix hosting, routed deep links, refresh, back/forward, unknown routes, images, fonts, and article loading. Never assume the dev server reproduces GitHub Pages fallback behavior.
 - The Pages workflow deploys automatically on pushes to `main` and supports manual reruns. Both triggers check and build the root-hosted site before deployment; GitHub Pages uses the Actions publishing source.
+- CI uses the checksum-verified prebuilt Trunk 0.22.1 Linux x86-64 release and caches Cargo dependencies/compiled dependencies. Superseded branch builds are canceled; Pages publication is serialized without canceling an active deployment. See the development guide for cache and version-update details.
 - Generate page-specific titles, descriptions, and Open Graph text in every document; confirm final absolute metadata URLs before deployment.
 
 ## Verification after implementation begins

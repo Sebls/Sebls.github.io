@@ -1,5 +1,11 @@
 # Implementation verification — 11 November 2026
 
+## Faster Pages workflow — 11 November 2026
+
+Replaced repeated source compilation of Trunk with the official 0.22.1 Linux x86-64 archive, verified against a pinned SHA-256 before extraction. Added `Swatinem/rust-cache@v2` for Cargo dependencies and compiled dependency output, excluding Cargo-installed binaries. Moved concurrency to individual jobs: newer branch builds cancel older builds, while Pages deployment remains serialized without interrupting active publication. Preserved all formatting, checks, tests, linting, static generation, and output-verification steps. Updated the development guide and technical plan.
+
+Actionlint 1.7.7 and Bash syntax validation passed. Downloaded the exact official Linux archive, verified SHA-256 `2ab8d548fd5ed9cda50906f61fd8654204e7893bd52ebbfd90533862b7d71ee1`, and confirmed its `trunk` archive entry. Formatting, locked offline WASM check, all five library tests, native all-target and WASM Clippy with warnings denied, full root release generation, nine-document output verification, and Git whitespace checks passed locally. The Linux binary cannot run on this macOS ARM host; installation execution, cache restore/save behavior, concurrency, and improved timings require a GitHub Actions run. Browser interactions and prefixed hosting were not repeated for this workflow-only change. Nothing committed, pushed, or deployed.
+
 ## DGMM2027 conference venue — 11 November 2026
 
 Checked the [official DGMM2027 website](https://dgmm2027.sciencesconf.org/), which identifies the fifth International Conference on Discrete Geometry and Mathematical Morphology in Grenoble, France, scheduled for 13–16 April 2027. Replaced the manuscript's organization line with the venue and city, linked through optional `organization_url`. Venue links retain the existing accent color. The research period is explicitly labeled separately from the conference schedule; manuscript title, author order, and pending-decision status remain. The event website does not establish this paper's acceptance. Preserved the owner's other project-label edits.
