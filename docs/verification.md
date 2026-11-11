@@ -1,5 +1,11 @@
 # Implementation verification — 11 November 2026
 
+## DGMM2027 conference venue — 11 November 2026
+
+Checked the [official DGMM2027 website](https://dgmm2027.sciencesconf.org/), which identifies the fifth International Conference on Discrete Geometry and Mathematical Morphology in Grenoble, France, scheduled for 13–16 April 2027. Replaced the manuscript's organization line with the venue and city, linked through optional `organization_url`. Venue links retain the existing accent color. The research period is explicitly labeled separately from the conference schedule; manuscript title, author order, and pending-decision status remain. The event website does not establish this paper's acceptance. Preserved the owner's other project-label edits.
+
+Formatting, locked offline WASM check, WASM/native all-target Clippy with warnings denied, complete root release build, nine-document output verification, and whitespace checks passed. Desktop browser review confirmed the venue label and exact official URL; at 390px there was no horizontal overflow and the venue link retained its accent color. Captured warning/error logs were empty; viewport restored. Proof image: `/private/tmp/sebls-conference-venue.png`. Prefixed hosting, physical touch, reduced-motion settings, and other page interactions were not newly exercised. Nothing committed, pushed, or deployed.
+
 ## Consistent project types, course names, and cities — 11 November 2026
 
 Standardized all seven project context labels as Personal project or Course project, followed by available institution, course, and location. Corrected PensumEditor and curricular paths to personal projects and image reconstruction to the Convex Optimization course. Translated Ingénierie des Mondes Virtuels as Virtual Worlds Engineering and added the owner's confirmed Paris, France location to both Mines course projects. Colombian project cities use supplied/source-CV Bogotá facts; PhraseCrack's location is omitted because none was supplied. Public copy and the content guide follow the latest owner corrections rather than the historical course labels. Subsequent owner edits simplified university labels to institution, course, and city, and personal labels to Personal project; this final wording is retained in the commit preparation.

@@ -36,6 +36,10 @@ Personal entries use `Personal project`; university entries use `institution · 
 
 The Gaussian Splatting course label is translated as Virtual Worlds Engineering. The owner confirmed Paris, France for both Mines projects (smart irrigation and Gaussian Splatting). Colombian university-project cities retain the supplied Bogotá, Colombia location. The owner subsequently simplified the labels by removing the Course project prefix from university entries and omitting city labels from personal entries.
 
+## Conference venue reference
+
+The STIM manuscript's organization line now identifies its submission venue, DGMM 2027, rather than its research affiliation. The [official conference website](https://dgmm2027.sciencesconf.org/), checked 11 November 2026, identifies the fifth International Conference on Discrete Geometry and Mathematical Morphology in Grenoble, France, scheduled for 13–16 April 2027. The organization links to this website through optional `organization_url`; the paper title does not link to the conference as if it were a published paper. The entry labels February–May 2026 as the research period, retains all supplied authors, and still says the submission decision is pending. The official site verifies event details, not this manuscript's acceptance or publication status.
+
 ## Voice and length
 
 Use natural, direct English initially. Keep the first-person voice for introductions and personal reflections. Use concrete contribution language for role and project summaries. Avoid inflated claims, keyword walls, and repeated explanations across pages.
