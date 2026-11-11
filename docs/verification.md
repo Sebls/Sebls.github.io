@@ -1,0 +1,136 @@
+# Implementation verification — 11 November 2026
+
+## Local Git repository and commit preparation — 11 November 2026
+
+Initialized the local repository on `main` using the existing Git author identity. Grouped the existing implementation into Commitizen-style commits for repository conventions, requirements, references, curated content, cat artwork, decorative artwork, the connected Rust application, CSS, static generation, verification tools, CI preparation, design previews, and handoff documentation. The Rust modules were committed together because they depend on one another; no earlier development history was reconstructed. No remote was configured, nothing was pushed, and the Pages workflow was not run.
+
+Expanded `.gitignore` for build output, local tools, environment/credential files, editor caches, and the private local source CV. Kept `Cargo.lock` tracked. Verified the source CV and generated directories are absent from tracked files. The source CV remains unchanged on disk and is unnecessary for a build from a fresh clone.
+
+Checks rerun: `cargo fmt --check`; locked, offline WASM check; all five library tests; native all-target and WASM Clippy with warnings denied; complete release builds and seven-document output verification at `/` and `/sebls-portfolio/`; desktop and 390px calculated density audits; Git object integrity and commit-message format checks. All passed. The output verifier checked local links, section targets, metadata, and source exclusion. Reused the existing local Rust/Trunk tools without installing dependencies. Browser navigation, keyboard interaction, reduced motion, and physical touch were not newly exercised for this repository-only task. Existing photographs, articles, and final publishing URL remain owner inputs.
+
+## Plant and flag density reduction — 11 November 2026
+
+Rebuilt five plant SVG/JSON pairs and the flag pair from the original transparent artwork. The shared optional Swift sampler uses opaque-cell centroids and averaged RGB, preserving sparse stem/edge cells and rejecting disconnected plant cutout specks before sampling. Plants now contain 582, 504, 305, 540, and 453 points; the flag contains 363. Combined count is 2,747 versus 55,840 (95.1% fewer). Their nominal desktop pitch and dot diameter match the 310px cat. Actual spacing varies with centroid placement. Original PNGs, all viewBoxes, CSS placement/sizing, cat and sleep-mark SVG/JSON bytes, and runtime animation code are unchanged. Existing plant/flag generator commands delegate to the shared sampler. Updated README, design notes, density report, and CSV.
+
+Checks run for this change: `cargo fmt --check`, locked WASM check, WASM Clippy with warnings denied, complete root release build, and seven-document local-reference/source-exclusion verifier passed. The density audit verifies every SVG/JSON point position, RGB color, radius, finite values, bounds, dimensions, and count. All public SVGs match source bytes; point JSON remains excluded from public files. An optimized generator rerun reproduced the built SVGs exactly. No new dependencies were installed.
+
+Desktop visual review confirmed recognizable plants, pots, flag stripes, and pole at website sizes. All five plants and flag activated their Canvas layers on pointer interaction; exit restored zero active layers and unchanged heading transform. At 390px only the cat was visible and no horizontal overflow was observed. Browser warning/error logs were empty. Restored the desktop viewport and saved `/tmp/sebls-simplified-plants-flag.png`. Prefixed hosting, other page navigation, keyboard use, changed OS reduced-motion preferences, and physical touch were not newly exercised; their code and layout rules were unchanged. Nothing was deployed. Existing owner inputs remain photographs, articles, and the publishing URL.
+
+## Delivered
+
+Six separate HTML pages, a generated 404 document, and per-published-article HTML generation. Shared Yew components render natively at build time and hydrate in the browser. Normal links preserve document navigation and native fragments. The initial gallery and blog are intentionally empty. Curated CV copy keeps qualifications and dates, separates overlapping roles, and does not imply manuscript publication.
+
+The Home illustration uses the supplied local PNG because the requested SVG is absent. A CSS ring and slight pull are confined to its clipped, paint-contained surface. No continuous animation loop, global cursor, or document distortion is used. Reduced motion, coarse pointers, no hover, and non-mouse pointer events receive static artwork. The menu supports Enter, Tab, and Escape, including focus return.
+
+## Checks performed
+
+- `cargo fmt --check`: passed.
+- `cargo check --locked --target wasm32-unknown-unknown`: passed.
+- `cargo clippy --locked --target wasm32-unknown-unknown -- -D warnings`: passed.
+- `cargo clippy --locked --all-targets -- -D warnings`: passed.
+- `cargo test --locked --lib`: passed; route recognition and root/prefix link construction.
+- Complete release builds (`trunk build --release` followed by the native renderer) at `/` and `/sebls-portfolio/`: passed. The final `dist` uses `/sebls-portfolio/` as a preview assumption, not a confirmed publishing location.
+- `scripts/verify-output.py`: passed for both bases; seven documents, local page/assets links, fragment targets, unique IDs, main headings, static metadata, and exclusion of source folders and Markdown.
+- Temporary content copy outside the repository: published Markdown rendered; headings gained index targets; metadata escaped; script markup sanitized; draft without body excluded; missing published body rejected; declared gallery image copied with metadata. No fixture article or photograph was added to production content.
+- Embedded browser: Home layout inspected at desktop and 390px width; all six pages rendered at 390px without horizontal overflow; navigation, prefixed direct section links, refresh, and back/forward passed. Gallery and Blog empty states and a temporary article reading view were inspected.
+- Keyboard: page heading focus on load, menu opening, tab order into navigation, Escape closing/focus return. A focus reset on menu state changes was found and fixed, then retested.
+- Pointer: local entry enabled the ring and illustration transform; heading and rail transforms stayed `none`; exit reset the effect. CSS clipping and paint containment were confirmed. Cat component was absent from all five other main pages. Browser warning/error logs were empty during the final page checks.
+- A release optimization failure was fixed by preserving WebAssembly feature metadata (`strip = "debuginfo"` rather than stripping all sections). No extra optimizer flags remain.
+
+## Limits and remaining inputs
+
+- Reduced-motion and touch fallbacks were inspected in CSS and the pointer handler. The browser interface offered no media or touch emulation; physical touch and changed OS reduced-motion settings were not tested. Resize/mobile layout was tested independently of touch input.
+- Static HTML was inspected directly and contains the page content and links. The no-JavaScript menu fallback is implemented with a `noscript` style; browser-wide JavaScript disabling was not available for an end-to-end test.
+- No real photographs or articles were supplied. Populated states were tested using disposable fixtures only. Owner review of public wording remains appropriate before publication.
+- Final SVG artwork, photographs with alt text/captions, articles, and the public hostname/base path remain owner inputs. No canonical URL, social image, public CV file, or email address was invented.
+- No actual GitHub Pages deployment or multi-browser/device certification was performed. GitHub's unknown-path HTTP handling is documented; local checks used static hosting without SPA rewrites. The supplied working folder has no `.git` metadata.
+- Rust 1.99.1 and Trunk 0.22.1 were installed temporarily under `/tmp/sebls-cargo` and `/tmp/sebls-rustup`; the normal shell configuration was not changed. README documents a durable setup.
+- The workflow is manual and defaults to artifact preparation only. Nothing was published.
+
+## Home layout update — 11 November 2026
+
+Moved the cat panel before the introduction, applied a #c93f46 red background, and anchored the artwork and decorations at the bottom-right. Reduced-motion CSS retains the new placement. Formatting, WASM check, Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. Browser inspection confirmed desktop placement and 390px layout with no horizontal overflow. Reduced-motion settings and physical touch were not newly exercised. The local preview was refreshed; nothing was published.
+
+## Link styling update — 11 November 2026
+
+Replaced text arrows with shared rounded SVG arrows, added GitHub/LinkedIn icons to all profile links, and removed Home’s intersection row and its unused styles. `cargo fmt --check`, WASM `cargo check`, WASM Clippy with warnings denied, the complete root release build, and the seven-document output verifier passed. Desktop Home was visually inspected. About contact/footer links retained accessible text; Home and About had no overflow at 390px, and the mobile menu navigated from About to Home. No article is published, so article/back-arrow changes were compiled but not exercised in a live article. Nothing was deployed.
+
+## Rail and Work ordering update — 11 November 2026
+
+Removed Explore numbering, changed the wordmark to “Sebls,” replaced the location dot with an outline pin, and placed Research before Projects in Work and its section index. Formatting, WASM check, WASM Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. Desktop Work and the 390px header/menu were inspected; no horizontal overflow was observed. Browser inspection confirmed plain page labels and research/projects section order. No deployment was performed.
+
+## Shared header removal — 11 November 2026
+
+Removed the name/breadcrumb header from the shared shell and deleted its desktop and mobile CSS. Formatting, WASM check, WASM Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. All seven generated documents were checked for absence of the removed header. Refreshed desktop Home in the browser and visually confirmed content starts without the header or its reserved space. Mobile and other interactive behavior were not newly exercised for this removal. Nothing was deployed.
+
+## Cat inset update — 11 November 2026
+
+Moved the cat, orbit, and sleep marks 16px up and left using their shared desktop/mobile positioning rules. Refreshed desktop Home and visually confirmed clearance beneath the tail and around the orbit inside the red panel. Formatting, WASM check, WASM Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. Mobile and pointer interaction were not newly exercised. Nothing was deployed.
+
+## Point cat conversion — 11 November 2026
+
+Converted the supplied PNG into an SVG of 6,305 colored circles and matching JSON rest positions/colors, with an optional macOS authoring script. Home renders the point SVG as an external image; existing local whole-image hover behavior remains. Individual particle gravity has not been implemented. Preserved the original PNG. Formatting, WASM check, WASM Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. Verified every SVG circle matches the JSON position and color, coordinates are in bounds, the SVG is copied exactly to the build, and authoring JSON is excluded. Desktop and 390px Home were visually inspected; the dotted cat fits the red panel at both sizes. Restored the browser viewport after inspection. Reduced-motion and pointer interactions were not newly exercised. No deployment was performed.
+
+## Point coverage and sleep marks — 11 November 2026
+
+Raised the sleep marks above the cat and increased circle radius from 3.4px to 6.4px in source coordinates. All 6,305 point positions and colors remain; overlapping circles cover the interior grid gaps so the red background no longer gives the cat a translucent appearance. Regenerated SVG and JSON radius metadata. Formatting, WASM check, WASM Clippy with warnings denied, root release build, and the seven-document output verifier passed. Verified circle count, coordinate/color correspondence, radius coverage of the 9px grid, and exact source/build SVG match. Visually inspected desktop and 390px Home, then reset the viewport. Pointer and reduced-motion behavior were not newly exercised. Nothing was deployed.
+
+## Individual cat repulsion — 11 November 2026
+
+Replaced whole-image hover movement and the CSS ring with an isolated Rust Canvas renderer of the original 6,305 colored points. The mouse repels points within 90 CSS pixels around a 28px dark core. Points ease back on exit, and the exact SVG is restored when settled. Static SVG remains the accessible/no-JavaScript/unsupported-Canvas fallback. Media changes, resize, blur, and document visibility reset the effect; settled/offscreen animation stops and unmount releases listeners and the frame closure. Only curated point data is compiled into WASM; the authoring JSON remains excluded as a public file. No new dependency was added, only Canvas web-sys API features.
+
+Formatting, locked WASM check, WASM and all-target Clippy with warnings denied, complete root release build, and the seven-document output verifier passed. Browser inspection confirmed individual repulsion at multiple positions, the dark center, subsequent inactive state with the original artwork restored, unchanged heading/rail transforms, and no warning/error logs. The 390px layout had no horizontal overflow; the viewport was restored afterward. Resize restored static artwork. Reduced-motion and physical touch were reviewed in implementation but not emulated or tested on hardware. No deployment was performed.
+
+
+## Five point plants — 11 November 2026
+
+Removed the backgrounds/ground shadows from the five supplied plant PNGs with the built-in image tool, saved transparent cutouts, and generated five colored-circle SVGs and matching JSON point data. Originals are preserved. The optional macOS Swift authoring script trims/normalizes each cutout, samples the same 9-unit grid and 6.4-unit circles as the cat, omits alpha below 90%, and retains the largest connected group to exclude stray background specks. Point counts: 12,164; 10,944; 5,892; 11,473; 9,324. The static cluster sits at the bottom left of Home’s surface. Small-screen cat sizing was adjusted to keep the plants visible. No plant gravity or pointer handlers were added.
+
+Formatting, locked WASM check, and WASM Clippy with warnings denied passed. Release generation and the seven-document local-reference verifier passed at both `/` and `/sebls-portfolio/`; final local output uses `/`. All 49,797 SVG circles were checked against JSON coordinates/colors, circle radius, and viewBox bounds. Build SVGs match source bytes; original PNGs, cutouts, and JSON are excluded from public output. Desktop, 390px, and 320px Home were visually inspected; all five SVGs loaded and there was no horizontal overflow. The initial mobile overlap was corrected and rechecked. The browser viewport was restored. Cat pointer behavior, keyboard navigation, reduced-motion OS changes, and physical touch were not newly exercised for this static-artwork change. Nothing was deployed.
+
+Background-removal prompt (same for each of the five input images): “Use case: background-extraction. Remove only the off-white background and ground shadow from this supplied potted plant illustration. Preserve the entire exact plant, pot, shapes, colors, fine leaves/spines, proportions and original illustration without redesign. Output one isolated complete potted plant on actual transparent background, no ground shadow, no additional objects. This will be sampled into a point SVG.” Background extraction may slightly alter fine raster edges; the point SVGs are sampled deterministically from the saved cutouts.
+
+
+## Ordered plant row — 11 November 2026
+
+Replaced overlapping plant positions with five equal, bottom-aligned grid columns in filename order (plant-1 through plant-5). All plants share `--plant-size:76px` in `.plant-cluster`; the row shrinks together within the available panel space, with extra cat clearance below 480px. Updated README sizing instructions and design notes.
+
+Formatting, locked WASM check, WASM Clippy with warnings denied, complete root release generation, and seven-document output verification passed. Browser inspection confirmed five loaded SVGs in increasing filename/x order, equal 76px desktop boxes, and a shared bottom baseline. Visually checked 320px and 390px layouts with no horizontal overflow; restored the desktop viewport and refreshed the local preview. Pointer interaction, keyboard navigation, reduced-motion preferences, other page flows, and physical touch were not newly exercised for this static layout change. No deployment.
+
+
+## Colombian point flag — 11 November 2026
+
+Converted the supplied already-transparent flag PNG directly into 6,043 colored circles on the same 9-unit grid with 6.4-unit radius and 90% alpha cutoff as the cat. Preserved the original PNG and matching point JSON, and added an optional Swift authoring script. Only the SVG is copied to the public build. The static flag sits above the left end of the plant row, 84px wide beside 63px plant boxes at desktop size, scaling with plant columns on smaller screens. Plant styles and positions were not changed; browser bounding rectangles for all five plants matched exactly before/after on desktop and at 390px.
+
+Formatting, locked WASM check, WASM Clippy with warnings denied, complete root release build, and seven-document local-reference verification passed. Every flag circle matches JSON coordinates/colors and is in the source viewBox. The copied SVG matches source bytes, and source PNG/JSON are excluded. Desktop and 390px layouts were visually inspected, with the desktop flag confirmed loaded at 84px and no horizontal overflow. Viewport restored. No flag interaction was added. Cat pointer behavior, reduced-motion/touch, keyboard navigation, and a prefixed build were not newly exercised. Nothing was deployed.
+
+
+## Dotted sleep marks — 11 November 2026
+
+Replaced the literal zzz span and CSS font/letter spacing with an external, decorative SVG containing 39 pale circles in three five-by-five z glyphs. The image retains the original right/bottom offsets and −15° rotation in an 80 × 16px box. Matching JSON records all point coordinates/colors for future use; it is excluded from the public build. No interaction was added.
+
+Formatting, locked WASM check, WASM Clippy with warnings denied, complete root release build, and seven-document local-reference verifier passed. SVG circles match all JSON positions/colors; circle bounds and exact source/build SVG equality were checked. Browser inspection confirmed the SVG loaded as an image above the cat at desktop and 390px; mobile had no horizontal overflow. Viewport restored. Pointer behavior, physical touch, OS reduced motion, keyboard navigation, and a prefixed build were not newly exercised. Nothing was deployed.
+
+
+## Sleep-mark arc — 11 November 2026
+
+Raised the middle dotted z relative to the outer two by 3.6 CSS pixels, creating a gentle arch inside the existing image box. Updated the matching JSON. Formatting, locked WASM check, WASM Clippy, root release build, local-reference verifier, circle/JSON correspondence, bounds, and exact public SVG copy checks passed. Desktop preview visually inspected. Mobile and interactions were not newly exercised; image size and CSS positioning are unchanged. Nothing was deployed.
+
+## Shared illustration particles and cat-only mobile — 11 November 2026
+
+Extracted `PointArtwork` so the cat, five plants, Colombian flag, and sleep marks use the same particle renderer and independent SVG fallbacks. The renderer reads each asset’s width, height, and radius, handles contain sizing/bottom alignment and centered 2D CSS rotation, and retains local listeners, on-demand frames, reset/cleanup, and static media fallbacks. Existing 40px influence and 14px yellow core settings are preserved. Screens up to 720px hide every point artwork except the cat, including future component additions. README explains the SVG/JSON, component, placement, and Trunk-copy steps for adding artwork.
+
+Formatting, locked WASM check, WASM Clippy and native all-target Clippy with warnings denied passed. Complete release builds at `/` and `/sebls-portfolio/` passed, as did the seven-document link/metadata/source-exclusion verifier for each base. The final preview output uses `/`.
+
+Browser checks confirmed all five plants, the flag, rotated sleep marks, and cat activate the particle layers. Visual inspection confirmed displacement in the plants and flag. Moving out restored all SVG fallbacks; the heading transform remained `none`. Home → About → browser Back worked. At 390px and 720px, only the cat had a visible artwork box and there was no horizontal overflow. Resize reset the layers. Browser error logs were empty; the temporary viewport was reset. A mobile preview was saved to `/tmp/sebls-cat-only-mobile.png`.
+
+Reduced-motion/coarse-pointer/no-hover fallbacks and cleanup were retained and reviewed in code; changed OS preferences, physical touch, keyboard navigation, forward history, offscreen scrolling, and Canvas failure were not newly exercised. No dependency was added and nothing was deployed. No new owner input is needed for this change; the existing outstanding photographs, articles, and publishing URL remain unchanged.
+
+
+## Particle inertia and sustained flow — 11 November 2026
+
+Replaced fixed-target position easing with per-point velocity, damped spring integration, and a local circulating target. Particles keep flowing with a stationary pointer, carry momentum through pointer changes, and settle back into exact source artwork on exit. Physics uses bounded time substeps; resets clear velocity and phase. All eight illustrations share this change. No dependencies were added.
+
+Formatting, locked WASM check, WASM and native all-target Clippy with warnings denied, five library tests, complete root release build, and the seven-document output verifier passed. Four targeted motion tests cover sustained stationary-pointer motion, momentum followed by exact settling on exit, distant points remaining static, and consistent motion at 30/60/120/144Hz. The frame-rate test exposed a 32ms frame cap that slowed 30Hz motion; increasing it to 50ms while retaining bounded substeps fixed the discrepancy.
+
+Browser screenshots taken with a stationary pointer confirmed continuing local motion around the cat. Exiting to the rail restored all SVG layers (zero active Canvas layers). The heading transform remained `none`, desktop had no horizontal overflow, and warning/error logs were empty. Screenshot: `/tmp/sebls-particle-inertia.png`. Mobile layout, other page navigation, keyboard interactions, changed OS reduced-motion preferences, physical touch, and prefixed hosting were not newly exercised; their existing behavior was retained. Nothing was deployed. Existing owner inputs remain photographs, articles, and the final publishing URL.

@@ -4,7 +4,7 @@
 
 [source-cv.md](source-cv.md) is the original extended CV, preserved verbatim. It establishes personal facts, not the page layout or final wording. New photographs, captions, and articles supplied by the owner will become authoritative for their respective content.
 
-Do not edit the source CV merely to shorten website copy. Maintain curated website content separately when implementation begins. Curated public content lives in `content/portfolio.json`; the source remains private to the repository.
+Do not edit the source CV merely to shorten website copy. Maintain curated website content separately when implementation begins. Curated public content lives in `content/portfolio.json`; the source CV is private local material excluded from Git until repository visibility is decided. A fresh clone can build using the curated content without the source CV.
 
 ## Voice and length
 
