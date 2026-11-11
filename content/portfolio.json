@@ -97,10 +97,11 @@
   "research": [
     {
       "id": "morphology",
-      "title": "Training morphological neural networks",
+      "title": "Lipschitz morphological networks and their training as feature extractors",
       "organization": "STIM · Mines Paris – PSL",
       "dates": "Feb – May 2026",
-      "summary": "Investigated optimization in Supremum-of-Erosions networks for image transformations. Compared single- and two-branch architectures, initialization strategies, and dataset sizes, using noisy FashionMNIST images to study convergence and the structure of learned operators."
+      "summary": "Investigated optimization in Supremum-of-Erosions networks for image transformations. Compared single- and two-branch architectures, initialization strategies, and dataset sizes, using noisy FashionMNIST images to study convergence and the structure of learned operators.",
+      "detail": "Submitted to DGMM2027; decision pending. Authors: Mihaela Dimitrova, Mikhail Kataevskii, Sebastian Lopez Silva, Samy Blusseau, and Santiago Velasco-Forero."
     },
     {
       "id": "lisi",
