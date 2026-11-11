@@ -83,7 +83,7 @@ trunk build --release
 ./scripts/build.sh /sebls-portfolio/
 ```
 
-Document actual setup and commands in the root README once implemented. Add targeted tests for meaningful logic such as draft exclusion or route parsing where needed; avoid a large test harness for static presentation.
+Document actual setup and commands in the [development guide](development.md), linked from the root README. Add targeted tests for meaningful logic such as draft exclusion or route parsing where needed; avoid a large test harness for static presentation.
 
 Manually verify desktop and small-screen layouts, keyboard menu/focus handling, route and index links, empty gallery/blog, one real article when supplied, and the effect's entry/exit/resize/unmount behavior. Check reduced motion, touch fallback, no horizontal overflow, and no effect leakage onto siblings. Confirm a failed effect leaves the illustration and content usable. Inspect the release bundle and loading behavior rather than claiming performance from architecture alone.
 
