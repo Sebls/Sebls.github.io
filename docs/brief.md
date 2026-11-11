@@ -22,9 +22,10 @@ This grouping is a practical default; it avoids a separate page for every CV hea
 | Page | Purpose and initial content | Local index |
 | --- | --- | --- |
 | Home | Name, short professional introduction, sleeping cat, links to selected work and contact | Usually unnecessary |
-| About | Short background, education, selected skills, human interests, professional profile links | Background, Education, Skills, Contact |
+| About | Short background, education, achievements, selected skills, professional profile links | Background, Education, Achievements, Skills, Contact |
 | Experience | Curated professional roles; concise contribution summaries | Role headings |
 | Work | Selected projects and research, clearly labeled; publications only with supported details | Projects, Research |
+| Hobbies | Competitive programming, volunteering, and future owner-supplied interests | Competitive programming, Volunteering |
 | Gallery | Original photographs with optional factual captions | Unnecessary initially |
 | Blog | Published article list, followed by a separate reading view for each article | Article headings on long articles |
 

@@ -6,6 +6,18 @@
 
 Do not edit the source CV merely to shorten website copy. Maintain curated website content separately when implementation begins. Curated public content lives in `content/portfolio.json`; the source CV is private local material excluded from Git until repository visibility is decided. A fresh clone can build using the curated content without the source CV.
 
+## Old portfolio references
+
+The `old-portfolio/` reference archive is local authoring material excluded from Git. It will not be present in a fresh clone; the curated public article, selected figures, and portfolio records are tracked separately and are sufficient to build the site.
+
+The [old portfolio archive](old-portfolio/README.md) organizes content recovered from the supplied local `Sebls.github.io` checkout on 11 November 2026: Home/profile copy, education, experience, projects, skills, achievements, volunteering, and English/French/Spanish variants. It also preserves the complete autoencoder article and inventories its 13 figures, the portrait, and the old CV PDFs.
+
+These are historical reference materials, with selected items now imported at the owner's request. The archive records conflicts with the current CV and details that need review. All 20 local images (13 figures, one portrait, and six CV icons) are copied into `old-portfolio/assets/`, and image links use those archived copies. PDF links still point to the old checkout. Keep this archive out of the public build along with the source CV and reference JSON; only curated copies belong in public content.
+
+The [additional-facts comparison](old-portfolio/additional-facts.md) extracts old claims missing from the new website, identifies which are also absent from the extended source CV, and flags conflicting or historical details before reuse.
+
+On 11 November 2026, the owner selected the three additional projects (PhraseCrack, smart irrigation, and Gaussian Splatting), achievements, volunteering, and the autoencoder article for the current site. Projects, achievements, hobbies, and volunteering live in `content/portfolio.json`. About renders compact, neutral achievement rows; Hobbies renders ICPC participation under Competitive programming and both volunteer roles under Volunteering, with local index links. Future hobby entries require owner-supplied facts. Award copy preserves the archived Top 1% scope and Mines exemption, identifies ICPC as participation, and uses the current CV's explicit UNAL waiver periods rather than expanding them to all semesters. The irrigation project uses the dated English/Spanish account. The complete article is in `content/posts/autoencoders-image-similarity.md`; its 13 selected figures are copied to `assets/images/autoencoders/` and declared in the post's `assets` list. Its source supplies only 2025, so the site displays a year without inventing a day. Gallery remains empty; portrait, icons, and PDFs are not imported into the public site.
+
 ## Voice and length
 
 Use natural, direct English initially. Keep the first-person voice for introductions and personal reflections. Use concrete contribution language for role and project summaries. Avoid inflated claims, keyword walls, and repeated explanations across pages.
@@ -63,8 +75,9 @@ Adding a photo or post should require local content/asset edits and a rebuild, n
 
 ## Adding content
 
-- Edit `content/portfolio.json` for curated experience, projects, and research. Introductory copy is in `src/pages/mod.rs`.
+- Edit `content/portfolio.json` for curated experience, projects, research, achievements, hobbies, and volunteering. Entries can include an optional `url` for a linked title. Introductory copy is in `src/pages/mod.rs`.
 - Add photographs under `assets/images/`, then records to `content/gallery.json`: `file` (for example `assets/images/photo.webp`), `alt`, `width`, `height`, and optional `caption`. Only declared gallery files are copied. Supply authorized images and remove private EXIF/location data before adding them.
-- Add `content/posts/<slug>.md` and one record in `content/posts.json`: `slug`, `title`, `date` (`YYYY-MM-DD`), `summary`, optional `tags` array, and explicit `draft: false` to publish. Slugs use lowercase ASCII letters, digits, and hyphens. Drafts (including missing flags) never enter generated HTML or WASM. Published records without bodies fail the build. Dates sort newest first; future dates are not scheduled publishing, so keep future posts as drafts.
+- Add `content/posts/<slug>.md` and one record in `content/posts.json`: `slug`, `title`, `date` (`YYYY-MM-DD`, or `YYYY` when the source supplies only a year), `summary`, optional `tags` and `assets` arrays, and explicit `draft: false` to include it in the site. Slugs use lowercase ASCII letters, digits, and hyphens. Drafts (including missing flags) never enter generated HTML or WASM. Published records without bodies fail the build. Dates sort newest first; a year-only entry follows fully dated entries from that year. Future dates are not scheduled publishing, so keep future posts as drafts.
+- Declare each selected article asset with its repository path under `assets/images/` in the post's `assets` array. Only assets belonging to published posts are copied by the native renderer. Use `../../assets/images/<folder>/<file>` in Markdown for images at `/blog/<slug>/`; this also works under repository-prefix hosting. Do not reference `docs/` or the old checkout from public article bodies.
 - Article headings should start at `##` below the page title. Markdown is rendered and sanitized at build time. Use local section links and relative article links; for assets use relative paths appropriate to `/blog/<slug>/`. Article headings receive stable numbered IDs for the page index.
-- Rebuild after local edits. No example photographs or articles are published by default.
+- Rebuild after local edits. The autoencoder article is the first real post; no example articles or photographs are published.

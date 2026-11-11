@@ -24,7 +24,7 @@ class Document(HTMLParser):
                 self.refs.append(a[key])
 
 files = list(root.rglob('*.html'))
-for page in ['index.html','about/index.html','experience/index.html','work/index.html','gallery/index.html','blog/index.html','404.html']:
+for page in ['index.html','about/index.html','experience/index.html','work/index.html','hobbies/index.html','gallery/index.html','blog/index.html','404.html']:
     assert (root/page).is_file(), page
 for file in files:
     text = file.read_text()

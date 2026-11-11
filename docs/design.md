@@ -34,7 +34,7 @@ Use local original/authorized artwork and fonts. Asset URLs and font names in th
 
 ## Missing inputs
 
-Original gallery images, captions, and blog articles have not been supplied. Preserve intentional gallery/blog empty states until they arrive. Home uses a point SVG derived from the supplied cat PNG; individual particle repulsion is now implemented.
+Original gallery images and captions have not been supplied; preserve the Gallery empty state. The autoencoder article and its 13 figures have been restored from the old portfolio at the owner's request. Blog still supports an empty manifest. Home uses a point SVG derived from the supplied cat PNG; individual particle repulsion is now implemented.
 
 ## Implemented choices
 
@@ -74,3 +74,7 @@ The shared particle effect now retains a velocity and orbital phase for each poi
 This update supersedes the earlier 9-unit sampling and 6.4-unit radius for plants and flag only. Cat and sleep-mark assets, CSS sizing, placement, and shared interaction are unchanged. `scripts/generate-decoration-points.swift` targets the 310px desktop cat’s 2.225 CSS-pixel pitch at 63px plant boxes and a 70px-wide flag. Nominal source cell widths are about 44.286 units for plants and 40.684 for the flag; radius is cell width × 6.4/9, giving the cat’s 3.164px desktop dot diameter.
 
 The sampler reads original transparent artwork, excludes alpha below 90%, and retains the largest 8-connected source component for plants before sampling. Each occupied coarse cell produces one dot positioned at the opaque-pixel centroid with averaged RGB; sparse cells preserve stems and leaf tips. Dot centers are clamped by radius inside unchanged viewBoxes. This slightly rounds fine edges while preserving silhouette and main color regions. Actual neighbor spacing varies with centroids; grid pitch is nominal. New counts: plants 582 / 504 / 305 / 540 / 453; flag 363. Combined reduction: 55,840 → 2,747 (95.1%). SVGs and animation JSON are regenerated together. The old plant and flag script entry points delegate to the shared sampler. No runtime code, dependencies, or new browser APIs were added.
+
+## About achievements and Hobbies — 11 November 2026
+
+About achievements use compact date-and-description rows in the same neutral text colors as Education and Selected skills. Dates sit in a narrow left column on larger screens and stack above descriptions below 480px. Organization names are muted rather than accent-colored. Hobbies is a separate generated page with shared navigation and local Competitive programming and Volunteering sections. ICPC participation and both volunteer roles moved there; future interests are added only when supplied by the owner.

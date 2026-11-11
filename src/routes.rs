@@ -9,6 +9,8 @@ pub enum Route {
     Experience,
     #[at("/work")]
     Work,
+    #[at("/hobbies")]
+    Hobbies,
     #[at("/gallery")]
     Gallery,
     #[at("/blog")]
@@ -48,6 +50,12 @@ mod tests {
         );
         assert_eq!(href("/", &Route::Home), "/");
         assert_eq!(recognize("/about/"), Route::About);
+        assert_eq!(recognize("/hobbies/"), Route::Hobbies);
+        assert_eq!(href("/", &Route::Hobbies), "/hobbies/");
+        assert_eq!(
+            href("/sebls-portfolio/", &Route::Hobbies),
+            "/sebls-portfolio/hobbies/"
+        );
         assert_eq!(
             recognize("/blog/real-post/"),
             Route::Article {

@@ -1,19 +1,162 @@
 {
   "experience": [
-    {"id":"stm","title":"AI Engineer Intern","organization":"STMicroelectronics · Rousset, France","dates":"May – Aug 2026","summary":"Built agents and retrieval systems for technical document analysis, alongside a Python SDK that standardized access to enterprise language models.","detail":"Combined hierarchical indexing and knowledge graphs across 1,000+ technical documents, with evaluation of retrieval quality, citations, latency, and reliability."},
-    {"id":"engin-research","title":"AI Researcher","organization":"Engin AI · Independent contractor","dates":"Jan – May 2026","summary":"Studied how AI agents respond to deepfake detection systems, focusing on trust, reliance, and behavioral adaptation.","detail":"Built reproducible experiments spanning 180 runs and 5,400 agent decisions. Co-authored a research manuscript; publication details are not yet supplied."},
-    {"id":"engin-ml","title":"Machine Learning Engineer","organization":"Engin AI · Independent contractor","dates":"Nov 2025 – Jan 2026","summary":"Developed audio deepfake detection models and multilingual evaluation pipelines in PyTorch.","detail":"Constructed a benchmark of 645K+ audio samples across eight languages and evaluated generalization to unseen speakers and speech synthesis architectures."},
-    {"id":"engin-software","title":"Software Engineer","organization":"Engin AI · Independent contractor","dates":"Sep – Nov 2025","summary":"Improved video decoding, ingestion, and preprocessing for computer vision pipelines.","detail":"Optimized threading and CPU/GPU allocation in containerized environments, reducing end-to-end pipeline latency by 70–80%."},
-    {"id":"dataconstructors","title":"Junior Software Engineer","organization":"Dataconstructors AI · Bogotá, Colombia","dates":"Mar – Sep 2025","summary":"Built Python services, database workflows, and document processing tools for accounting and geospatial operations.","detail":"Automated an accounting and reporting workflow, reducing processing time from one week to three hours."},
-    {"id":"unal","title":"Research & Academic Development Assistant","organization":"Universidad Nacional de Colombia","dates":"Jun 2024 – Aug 2025","summary":"Researched postgraduate programs to support proposed specializations in software engineering and machine learning and data science.","detail":"Combined curriculum analysis, faculty collaboration, and geospatial data dashboards to inform academic planning."}
+    {
+      "id": "stm",
+      "title": "AI Engineer Intern",
+      "organization": "STMicroelectronics · Rousset, France",
+      "dates": "May – Aug 2026",
+      "summary": "Built agents and retrieval systems for technical document analysis, alongside a Python SDK that standardized access to enterprise language models.",
+      "detail": "Combined hierarchical indexing and knowledge graphs across 1,000+ technical documents, with evaluation of retrieval quality, citations, latency, and reliability."
+    },
+    {
+      "id": "engin-research",
+      "title": "AI Researcher",
+      "organization": "Engin AI · Independent contractor",
+      "dates": "Jan – May 2026",
+      "summary": "Studied how AI agents respond to deepfake detection systems, focusing on trust, reliance, and behavioral adaptation.",
+      "detail": "Built reproducible experiments spanning 180 runs and 5,400 agent decisions. Co-authored a research manuscript; publication details are not yet supplied."
+    },
+    {
+      "id": "engin-ml",
+      "title": "Machine Learning Engineer",
+      "organization": "Engin AI · Independent contractor",
+      "dates": "Nov 2025 – Jan 2026",
+      "summary": "Developed audio deepfake detection models and multilingual evaluation pipelines in PyTorch.",
+      "detail": "Constructed a benchmark of 645K+ audio samples across eight languages and evaluated generalization to unseen speakers and speech synthesis architectures."
+    },
+    {
+      "id": "engin-software",
+      "title": "Software Engineer",
+      "organization": "Engin AI · Independent contractor",
+      "dates": "Sep – Nov 2025",
+      "summary": "Improved video decoding, ingestion, and preprocessing for computer vision pipelines.",
+      "detail": "Optimized threading and CPU/GPU allocation in containerized environments, reducing end-to-end pipeline latency by 70–80%."
+    },
+    {
+      "id": "dataconstructors",
+      "title": "Junior Software Engineer",
+      "organization": "Dataconstructors AI · Bogotá, Colombia",
+      "dates": "Mar – Sep 2025",
+      "summary": "Built Python services, database workflows, and document processing tools for accounting and geospatial operations.",
+      "detail": "Automated an accounting and reporting workflow, reducing processing time from one week to three hours."
+    },
+    {
+      "id": "unal",
+      "title": "Research & Academic Development Assistant",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "Jun 2024 – Aug 2025",
+      "summary": "Researched postgraduate programs to support proposed specializations in software engineering and machine learning and data science.",
+      "detail": "Combined curriculum analysis, faculty collaboration, and geospatial data dashboards to inform academic planning."
+    }
   ],
   "projects": [
-    {"id":"curriculum","title":"Learning from curricular paths","organization":"Universidad Nacional de Colombia","dates":"Started Aug 2024","summary":"Exploring spatiotemporal graph neural networks to classify academic paths and identify courses associated with graduation delays. The work connects student histories with questions about academic progression; improved graduation outcomes have not been established."},
-    {"id":"tomography","title":"Reconstructing images from projections","organization":"Course project · Optimization","dates":"Jul – Sep 2024","summary":"Adapted a Julia example to reconstruct images from line integrals, simulating X-ray tomography. Compared optimization methods and examined how each affected reconstruction quality, linking mathematical formulations to visible changes in the resulting images."},
-    {"id":"pensum","title":"PensumEditor","organization":"Course project · Data structures","dates":"Dec 2022 – Jun 2023","summary":"Built a graphical editor in Java and JavaFX for personalized university study plans. Students can select courses, arrange their sequence, and visualize a curricular path, making the relationships between course choices easier to explore."}
+    {
+      "id": "phrasecrack",
+      "title": "PhraseCrack",
+      "organization": "Personal project",
+      "dates": "2026",
+      "summary": "Built an open-source daily word-guessing game that scores guesses through semantic similarity using transformer embeddings. Paired a Next.js and TypeScript frontend with a FastAPI backend, using a domain-driven architecture with automated tests and documentation.",
+      "url": "https://github.com/Guess-the-phrase"
+    },
+    {
+      "id": "smart-irrigation",
+      "title": "Smart irrigation, from sensors to dashboard",
+      "organization": "Mines Paris – PSL · Intelligent and Digital Systems",
+      "dates": "Sep – Dec 2025",
+      "summary": "Built an end-to-end irrigation system connecting Raspberry Pi and Arduino sensor nodes, a FastAPI backend, and a Next.js monitoring dashboard. Implemented multi-zone control, rule-based watering, locally buffered telemetry, automatic device provisioning, and historical data analysis."
+    },
+    {
+      "id": "gaussian-splatting",
+      "title": "Automating Gaussian Splatting",
+      "organization": "Mines Paris – PSL · Ingénierie des Mondes Virtuels",
+      "dates": "Sep – Nov 2025",
+      "summary": "Created an immersive virtual exhibition of geological artifacts using Gaussian Splatting. Built an approximately 90% automated pipeline for dataset and model generation, reducing preparation time from about five hours to about 30 minutes, excluding training runtime."
+    },
+    {
+      "id": "curriculum",
+      "title": "Learning from curricular paths",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "Started Aug 2024",
+      "summary": "Exploring spatiotemporal graph neural networks to classify academic paths and identify courses associated with graduation delays. The work connects student histories with questions about academic progression; improved graduation outcomes have not been established."
+    },
+    {
+      "id": "tomography",
+      "title": "Reconstructing images from projections",
+      "organization": "Course project · Optimization",
+      "dates": "Jul – Sep 2024",
+      "summary": "Adapted a Julia example to reconstruct images from line integrals, simulating X-ray tomography. Compared optimization methods and examined how each affected reconstruction quality, linking mathematical formulations to visible changes in the resulting images."
+    },
+    {
+      "id": "pensum",
+      "title": "PensumEditor",
+      "organization": "Course project · Data structures",
+      "dates": "Dec 2022 – Jun 2023",
+      "summary": "Built a graphical editor in Java and JavaFX for personalized university study plans. Students can select courses, arrange their sequence, and visualize a curricular path, making the relationships between course choices easier to explore."
+    }
   ],
   "research": [
-    {"id":"morphology","title":"Training morphological neural networks","organization":"STIM · Mines Paris – PSL","dates":"Feb – May 2026","summary":"Investigated optimization in Supremum-of-Erosions networks for image transformations. Compared single- and two-branch architectures, initialization strategies, and dataset sizes, using noisy FashionMNIST images to study convergence and the structure of learned operators."},
-    {"id":"lisi","title":"Research, teaching, and shared learning","organization":"LISI · Universidad Nacional de Colombia","dates":"Joined Aug 2023","summary":"Participated in AI research seminars and collaborative academic projects. Presented neural network concepts, led reinforcement learning workshops, and supported students in the Neural Networks course, alongside contributions to research proposals and the group's student research community."}
+    {
+      "id": "morphology",
+      "title": "Training morphological neural networks",
+      "organization": "STIM · Mines Paris – PSL",
+      "dates": "Feb – May 2026",
+      "summary": "Investigated optimization in Supremum-of-Erosions networks for image transformations. Compared single- and two-branch architectures, initialization strategies, and dataset sizes, using noisy FashionMNIST images to study convergence and the structure of learned operators."
+    },
+    {
+      "id": "lisi",
+      "title": "Research, teaching, and shared learning",
+      "organization": "LISI · Universidad Nacional de Colombia",
+      "dates": "Joined Aug 2023",
+      "summary": "Participated in AI research seminars and collaborative academic projects. Presented neural network concepts, led reinforcement learning workshops, and supported students in the Neural Networks course, alongside contributions to research proposals and the group's student research community."
+    }
+  ],
+  "achievements": [
+    {
+      "id": "mines-tuition",
+      "title": "Tuition exemption",
+      "organization": "Mines Paris – PSL",
+      "dates": "2025–2026",
+      "summary": "Received a tuition exemption for the 2025–2026 academic year."
+    },
+    {
+      "id": "youth-excellence",
+      "title": "Youth for Excellence",
+      "organization": "Programa Jóvenes a la E · Bogotá, Colombia",
+      "dates": "2024",
+      "summary": "Received a Best Student Award, with a GPA in the top 1% among university students in Bogotá across approximately 40 universities.",
+      "url": "https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024"
+    },
+    {
+      "id": "unal-honors",
+      "title": "Academic honors and tuition waivers",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "2022–2024",
+      "summary": "Received Class Honors in the second semester of 2022 and tuition waivers for 2022-1, 2022-2, 2023-1, 2023-2, and 2024-1."
+    }
+  ],
+  "volunteering": [
+    {
+      "id": "aspirantes",
+      "title": "Physics & Mathematics Teacher",
+      "organization": "Aspirantes · Bogotá, Colombia",
+      "dates": "Jan – Jun 2025",
+      "summary": "Taught physics and mathematics and provided personalized tutoring for applicants preparing for the Universidad Nacional de Colombia admission exams."
+    },
+    {
+      "id": "colombian-vr",
+      "title": "Developer & 3D Designer",
+      "organization": "Colombian Virtual Reality Foundation · Colombia",
+      "dates": "Mar 2020 – Jun 2021",
+      "summary": "Developed game features and 3D models for a fundraising video game supporting vulnerable communities during the COVID-19 pandemic. Also took part in health campaigns and the distribution of food, clothing, and other essential supplies."
+    }
+  ],
+  "hobbies": [
+    {
+      "id": "icpc",
+      "title": "ICPC UNAL",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "2024",
+      "summary": "Participated in the ICPC UNAL competitive programming contest."
+    }
   ]
 }

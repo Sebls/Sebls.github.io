@@ -24,6 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Route::About,
         Route::Experience,
         Route::Work,
+        Route::Hobbies,
         Route::Gallery,
         Route::Blog,
         Route::NotFound,
@@ -70,6 +71,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let dest = out.join(&photo.file);
         fs::create_dir_all(dest.parent().unwrap())?;
         fs::copy(&photo.file, dest)?;
+    }
+    for post in content::posts() {
+        for asset in post.assets {
+            let path = std::path::Path::new(&asset);
+            assert!(
+                asset.starts_with("assets/images/")
+                    && path
+                        .components()
+                        .all(|part| matches!(part, std::path::Component::Normal(_))),
+                "article assets must be inside assets/images"
+            );
+            let dest = out.join(&asset);
+            fs::create_dir_all(dest.parent().unwrap())?;
+            fs::copy(&asset, dest)?;
+        }
     }
     fs::write(out.join(".nojekyll"), "")?;
     Ok(())

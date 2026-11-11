@@ -379,6 +379,39 @@ footer a {
 .skills dd {
   margin:0
 }
+.achievement-list {
+  margin:0;
+  font-size:.9rem
+}
+.achievement-list > div {
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr);
+  gap:8px 20px;
+  padding:12px 0
+}
+.achievement-list dt {
+  color:var(--muted);
+  font:12px monospace;
+  padding-top:4px
+}
+.achievement-list dd {
+  margin:0
+}
+.achievement-title {
+  color:var(--ink)
+}
+.achievement-title span {
+  color:var(--muted)
+}
+.achievement-list p+p {
+  margin-top:4px
+}
+@media (max-width:480px) {
+  .achievement-list > div {
+    grid-template-columns:1fr;
+    padding:14px 0
+  }
+}
 .text-links {
   display:flex;
   gap:30px;
@@ -421,7 +454,7 @@ footer a {
   border-top:1px solid var(--line);
   padding:30px 0
 }
-.post-list time {
+.post-list .post-date {
   font:12px monospace
 }
 .post-list h2 {
@@ -436,6 +469,10 @@ footer a {
 }
 .prose p {
   margin:1.25rem 0
+}
+.prose img {
+  margin:1.5rem 0;
+  background:#fff
 }
 .prose a {
   text-decoration:underline;

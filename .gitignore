@@ -12,6 +12,7 @@
 
 # Private source material; reconsider only after choosing repository visibility
 /docs/content/source-cv.md
+/docs/content/old-portfolio/
 
 # OS, editor, and temporary files
 .DS_Store

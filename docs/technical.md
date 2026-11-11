@@ -8,13 +8,13 @@ Preserve the owner's original technical selection: Rust, Yew functional componen
 
 ## Pages versus rendering architecture
 
-The product needs separate Home, About, Experience, Work, Gallery, Blog, and article views. Static hosting means serving built files; it does not automatically mean each view has pre-rendered HTML.
+The product needs separate Home, About, Experience, Work, Hobbies, Gallery, Blog, and article views. Static hosting means serving built files; it does not automatically mean each view has pre-rendered HTML.
 
 A standard Yew client app uses one HTML entry point and renders routed views in the browser. That is a multi-page user experience implemented as a single-page application. It requires JavaScript/WASM to display its main content and does not provide pre-rendered per-article metadata or guaranteed search/social previews.
 
 **Resolved by the owner on 11 November 2026:** generate separate HTML documents. Hash routing was proposed and declined.
 
-One Rust crate shares Yew components between a native build-time renderer (`src/bin/render.rs`) and the WASM entry. Trunk builds the browser assets, then the native renderer uses Yew `ServerRenderer` to generate `/index.html`, `/about/index.html`, `/experience/index.html`, `/work/index.html`, `/gallery/index.html`, `/blog/index.html`, and one `/blog/<slug>/index.html` for each published article. A `404.html` supplies the unknown-page view. No runtime server or generator service is deployed.
+One Rust crate shares Yew components between a native build-time renderer (`src/bin/render.rs`) and the WASM entry. Trunk builds the browser assets, then the native renderer uses Yew `ServerRenderer` to generate `/index.html`, `/about/index.html`, `/experience/index.html`, `/work/index.html`, `/hobbies/index.html`, `/gallery/index.html`, `/blog/index.html`, and one `/blog/<slug>/index.html` for each published article. A `404.html` supplies the unknown-page view. No runtime server or generator service is deployed.
 
 Yew Router defines and recognizes routes. An in-memory router renders the same component tree for generation and browser hydration. Page navigation deliberately uses normal document links, not client history interception. Trailing-slash URLs map directly to directories on GitHub Pages. Native fragment anchors serve the current-page index without conflicting with routes. Refresh, back/forward, and no-JavaScript reading use normal browser behavior.
 
@@ -38,14 +38,14 @@ src/
   main.rs                     # mount application
   app.rs                      # shared shell and route switch
   routes.rs                   # route definitions
-  pages/                      # home, about, experience, work, gallery, blog, article, not_found
+  pages/                      # home, about, experience, work, hobbies, gallery, blog, article, not_found
   components/                 # sidebar, page_index; shared components only when reused
   effects/                    # isolated cat/black-hole component and rendering lifecycle
   content/                    # small typed models and loading/selection helpers
 content/
   portfolio.json              # curated public profile, experience, work data
   gallery.json                # supplied image metadata; initially empty
-  posts.json                  # explicit article metadata manifest; initially empty
+  posts.json                  # article metadata and selected asset manifests
   posts/                      # local Markdown article bodies when supplied
 styles/
   tokens.css

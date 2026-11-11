@@ -9,6 +9,8 @@ pub struct Post {
     pub summary: String,
     #[serde(default)]
     pub tags: Vec<String>,
+    #[serde(default)]
+    pub assets: Vec<String>,
     pub html: String,
     pub headings: Vec<(String, String)>,
 }
@@ -36,12 +38,17 @@ pub struct Entry {
     pub summary: String,
     #[serde(default)]
     pub detail: String,
+    #[serde(default)]
+    pub url: String,
 }
 #[derive(Deserialize)]
 pub struct Portfolio {
     pub experience: Vec<Entry>,
     pub projects: Vec<Entry>,
     pub research: Vec<Entry>,
+    pub achievements: Vec<Entry>,
+    pub volunteering: Vec<Entry>,
+    pub hobbies: Vec<Entry>,
 }
 pub fn portfolio() -> Portfolio {
     serde_json::from_str(include_str!("../../content/portfolio.json")).expect("curated content")

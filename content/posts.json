@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "slug": "autoencoders-image-similarity",
+    "title": "Learning a Latent Feature Space with Autoencoders for Image Similarity",
+    "date": "2025",
+    "summary": "Exploring convolutional autoencoders through reconstructions, t-SNE, nearest neighbors, class centroids, and latent interpolations on Fashion-MNIST and CIFAR-100.",
+    "tags": [
+      "Deep Learning",
+      "Autoencoders",
+      "Representation Learning"
+    ],
+    "draft": false,
+    "assets": [
+      "assets/images/autoencoders/cifar_hybrid_row_1_class_21_to_12.png",
+      "assets/images/autoencoders/cifar_large_hybrid_row_1_class_89_to_91.png",
+      "assets/images/autoencoders/cifar_large_tsne_all_classes_512dim.png",
+      "assets/images/autoencoders/cifar_reconstruction_baseline.png",
+      "assets/images/autoencoders/cifar_tsne_all_classes.png",
+      "assets/images/autoencoders/fashion_average_images_decoded_centroids.png",
+      "assets/images/autoencoders/fashion_hybrid_t-shirttop_to_sneaker.png",
+      "assets/images/autoencoders/fashion_hybrid_trouser_to_bag.png",
+      "assets/images/autoencoders/fashion_knn_validx_1731_k_12.png",
+      "assets/images/autoencoders/fashion_radius_validx_1731_r_6.2773_found_9.png",
+      "assets/images/autoencoders/fashion_reconstruction_epoch_10.png",
+      "assets/images/autoencoders/fashion_reconstruction_epoch_5.png",
+      "assets/images/autoencoders/fashion_tsne_subset.png"
+    ]
+  }
+]

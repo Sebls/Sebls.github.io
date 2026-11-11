@@ -58,7 +58,7 @@ pub fn shell(props: &ShellProps) -> Html {
           <button id="menu-toggle" class="menu-toggle" aria-expanded={open.to_string()} aria-controls="navigation" onclick={toggle}>{if *open {"Close menu"} else {"Menu"}}</button></div>
           <div id="navigation" class={classes!("navigation", (*open).then_some("is-open"))}>
             <nav aria-label="Site pages"><p class="nav-label">{"Explore"}</p>
-              {for [(Route::Home,"Home"),(Route::About,"About"),(Route::Experience,"Experience"),(Route::Work,"Work"),(Route::Gallery,"Gallery"),(Route::Blog,"Blog")].into_iter().map(|(route,label)| {
+              {for [(Route::Home,"Home"),(Route::About,"About"),(Route::Experience,"Experience"),(Route::Work,"Work"),(Route::Hobbies,"Hobbies"),(Route::Gallery,"Gallery"),(Route::Blog,"Blog")].into_iter().map(|(route,label)| {
                 let active = props.route == route || (route == Route::Blog && matches!(props.route,Route::Article{..}));
                 html!{<a class={classes!("page-link",active.then_some("active"))} aria-current={if active {Some("page")} else {None}} href={href(&props.base,&route)}>{label}<span class="nav-arrow" aria-hidden="true">{arrow("up-right")}</span></a>}
               })}
@@ -115,7 +115,7 @@ fn page_index(props: &IndexProps) -> Html {
     })}</nav>}
 }
 pub fn entries(entries: Vec<content::Entry>) -> Html {
-    html! {<div class="entries">{for entries.into_iter().map(|e|html!{<section class="entry" id={e.id} tabindex="-1"><p class="eyebrow">{e.dates}</p><h3>{e.title}</h3><p class="organization">{e.organization}</p><p>{e.summary}</p>if !e.detail.is_empty(){<p>{e.detail}</p>}</section>})}</div>}
+    html! {<div class="entries">{for entries.into_iter().map(|e|html!{<section class="entry" id={e.id} tabindex="-1"><p class="eyebrow">{e.dates}</p><h3>if e.url.is_empty(){{e.title}}else{<a href={e.url}>{e.title}{arrow("up-right")}</a>}</h3><p class="organization">{e.organization}</p><p>{e.summary}</p>if !e.detail.is_empty(){<p>{e.detail}</p>}</section>})}</div>}
 }
 
 /// Decorative arrows share a light stroke and rounded ends at every link size.
