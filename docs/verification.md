@@ -1,5 +1,11 @@
 # Implementation verification — 11 November 2026
 
+## TransMilenio course project — 11 November 2026
+
+Added “Predicting congestion at TransMilenio stations” to Work's Projects list, with the supplied Universidad Nacional de Colombia Neural Networks course context, Bogotá location, November 2024–February 2025 dates, and temporal graph neural network method. Uses the existing entry component and project chronology. No library, dataset, performance result, deployment claim, or URL was invented.
+
+Formatting, locked offline WASM check, WASM Clippy with warnings denied, complete root release build, nine-document output verification, and Git whitespace checks passed. Desktop browser review confirmed the entry and direct fragment target; a 390px check found no horizontal overflow. Captured warning/error logs were empty and viewport restored. Proof image: `/private/tmp/sebls-transmilenio-project.png`. Native Clippy, prefixed hosting, physical touch, and reduced-motion settings were not newly exercised for this data-only addition. Nothing committed, pushed, or deployed.
+
 ## Modular commit preparation and latest owner edits — 11 November 2026
 
 Included the owner's expanded coursework, Czech Technical University in Prague entry (November 2025), Skills-before-Achievements order, two-year Mines tuition exemption, revised STIM summary, and placement directly after STMicroelectronics. Preserved the pending DGMM2027 manuscript and LISI's move into Experience. Removed trailing whitespace and restored the JSON's final newline. Updated the content guide to describe these latest choices; earlier verification entries above/below retain their historical snapshots.

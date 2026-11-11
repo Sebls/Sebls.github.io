@@ -26,6 +26,10 @@ The owner subsequently supplied a separate STIM Research Intern role for March�
 
 The latest owner edits also expand the About coursework, add a November 2025 Probabilistic Methods in Combinatorics entry at Czech Technical University in Prague, place Selected skills before Achievements, and record full Mines tuition exemptions for both 2025–2026 and 2026–2027. These newer owner-supplied facts update the curated copy without rewriting the preserved source CV.
 
+## TransMilenio project
+
+The owner supplied a Universidad Nacional de Colombia Neural Networks course project in Bogotá, November 2024–February 2025: a TransMilenio station-congestion prediction system using temporal graph neural networks. Work presents it as “Predicting congestion at TransMilenio stations,” in the existing project-entry format. No implementation library, dataset, repository link, evaluation metric, or deployment outcome was supplied; the copy does not infer those details.
+
 ## Voice and length
 
 Use natural, direct English initially. Keep the first-person voice for introductions and personal reflections. Use concrete contribution language for role and project summaries. Avoid inflated claims, keyword walls, and repeated explanations across pages.

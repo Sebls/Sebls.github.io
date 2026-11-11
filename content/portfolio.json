@@ -88,6 +88,13 @@
       "summary": "Created an immersive virtual exhibition of geological artifacts using Gaussian Splatting. Built an approximately 90% automated pipeline for dataset and model generation, reducing preparation time from about five hours to about 30 minutes, excluding training runtime."
     },
     {
+      "id": "transmilenio-congestion",
+      "title": "Predicting congestion at TransMilenio stations",
+      "organization": "Universidad Nacional de Colombia · Neural Networks · Bogotá, Colombia",
+      "dates": "Nov 2024 – Feb 2025",
+      "summary": "Developed a system to predict congestion at TransMilenio stations using temporal graph neural networks. This Neural Networks course project explored graph-based learning for congestion prediction in Bogotá’s public transport system."
+    },
+    {
       "id": "curriculum",
       "title": "Learning from curricular paths",
       "organization": "Universidad Nacional de Colombia",
