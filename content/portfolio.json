@@ -76,14 +76,14 @@
     {
       "id": "smart-irrigation",
       "title": "Smart irrigation, from sensors to dashboard",
-      "organization": "Mines Paris – PSL · Intelligent and Digital Systems",
+      "organization": "Mines Paris – PSL · Intelligent and Digital Systems · Paris, France",
       "dates": "Sep – Dec 2025",
       "summary": "Built an end-to-end irrigation system connecting Raspberry Pi and Arduino sensor nodes, a FastAPI backend, and a Next.js monitoring dashboard. Implemented multi-zone control, rule-based watering, locally buffered telemetry, automatic device provisioning, and historical data analysis."
     },
     {
       "id": "gaussian-splatting",
       "title": "Automating Gaussian Splatting",
-      "organization": "Mines Paris – PSL · Ingénierie des Mondes Virtuels",
+      "organization": "Mines Paris – PSL · Virtual Worlds Engineering · Paris, France",
       "dates": "Sep – Nov 2025",
       "summary": "Created an immersive virtual exhibition of geological artifacts using Gaussian Splatting. Built an approximately 90% automated pipeline for dataset and model generation, reducing preparation time from about five hours to about 30 minutes, excluding training runtime."
     },

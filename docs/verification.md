@@ -1,5 +1,11 @@
 # Implementation verification — 11 November 2026
 
+## Consistent project types, course names, and cities — 11 November 2026
+
+Standardized all seven project context labels as Personal project or Course project, followed by available institution, course, and location. Corrected PensumEditor and curricular paths to personal projects and image reconstruction to the Convex Optimization course. Translated Ingénierie des Mondes Virtuels as Virtual Worlds Engineering and added the owner's confirmed Paris, France location to both Mines course projects. Colombian project cities use supplied/source-CV Bogotá facts; PhraseCrack's location is omitted because none was supplied. Public copy and the content guide follow the latest owner corrections rather than the historical course labels. Subsequent owner edits simplified university labels to institution, course, and city, and personal labels to Personal project; this final wording is retained in the commit preparation.
+
+Formatting, locked offline WASM check, WASM/native all-target Clippy with warnings denied, complete root release build, nine-document output verification, and Git whitespace checks passed. Validated all seven type prefixes and exact corrected labels. Desktop browser review confirmed the labels and cities; a 390px check found no horizontal overflow. Captured warning/error logs were empty; viewport restored. Proof image: `/private/tmp/sebls-project-labels.png`. Prefixed hosting, physical touch, reduced-motion settings, and other page interactions were not newly exercised for this data-only change. Nothing committed, pushed, or deployed.
+
 ## TransMilenio course project — 11 November 2026
 
 Added “Predicting congestion at TransMilenio stations” to Work's Projects list, with the supplied Universidad Nacional de Colombia Neural Networks course context, Bogotá location, November 2024–February 2025 dates, and temporal graph neural network method. Uses the existing entry component and project chronology. No library, dataset, performance result, deployment claim, or URL was invented.

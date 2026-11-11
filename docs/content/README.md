@@ -34,6 +34,8 @@ The owner supplied a Universidad Nacional de Colombia Neural Networks course pro
 
 Personal entries use `Personal project`; university entries use `institution · course · city, country`, omitting fields that have not been supplied. The owner's corrections classify PensumEditor and Learning from curricular paths as personal projects, superseding the older CV's course/institution framing. The image-reconstruction course is Convex Optimization.
 
+The Gaussian Splatting course label is translated as Virtual Worlds Engineering. The owner confirmed Paris, France for both Mines projects (smart irrigation and Gaussian Splatting). Colombian university-project cities retain the supplied Bogotá, Colombia location. The owner subsequently simplified the labels by removing the Course project prefix from university entries and omitting city labels from personal entries.
+
 ## Voice and length
 
 Use natural, direct English initially. Keep the first-person voice for introductions and personal reflections. Use concrete contribution language for role and project summaries. Avoid inflated claims, keyword walls, and repeated explanations across pages.
