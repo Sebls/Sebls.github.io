@@ -97,21 +97,21 @@
     {
       "id": "curriculum",
       "title": "Learning from curricular paths",
-      "organization": "Universidad Nacional de Colombia",
+      "organization": "Personal project",
       "dates": "Started Aug 2024",
       "summary": "Exploring spatiotemporal graph neural networks to classify academic paths and identify courses associated with graduation delays. The work connects student histories with questions about academic progression; improved graduation outcomes have not been established."
     },
     {
       "id": "tomography",
       "title": "Reconstructing images from projections",
-      "organization": "Course project · Optimization",
+      "organization": "Universidad Nacional de Colombia · Convex Optimization · Bogotá, Colombia",
       "dates": "Jul – Sep 2024",
       "summary": "Adapted a Julia example to reconstruct images from line integrals, simulating X-ray tomography. Compared optimization methods and examined how each affected reconstruction quality, linking mathematical formulations to visible changes in the resulting images."
     },
     {
       "id": "pensum",
       "title": "PensumEditor",
-      "organization": "Course project · Data structures",
+      "organization": "Personal project",
       "dates": "Dec 2022 – Jun 2023",
       "summary": "Built a graphical editor in Java and JavaFX for personalized university study plans. Students can select courses, arrange their sequence, and visualize a curricular path, making the relationships between course choices easier to explore."
     }
