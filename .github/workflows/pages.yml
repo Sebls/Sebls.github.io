@@ -1,0 +1,54 @@
+name: Prepare GitHub Pages
+on:
+  workflow_dispatch:
+    inputs:
+      base_path:
+        description: 'Site URL path, e.g. /sebls-portfolio/ or /'
+        required: true
+        default: '/sebls-portfolio/'
+      publish:
+        description: 'Publish only after owner authorizes deployment'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
+      - run: cargo install --locked trunk --version 0.22.1
+      - run: cargo fmt --check
+      - run: cargo check --locked --target wasm32-unknown-unknown
+      - run: cargo test --locked --lib
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo clippy --locked --target wasm32-unknown-unknown -- -D warnings
+      - name: Build static documents
+        env:
+          BASE_PATH: ${{ inputs.base_path }}
+        run: |
+          ./scripts/build.sh "$BASE_PATH"
+          python3 scripts/verify-output.py dist "$BASE_PATH"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    if: ${{ inputs.publish }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
