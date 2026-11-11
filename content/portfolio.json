@@ -9,6 +9,14 @@
       "detail": "Combined hierarchical indexing and knowledge graphs across 1,000+ technical documents, with evaluation of retrieval quality, citations, latency, and reliability."
     },
     {
+      "id": "stim-internship",
+      "title": "Research Intern",
+      "organization": "STIM · Mines Paris – PSL · Fontainebleau, France",
+      "dates": "Mar – May 2026",
+      "summary": "Developed and evaluated morphological neural networks for computer vision, focusing on architecture optimization, training stability, and robustness.",
+      "detail": "Designed reproducible experiments comparing neural architectures under noisy conditions, analyzing convergence, gradient sparsity, and structural recovery."
+    },
+    {
       "id": "engin-research",
       "title": "AI Researcher",
       "organization": "Engin AI · Independent contractor",
@@ -47,6 +55,13 @@
       "dates": "Jun 2024 – Aug 2025",
       "summary": "Researched postgraduate programs to support proposed specializations in software engineering and machine learning and data science.",
       "detail": "Combined curriculum analysis, faculty collaboration, and geospatial data dashboards to inform academic planning."
+    },
+    {
+      "id": "lisi",
+      "title": "Research Group Member",
+      "organization": "LISI · Universidad Nacional de Colombia",
+      "dates": "Joined Aug 2023",
+      "summary": "Participated in AI research seminars and collaborative academic projects. Presented neural network concepts, led reinforcement learning workshops, and supported students in the Neural Networks course, alongside contributions to research proposals and the group's student research community."
     }
   ],
   "projects": [
@@ -102,13 +117,6 @@
       "dates": "Feb – May 2026",
       "summary": "Investigated optimization in Supremum-of-Erosions networks for image transformations. Compared single- and two-branch architectures, initialization strategies, and dataset sizes, using noisy FashionMNIST images to study convergence and the structure of learned operators.",
       "detail": "Submitted to DGMM2027; decision pending. Authors: Mihaela Dimitrova, Mikhail Kataevskii, Sebastian Lopez Silva, Samy Blusseau, and Santiago Velasco-Forero."
-    },
-    {
-      "id": "lisi",
-      "title": "Research, teaching, and shared learning",
-      "organization": "LISI · Universidad Nacional de Colombia",
-      "dates": "Joined Aug 2023",
-      "summary": "Participated in AI research seminars and collaborative academic projects. Presented neural network concepts, led reinforcement learning workshops, and supported students in the Neural Networks course, alongside contributions to research proposals and the group's student research community."
     }
   ],
   "achievements": [
