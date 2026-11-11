@@ -1,5 +1,23 @@
 # Implementation verification — 11 November 2026
 
+## Modular commit preparation and latest owner edits — 11 November 2026
+
+Included the owner's expanded coursework, Czech Technical University in Prague entry (November 2025), Skills-before-Achievements order, two-year Mines tuition exemption, revised STIM summary, and placement directly after STMicroelectronics. Preserved the pending DGMM2027 manuscript and LISI's move into Experience. Removed trailing whitespace and restored the JSON's final newline. Updated the content guide to describe these latest choices; earlier verification entries above/below retain their historical snapshots.
+
+Formatting, locked offline WASM check, WASM/native all-target Clippy with warnings denied, complete root release generation, the nine-document output verifier, and Git whitespace checks passed on the combined final source. Browser review and prefixed builds were not newly repeated for this commit task. The local old-portfolio archive remains ignored and excluded. Changes are grouped into About content, manuscript details, experience entries, and supporting documentation; no push or deployment is part of this task.
+
+## STIM internship in Experience — 11 November 2026
+
+Added the owner-supplied Research Intern role at STIM, Mines Paris – PSL, March–May 2026, on-site in Fontainebleau, immediately after STMicroelectronics and the most recent Engin AI entry. Condensed the supplied contributions into the existing summary/detail format, preserving Supremum-of-Erosions, MultipleSupErosion fusion, k-deactivated initialization, Gaussian-corrupted FashionMNIST, validation MSE, projection diagnostics, and Pareto-minimal filter analysis. The local index picks up the new entry automatically. LinkedIn edit links and the logo were not imported. Work's manuscript entry is unchanged.
+
+Formatting, locked offline WASM check, WASM/native all-target Clippy with warnings denied, complete root release build, and nine-document output verification passed. Desktop browser inspection confirmed ordering, current styling, and the new section link; a 390px check found no horizontal overflow. Warning/error logs were empty; viewport restored. Proof image: `/private/tmp/sebls-stim-internship.png`. Prefixed hosting, other page interactions, physical touch, and reduced-motion settings were not newly exercised for this content-only addition. Nothing committed, pushed, or deployed.
+
+## DGMM2027 manuscript and LISI placement — 11 November 2026
+
+Updated the STIM research entry with the owner-supplied manuscript title, all five authors in the supplied order, and “Submitted to DGMM2027; decision pending.” The February–May 2026 dates still describe the research work. No acceptance, publication date, DOI, or paper link is inferred from receipt of updated submission files. Moved LISI membership from Work to Experience as Research Group Member, retaining its start wording, summary, stable ID, and generated local index link. Preserved the pre-existing owner edit to About section order.
+
+Formatting, locked offline WASM check, WASM/native all-target Clippy with warnings denied, complete release builds at `/` and `/sebls-portfolio/`, and the nine-document output verifier passed. Confirmed author order and pending wording in source data and LISI's unique placement. Desktop browser review confirmed the full paper entry, LISI under Experience, and the local LISI section link. Work and Experience had no horizontal overflow at 390px; captured warning/error logs were empty and the viewport was restored. Proof image: `/private/tmp/sebls-dgmm-pending.png`. Physical touch, reduced-motion preferences, Home effects, and prefixed browser navigation were not newly exercised for this content-only change. Nothing committed, pushed, or deployed.
+
 ## Hobbies page and compact About achievements — 11 November 2026
 
 Moved ICPC UNAL participation into a Competitive programming section on the new `/hobbies/` page, alongside the existing two volunteer roles in a Volunteering section. Added Hobbies to shared navigation, route recognition, native document generation, and the output verifier's required pages. About no longer renders ICPC or volunteering. Its three academic achievements now use compact date/description rows with neutral white and muted text, matching Education and Selected skills; dates stack above descriptions below 480px. Content is preserved, with no new hobbies invented. Updated the brief, technical plan, content/development guides, and design notes.
