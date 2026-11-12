@@ -474,3 +474,53 @@ pub fn mount(
         drop((resized, visibility));
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn point(x: f64, y: f64) -> Point {
+        Point {
+            home: (x, y),
+            pos: (x, y),
+            velocity: (0.0, 0.0),
+            radius: 1.5,
+            color: String::new(),
+        }
+    }
+    #[test]
+    fn fast_sweep_hits_points_between_events_and_throws_further() {
+        let mut slow = point(50.0, 10.0);
+        let mut fast = point(50.0, 10.0);
+        slow.kick((0.0, 0.0), (100.0, 0.0), (100.0, 0.0));
+        fast.kick((0.0, 0.0), (100.0, 0.0), (2000.0, 0.0));
+        assert!(fast.velocity.0 > slow.velocity.0 * 5.0);
+        for _ in 0..12 {
+            fast.advance(Some((200.0, 0.0)), 1.0 / 120.0);
+        }
+        assert!((fast.pos.0 - fast.home.0).hypot(fast.pos.1 - fast.home.1) > 40.0);
+    }
+    #[test]
+    fn exit_returns_exactly_home_at_different_refresh_rates() {
+        for hz in [30, 60, 120, 144] {
+            let mut p = point(10.0, 5.0);
+            p.kick((0.0, 0.0), (20.0, 0.0), (2400.0, 0.0));
+            for _ in 0..hz * 4 {
+                p.advance(None, 1.0 / f64::from(hz));
+            }
+            assert_eq!(p.pos, p.home);
+            assert_eq!(p.velocity, (0.0, 0.0));
+        }
+    }
+    #[test]
+    fn speed_is_bounded_and_distant_points_remain_still() {
+        let mut p = point(100.0, 100.0);
+        p.kick((0.0, 0.0), (20.0, 0.0), (1e9, 1e9));
+        assert!(!p.advance(None, 0.016));
+        assert_eq!(p.pos, p.home);
+        let mut p = point(5.0, 5.0);
+        for _ in 0..100 {
+            p.kick((0.0, 0.0), (20.0, 0.0), (1e9, 1e9));
+            assert!(p.velocity.0.hypot(p.velocity.1) <= MAX_SPEED + 0.001);
+        }
+    }
+}
