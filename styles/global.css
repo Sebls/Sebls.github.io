@@ -233,19 +233,21 @@ main>section[id]>p {
   margin-bottom:40px
 }
 .cat-surface {
+  --scene-overhang:24px;
   height:240px;
-  background:#FFAC00;
+  background:linear-gradient(#FFAC00 0 240px, transparent 240px);
   --cat-size:310px;
   position:relative;
-  overflow:visible;
+  overflow:hidden;
   isolation:isolate;
-  contain:none;
+  box-sizing:content-box;
+  padding-bottom:var(--scene-overhang);
   touch-action:auto
 }
 .surface-flag {
   position:absolute;
   left:0px;
-  bottom:110px;
+  bottom:calc(110px + var(--scene-overhang));
   width:min(70px, calc((48% - 16px) * .266667));
   aspect-ratio:1280 / 1237;
   pointer-events:none;
@@ -256,7 +258,7 @@ main>section[id]>p {
   --plant-size:63px;
   position:absolute;
   left:50px;
-  bottom:5px;
+  bottom:calc(5px + var(--scene-overhang));
   width:min(48%, calc(var(--plant-size) * 5 + 16px));
   display:grid;
   grid-template-columns:repeat(5, minmax(0, 1fr));
@@ -278,37 +280,34 @@ main>section[id]>p {
   height:var(--cat-size);
   object-fit:contain;
   right:16px;
-  bottom:calc(var(--cat-size) * -.2 - 23px);
+  bottom:calc(var(--cat-size) * -.2 - 23px + var(--scene-overhang));
   pointer-events:none;
   z-index:2
 }
-.cat-orbit {
-  position:absolute;
-  width:var(--cat-size);
-  height:90px;
-  border:1px solid #FFAC00;
-  border-radius:50%;
-  right:20px;
-  bottom:34px;
-  transform:rotate(-14deg)
-}
 .point-artwork { pointer-events:none }
 .point-artwork.plant { position:relative }
-.point-fallback,
-.point-particles {
+.point-fallback {
   display:block;
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center bottom;
 }
-.point-particles { position:absolute; inset:0; opacity:0 }
-.point-artwork[data-particles] .point-particles { opacity:1 }
-.point-artwork[data-particles] .point-fallback { opacity:0 }
+.scene-particles {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:0;
+  z-index:3
+}
+.cat-surface[data-particles] .scene-particles { opacity:1 }
+.cat-surface[data-particles] .point-fallback { opacity:0 }
 .cat-zzz {
   position:absolute;
   right:40px;
-  bottom:calc(var(--cat-size) * .58 - 16px);
+  bottom:calc(var(--cat-size) * .58 - 16px + var(--scene-overhang));
   width:80px;
   height:16px;
   pointer-events:none;
@@ -655,11 +654,10 @@ footer a {
 @media(max-width:480px) {
   .cat-surface { --cat-size:clamp(140px, 46vw, 180px) }
   .cat-art { right:8px }
-  .cat-orbit { right:12px }
 }
 @media(prefers-reduced-motion:reduce),(pointer:coarse),(hover:none) {
-  .point-artwork[data-particles] .point-particles { opacity:0 }
-  .point-artwork[data-particles] .point-fallback { opacity:1 }
+  .cat-surface[data-particles] .scene-particles { opacity:0 }
+  .cat-surface[data-particles] .point-fallback { opacity:1 }
   * {
     scroll-behavior:auto
   }

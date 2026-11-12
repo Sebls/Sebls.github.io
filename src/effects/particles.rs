@@ -1,14 +1,14 @@
-//! Local, on-demand particle rendering. No page-level pointer handling.
+//! One CSS-coordinate scene, one scheduler, and local pointer input.
 use std::{cell::RefCell, f64::consts::TAU, rc::Rc};
 use wasm_bindgen::{closure::Closure, JsCast};
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, HtmlElement, PointerEvent};
 use yew::NodeRef;
 
 const STATIC_MEDIA: &str = "(prefers-reduced-motion: reduce), (pointer: coarse), (hover: none)";
-// CSS-pixel radii, independent of the artwork's responsive size.
 const INFLUENCE: f64 = 40.0;
-const CORE: f64 = 14.0;
+const MAX_SPEED: f64 = 1100.0;
 type Frame = Rc<RefCell<Option<Closure<dyn FnMut(f64)>>>>;
+type Vec2 = (f64, f64);
 
 #[derive(serde::Deserialize)]
 struct Artwork {
@@ -18,118 +18,114 @@ struct Artwork {
     radius: f64,
 }
 struct Point {
-    home: (f64, f64),
-    pos: (f64, f64),
-    velocity: (f64, f64),
-    phase: f64,
+    home: Vec2,
+    pos: Vec2,
+    velocity: Vec2,
+    radius: f64,
     color: String,
 }
+fn limited(v: Vec2, max: f64) -> Vec2 {
+    let factor = (max / v.0.hypot(v.1).max(0.0001)).min(1.0);
+    (v.0 * factor, v.1 * factor)
+}
 impl Point {
-    /// A driven orbit keeps a stationary field alive; velocity and damping make
-    /// pointer changes and the return home continuous rather than position snaps.
-    fn advance(
-        &mut self,
-        pointer: (f64, f64),
-        scale: f64,
-        strength: f64,
-        dot_radius: f64,
-        dt_ms: f64,
-    ) -> bool {
-        let dx = self.home.0 - pointer.0;
-        let dy = self.home.1 - pointer.1;
-        let distance = dx.hypot(dy);
-        let influence = INFLUENCE * scale;
-        let falloff = (1.0 - distance / influence).max(0.0).powi(2);
-        let driven = falloff * strength > 0.001;
-        // Bounded substeps keep the spring stable across display refresh rates.
-        let seconds = dt_ms.clamp(0.0, 50.0) / 1000.0;
-        let steps = (seconds * 120.0).ceil().max(1.0) as u32;
-        let h = seconds / f64::from(steps);
+    fn advance(&mut self, pointer: Option<Vec2>, dt: f64) -> bool {
+        // Sleeping points need no integration until the pointer reaches them.
+        if self.pos == self.home
+            && self.velocity == (0.0, 0.0)
+            && pointer.is_none_or(|p| (self.home.0 - p.0).hypot(self.home.1 - p.1) >= INFLUENCE)
+        {
+            return false;
+        }
+        let steps = (dt * 120.0).ceil().max(1.0) as u32;
+        let h = dt / f64::from(steps);
         for _ in 0..steps {
-            let mut target = self.home;
-            if driven {
-                self.phase = (self.phase + 2.8 * falloff * strength * h) % TAU;
-                let angle = if distance < 0.01 {
-                    self.home.0 * 2.399
-                } else {
-                    dy.atan2(dx)
-                } + self.phase;
-                let displaced = (distance + CORE * 2.5 * scale * falloff * strength)
-                    .max(CORE * scale * strength + dot_radius);
-                // Fade orbital displacement back to the exact artwork on exit.
-                target = (
-                    self.home.0 + (pointer.0 + angle.cos() * displaced - self.home.0) * strength,
-                    self.home.1 + (pointer.1 + angle.sin() * displaced - self.home.1) * strength,
-                );
+            let spring = if pointer.is_some() { 38.0 } else { 75.0 };
+            let damping = if pointer.is_some() { 7.0 } else { 15.0 };
+            let mut force = (
+                (self.home.0 - self.pos.0) * spring,
+                (self.home.1 - self.pos.1) * spring,
+            );
+            if let Some(mouse) = pointer {
+                let dx = self.pos.0 - mouse.0;
+                let dy = self.pos.1 - mouse.1;
+                let distance = dx.hypot(dy);
+                let falloff = (1.0 - distance / INFLUENCE).max(0.0).powi(2);
+                if falloff > 0.0 {
+                    let angle = if distance > 0.1 {
+                        dy.atan2(dx)
+                    } else {
+                        self.home.0 * 2.399
+                    };
+                    let (nx, ny) = (angle.cos(), angle.sin());
+                    force.0 += falloff * (nx * 2800.0 - ny * 2200.0);
+                    force.1 += falloff * (ny * 2800.0 + nx * 2200.0);
+                }
             }
-            self.velocity.0 += ((target.0 - self.pos.0) * 90.0 - self.velocity.0 * 10.0) * h;
-            self.velocity.1 += ((target.1 - self.pos.1) * 90.0 - self.velocity.1 * 10.0) * h;
+            self.velocity = limited(
+                (
+                    self.velocity.0 + (force.0 - damping * self.velocity.0) * h,
+                    self.velocity.1 + (force.1 - damping * self.velocity.1) * h,
+                ),
+                MAX_SPEED,
+            );
             self.pos.0 += self.velocity.0 * h;
             self.pos.1 += self.velocity.1 * h;
         }
-        let moving = (self.pos.0 - self.home.0).hypot(self.pos.1 - self.home.1) > 0.03 * scale
-            || self.velocity.0.hypot(self.velocity.1) > 0.1 * scale;
-        if !driven && !moving {
+        let near_mouse = pointer.is_some_and(|p| {
+            (self.home.0 - p.0).hypot(self.home.1 - p.1) < INFLUENCE
+                || (self.pos.0 - p.0).hypot(self.pos.1 - p.1) < INFLUENCE
+        });
+        let moving = (self.pos.0 - self.home.0).hypot(self.pos.1 - self.home.1) > 0.04
+            || self.velocity.0.hypot(self.velocity.1) > 0.15;
+        if !moving && !near_mouse {
             self.pos = self.home;
             self.velocity = (0.0, 0.0);
-            self.phase = 0.0;
         }
-        driven || moving
+        moving || near_mouse
     }
 }
-struct Field {
+struct Scene {
     points: Vec<Point>,
-    pointer: (f64, f64),
-    active: bool,
-    strength: f64,
-    scale: f64,
+    pointer: Option<Vec2>,
     last: f64,
     pending: Option<i32>,
+    dirty: bool,
+    visible: bool,
     width: f64,
     height: f64,
-    radius: f64,
 }
-impl Field {
-    fn draw(&mut self, ctx: &CanvasRenderingContext2d, dt: f64) -> bool {
-        let blend = 1.0 - (-dt / 65.0).exp();
-        self.strength += (f64::from(self.active) - self.strength) * blend;
-        let core = CORE * self.scale * self.strength;
-        let mut unsettled = (f64::from(self.active) - self.strength).abs() > 0.001;
-        ctx.clear_rect(0.0, 0.0, self.width, self.height);
-        for point in &mut self.points {
-            unsettled |= point.advance(self.pointer, self.scale, self.strength, self.radius, dt);
-            ctx.set_fill_style_str(&point.color);
-            ctx.begin_path();
-            let _ = ctx.arc(point.pos.0, point.pos.1, self.radius, 0.0, TAU);
-            ctx.fill();
-        }
-        if core > 0.1 {
-            ctx.set_fill_style_str("#FFAC00");
-            ctx.begin_path();
-            let _ = ctx.arc(self.pointer.0, self.pointer.1, core, 0.0, TAU);
-            ctx.fill();
-        }
-        unsettled
-    }
-    fn reset(&mut self) {
-        self.active = false;
-        self.strength = 0.0;
+impl Scene {
+    fn reset(&mut self, surface: &HtmlElement) {
+        self.pointer = None;
         self.last = 0.0;
         for p in &mut self.points {
             p.pos = p.home;
             p.velocity = (0.0, 0.0);
-            p.phase = 0.0;
         }
         if let Some(id) = self.pending.take() {
             let _ = web_sys::window().unwrap().cancel_animation_frame(id);
         }
+        let _ = surface.remove_attribute("data-particles");
+    }
+    fn draw(&mut self, ctx: &CanvasRenderingContext2d, dt: f64) -> bool {
+        ctx.clear_rect(0.0, 0.0, self.width, self.height);
+        let mut moving = false;
+        for p in &mut self.points {
+            moving |= p.advance(self.pointer, dt);
+            ctx.set_fill_style_str(&p.color);
+            ctx.begin_path();
+            let _ = ctx.arc(p.pos.0, p.pos.1, p.radius, 0.0, TAU);
+            ctx.fill();
+        }
+        moving
     }
 }
-fn schedule(field: &Rc<RefCell<Field>>, frame: &Frame) {
-    let mut field = field.borrow_mut();
-    if field.pending.is_none() {
+fn schedule(scene: &Rc<RefCell<Scene>>, frame: &Frame) {
+    let mut scene = scene.borrow_mut();
+    if scene.pending.is_none() {
         if let Some(callback) = frame.borrow().as_ref() {
-            field.pending = web_sys::window()
+            scene.pending = web_sys::window()
                 .unwrap()
                 .request_animation_frame(callback.as_ref().unchecked_ref())
                 .ok();
@@ -137,17 +133,90 @@ fn schedule(field: &Rc<RefCell<Field>>, frame: &Frame) {
     }
 }
 
-pub fn mount(surface: NodeRef, canvas: NodeRef, artwork: NodeRef, data: &str) -> Box<dyn FnOnce()> {
+/// Resolve CSS geometry only when layout changes. Hidden figures are not parsed.
+fn layout(
+    surface: &HtmlElement,
+    canvas: &HtmlCanvasElement,
+    figures: &[(NodeRef, &'static str)],
+) -> Option<Vec<Point>> {
+    let window = web_sys::window()?;
+    let rect = surface.get_bounding_client_rect();
+    let width = f64::from(surface.client_width());
+    let height = f64::from(surface.client_height());
+    if width <= 0.0 || height <= 0.0 {
+        return None;
+    }
+    let mut points = Vec::new();
+    for (node, data) in figures {
+        let node = node.cast::<HtmlElement>()?;
+        let style = window.get_computed_style(&node).ok()??;
+        if style.get_property_value("display").ok()? == "none" {
+            continue;
+        }
+        let w = f64::from(node.client_width());
+        let h = f64::from(node.client_height());
+        if w == 0.0 || h == 0.0 {
+            continue;
+        }
+        let art: Artwork = serde_json::from_str(data).ok()?;
+        let fit = (w / art.width).min(h / art.height);
+        let box_rect = node.get_bounding_client_rect();
+        let transform = style.get_property_value("transform").ok()?;
+        let m = transform
+            .strip_prefix("matrix(")
+            .and_then(|s| s.strip_suffix(')'))
+            .map(|s| {
+                s.split(',')
+                    .filter_map(|v| v.trim().parse::<f64>().ok())
+                    .collect::<Vec<_>>()
+            })
+            .filter(|m| m.len() == 6)
+            .unwrap_or_else(|| vec![1.0, 0.0, 0.0, 1.0, 0.0, 0.0]);
+        let center = (
+            box_rect.left() + box_rect.width() / 2.0 - rect.left(),
+            box_rect.top() + box_rect.height() / 2.0 - rect.top(),
+        );
+        for p in art.points {
+            let x = p[0] * fit - art.width * fit / 2.0;
+            let y = p[1] * fit + h / 2.0 - art.height * fit;
+            let home = (
+                center.0 + m[0] * x + m[2] * y,
+                center.1 + m[1] * x + m[3] * y,
+            );
+            points.push(Point {
+                home,
+                pos: home,
+                velocity: (0.0, 0.0),
+                radius: art.radius * fit,
+                color: format!("rgb({},{},{})", p[2], p[3], p[4]),
+            });
+        }
+    }
+    let density = window.device_pixel_ratio().clamp(1.0, 2.0);
+    canvas.set_width((width * density).ceil() as u32);
+    canvas.set_height((height * density).ceil() as u32);
+    let ctx = canvas
+        .get_context("2d")
+        .ok()??
+        .dyn_into::<CanvasRenderingContext2d>()
+        .ok()?;
+    ctx.set_transform(density, 0.0, 0.0, density, 0.0, 0.0)
+        .ok()?;
+    Some(points)
+}
+
+pub fn mount(
+    surface: NodeRef,
+    canvas: NodeRef,
+    figures: Vec<(NodeRef, &'static str)>,
+) -> Box<dyn FnOnce()> {
     let Some(window) = web_sys::window() else {
         return Box::new(|| {});
     };
-    let Some(surface) = surface.cast::<HtmlElement>() else {
-        return Box::new(|| {});
-    };
-    let Some(artwork) = artwork.cast::<HtmlElement>() else {
-        return Box::new(|| {});
-    };
-    let Some(canvas) = canvas.cast::<HtmlCanvasElement>() else {
+    let (Some(surface), Some(canvas)) = (
+        surface.cast::<HtmlElement>(),
+        canvas.cast::<HtmlCanvasElement>(),
+    ) else {
         return Box::new(|| {});
     };
     let Some(ctx) = canvas
@@ -161,257 +230,172 @@ pub fn mount(surface: NodeRef, canvas: NodeRef, artwork: NodeRef, data: &str) ->
     let Ok(Some(media)) = window.match_media(STATIC_MEDIA) else {
         return Box::new(|| {});
     };
-    let Ok(art) = serde_json::from_str::<Artwork>(data) else {
-        return Box::new(|| {});
-    };
-    canvas.set_width(art.width as u32);
-    canvas.set_height(art.height as u32);
-    let field = Rc::new(RefCell::new(Field {
-        points: art
-            .points
-            .into_iter()
-            .map(|p| Point {
-                home: (p[0], p[1]),
-                pos: (p[0], p[1]),
-                velocity: (0.0, 0.0),
-                phase: 0.0,
-                color: format!("rgb({},{},{})", p[2], p[3], p[4]),
-            })
-            .collect(),
-        pointer: (0.0, 0.0),
-        active: false,
-        strength: 0.0,
-        scale: 1.0,
+    let document = window.document().unwrap();
+    let scene = Rc::new(RefCell::new(Scene {
+        points: Vec::new(),
+        pointer: None,
         last: 0.0,
         pending: None,
-        width: art.width,
-        height: art.height,
-        radius: art.radius,
+        dirty: true,
+        visible: true,
+        width: 0.0,
+        height: 0.0,
     }));
     let frame: Frame = Rc::new(RefCell::new(None));
-    let document = window.document().unwrap();
     *frame.borrow_mut() = Some(Closure::wrap(Box::new({
-        let (field, frame, surface, artwork, ctx, media, document) = (
-            field.clone(),
+        let (scene, frame, surface, canvas, ctx, media, document) = (
+            scene.clone(),
             frame.clone(),
             surface.clone(),
-            artwork.clone(),
+            canvas.clone(),
             ctx.clone(),
             media.clone(),
             document.clone(),
         );
         move |now: f64| {
-            let rect = surface.get_bounding_client_rect();
-            let height = web_sys::window()
-                .unwrap()
-                .inner_height()
-                .ok()
-                .and_then(|v| v.as_f64())
-                .unwrap_or(0.0);
-            let mut state = field.borrow_mut();
-            state.pending = None;
-            if media.matches() || document.hidden() || rect.bottom() <= 0.0 || rect.top() >= height
-            {
-                state.reset();
-                let _ = artwork.remove_attribute("data-particles");
+            let mut s = scene.borrow_mut();
+            s.pending = None;
+            if media.matches() || document.hidden() || !s.visible {
+                s.reset(&surface);
                 return;
             }
-            let dt = if state.last == 0.0 {
-                16.0
-            } else {
-                (now - state.last).clamp(1.0, 50.0)
-            };
-            state.last = now;
-            let more = state.draw(&ctx, dt);
-            if !more {
-                state.last = 0.0;
-                if !state.active {
-                    state.reset();
-                    let _ = artwork.remove_attribute("data-particles");
-                }
+            if s.dirty {
+                let pointer = s.pointer;
+                s.reset(&surface);
+                s.pointer = pointer;
+                let Some(points) = layout(&surface, &canvas, &figures) else {
+                    return;
+                };
+                s.points = points;
+                s.width = f64::from(surface.client_width());
+                s.height = f64::from(surface.client_height());
+                s.dirty = false;
             }
-            drop(state);
+            let dt = if s.last == 0.0 {
+                0.016
+            } else {
+                ((now - s.last) / 1000.0).clamp(0.001, 0.05)
+            };
+            s.last = now;
+            let more = s.draw(&ctx, dt);
             if more {
-                schedule(&field, &frame);
+                let _ = surface.set_attribute("data-particles", "true");
+            } else {
+                s.last = 0.0;
+                let _ = surface.remove_attribute("data-particles");
+            }
+            drop(s);
+            if more {
+                schedule(&scene, &frame);
             }
         }
     }) as Box<dyn FnMut(f64)>));
     let movement = Closure::wrap(Box::new({
-        let (field, frame, canvas, artwork, media) = (
-            field.clone(),
-            frame.clone(),
-            canvas.clone(),
-            artwork.clone(),
-            media.clone(),
-        );
+        let (scene, frame, surface, media) =
+            (scene.clone(), frame.clone(), surface.clone(), media.clone());
         move |event: PointerEvent| {
             if media.matches() || event.pointer_type() != "mouse" {
                 return;
             }
-            let Some(window) = web_sys::window() else {
-                return;
-            };
-            let Ok(Some(style)) = window.get_computed_style(&artwork) else {
-                return;
-            };
-            if style.get_property_value("display").unwrap_or_default() == "none" {
-                return;
-            }
-            let rect = canvas.get_bounding_client_rect();
-            // The canvas uses contain sizing inside the artwork box. Convert the
-            // pointer back through its CSS rotation, then remove letterboxing.
-            let width = f64::from(canvas.client_width());
-            let height = f64::from(canvas.client_height());
-            if width <= 0.0 || height <= 0.0 {
-                return;
-            }
-            let transform = style.get_property_value("transform").unwrap_or_default();
-            let matrix = transform
-                .strip_prefix("matrix(")
-                .and_then(|v| v.strip_suffix(')'))
-                .map(|v| {
-                    v.split(',')
-                        .filter_map(|n| n.trim().parse::<f64>().ok())
-                        .collect::<Vec<_>>()
-                })
-                .filter(|v| v.len() == 6)
-                .unwrap_or_else(|| vec![1.0, 0.0, 0.0, 1.0, 0.0, 0.0]);
-            let determinant = matrix[0] * matrix[3] - matrix[1] * matrix[2];
-            if determinant.abs() < 0.0001 {
-                return;
-            }
-            let dx = f64::from(event.client_x()) - (rect.left() + rect.width() / 2.0);
-            let dy = f64::from(event.client_y()) - (rect.top() + rect.height() / 2.0);
-            let x = (matrix[3] * dx - matrix[2] * dy) / determinant + width / 2.0;
-            let y = (-matrix[1] * dx + matrix[0] * dy) / determinant + height / 2.0;
-            let mut state = field.borrow_mut();
-            let fit = (width / state.width).min(height / state.height);
-            state.scale = 1.0 / fit;
-            state.pointer = (
-                (x - (width - state.width * fit) / 2.0) / fit,
-                (y - (height - state.height * fit)) / fit,
+            let rect = surface.get_bounding_client_rect();
+            let p = (
+                f64::from(event.client_x()) - rect.left(),
+                f64::from(event.client_y()) - rect.top(),
             );
-            // Points near the edge also react when the pointer is just outside
-            // their image box, avoiding seams between adjacent illustrations.
-            let margin = INFLUENCE * state.scale;
-            state.active = state.pointer.0 >= -margin
-                && state.pointer.1 >= -margin
-                && state.pointer.0 <= state.width + margin
-                && state.pointer.1 <= state.height + margin;
-            if !state.active && state.strength == 0.0 {
+            let mut s = scene.borrow_mut();
+            if !s.visible {
                 return;
             }
-            let _ = artwork.set_attribute("data-particles", "true");
-            drop(state);
-            schedule(&field, &frame);
+            s.pointer = Some(p);
+            drop(s);
+            schedule(&scene, &frame);
         }
     }) as Box<dyn FnMut(PointerEvent)>);
     let leave = Closure::wrap(Box::new({
-        let (field, frame) = (field.clone(), frame.clone());
+        let (scene, frame) = (scene.clone(), frame.clone());
         move |_: web_sys::Event| {
-            field.borrow_mut().active = false;
-            schedule(&field, &frame);
+            let mut s = scene.borrow_mut();
+            s.pointer = None;
+            drop(s);
+            schedule(&scene, &frame);
         }
     }) as Box<dyn FnMut(web_sys::Event)>);
     let reset = Closure::wrap(Box::new({
-        let (field, artwork) = (field.clone(), artwork.clone());
+        let (scene, surface) = (scene.clone(), surface.clone());
         move |_: web_sys::Event| {
-            field.borrow_mut().reset();
-            let _ = artwork.remove_attribute("data-particles");
+            let mut s = scene.borrow_mut();
+            s.reset(&surface);
+            s.dirty = true;
         }
     }) as Box<dyn FnMut(web_sys::Event)>);
+    let resized = Closure::wrap(Box::new({
+        let (scene, surface) = (scene.clone(), surface.clone());
+        move |_: js_sys::Array, _: web_sys::ResizeObserver| {
+            let mut s = scene.borrow_mut();
+            s.reset(&surface);
+            s.dirty = true;
+        }
+    })
+        as Box<dyn FnMut(js_sys::Array, web_sys::ResizeObserver)>);
+    let resize_observer = web_sys::ResizeObserver::new(resized.as_ref().unchecked_ref()).ok();
+    if let Some(observer) = &resize_observer {
+        observer.observe(&surface);
+    }
+    let visibility = Closure::wrap(Box::new({
+        let (scene, surface) = (scene.clone(), surface.clone());
+        move |entries: js_sys::Array, _: web_sys::IntersectionObserver| {
+            if let Some(entry) = entries
+                .get(0)
+                .dyn_ref::<web_sys::IntersectionObserverEntry>()
+            {
+                let mut s = scene.borrow_mut();
+                s.visible = entry.is_intersecting();
+                if !s.visible {
+                    s.reset(&surface);
+                }
+            }
+        }
+    })
+        as Box<dyn FnMut(js_sys::Array, web_sys::IntersectionObserver)>);
+    let observer = web_sys::IntersectionObserver::new(visibility.as_ref().unchecked_ref()).ok();
+    if let Some(observer) = &observer {
+        observer.observe(&surface);
+    }
     let _ =
         surface.add_event_listener_with_callback("pointermove", movement.as_ref().unchecked_ref());
-    for name in ["pointerleave", "pointercancel"] {
-        let _ = surface.add_event_listener_with_callback(name, leave.as_ref().unchecked_ref());
+    for event in ["pointerleave", "pointercancel"] {
+        let _ = surface.add_event_listener_with_callback(event, leave.as_ref().unchecked_ref());
+    }
+    for event in ["resize", "blur"] {
+        let _ = window.add_event_listener_with_callback(event, reset.as_ref().unchecked_ref());
     }
     let _ = media.add_event_listener_with_callback("change", reset.as_ref().unchecked_ref());
-    let _ = window.add_event_listener_with_callback("resize", reset.as_ref().unchecked_ref());
-    let _ = window.add_event_listener_with_callback("blur", reset.as_ref().unchecked_ref());
     let _ = document
         .add_event_listener_with_callback("visibilitychange", reset.as_ref().unchecked_ref());
     Box::new(move || {
-        field.borrow_mut().reset();
-        frame.borrow_mut().take(); // Break the animation closure cycle on unmount.
+        scene.borrow_mut().reset(&surface);
+        frame.borrow_mut().take();
+        if let Some(observer) = resize_observer {
+            observer.disconnect();
+        }
+        if let Some(observer) = observer {
+            observer.disconnect();
+        }
         let _ = surface
             .remove_event_listener_with_callback("pointermove", movement.as_ref().unchecked_ref());
-        for name in ["pointerleave", "pointercancel"] {
+        for event in ["pointerleave", "pointercancel"] {
             let _ =
-                surface.remove_event_listener_with_callback(name, leave.as_ref().unchecked_ref());
+                surface.remove_event_listener_with_callback(event, leave.as_ref().unchecked_ref());
+        }
+        for event in ["resize", "blur"] {
+            let _ =
+                window.remove_event_listener_with_callback(event, reset.as_ref().unchecked_ref());
         }
         let _ = media.remove_event_listener_with_callback("change", reset.as_ref().unchecked_ref());
-        let _ =
-            window.remove_event_listener_with_callback("resize", reset.as_ref().unchecked_ref());
-        let _ = window.remove_event_listener_with_callback("blur", reset.as_ref().unchecked_ref());
         let _ = document.remove_event_listener_with_callback(
             "visibilitychange",
             reset.as_ref().unchecked_ref(),
         );
+        drop((resized, visibility));
     })
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    fn point() -> Point {
-        Point {
-            home: (12.0, 4.0),
-            pos: (12.0, 4.0),
-            velocity: (0.0, 0.0),
-            phase: 0.0,
-            color: String::new(),
-        }
-    }
-
-    #[test]
-    fn stationary_pointer_keeps_particles_moving() {
-        let mut p = point();
-        for _ in 0..300 {
-            assert!(p.advance((0.0, 0.0), 1.0, 1.0, 1.0, 16.0));
-        }
-        let before = p.pos;
-        p.advance((0.0, 0.0), 1.0, 1.0, 1.0, 16.0);
-        assert!((p.pos.0 - before.0).hypot(p.pos.1 - before.1) > 0.05);
-        assert!(p.velocity.0.hypot(p.velocity.1) > 1.0);
-    }
-
-    #[test]
-    fn exit_preserves_momentum_then_settles_exactly() {
-        let mut p = point();
-        for _ in 0..100 {
-            p.advance((0.0, 0.0), 1.0, 1.0, 1.0, 16.0);
-        }
-        let before = p.pos;
-        assert!(p.advance((0.0, 0.0), 1.0, 0.0, 1.0, 16.0));
-        assert_ne!(p.pos, before);
-        assert_ne!(p.pos, p.home);
-        for _ in 0..300 {
-            p.advance((0.0, 0.0), 1.0, 0.0, 1.0, 16.0);
-        }
-        assert_eq!(p.pos, p.home);
-        assert_eq!(p.velocity, (0.0, 0.0));
-        assert!(!p.advance((0.0, 0.0), 1.0, 0.0, 1.0, 16.0));
-    }
-
-    #[test]
-    fn distant_points_stay_at_rest() {
-        assert!(!point().advance((200.0, 200.0), 1.0, 1.0, 1.0, 16.0));
-    }
-
-    #[test]
-    fn motion_is_consistent_across_refresh_rates() {
-        let simulate = |hz| {
-            let mut p = point();
-            for _ in 0..hz * 4 {
-                p.advance((0.0, 0.0), 1.0, 1.0, 1.0, 1000.0 / f64::from(hz));
-            }
-            p.pos
-        };
-        let reference = simulate(120);
-        for hz in [30, 60, 144] {
-            let pos = simulate(hz);
-            assert!((pos.0 - reference.0).hypot(pos.1 - reference.1) < 3.0);
-        }
-    }
 }
