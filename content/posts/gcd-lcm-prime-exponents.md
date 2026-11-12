@@ -12,37 +12,47 @@ I know this is not a big result. It was just a small curiosity I came across whi
 
 I started with 48 and 36, writing out their prime factorizations:
 
-> 48 = 2 · 2 · 2 · 2 · 3 = 2<sup>4</sup> · 3
->
-> 36 = 2 · 2 · 3 · 3 = 2<sup>2</sup> · 3<sup>2</sup>
+$$
+\begin{aligned}
+48 &= 2 \cdot 2 \cdot 2 \cdot 2 \cdot 3 = 2^4 \cdot 3 \\
+36 &= 2 \cdot 2 \cdot 3 \cdot 3 = 2^2 \cdot 3^2
+\end{aligned}
+$$
 
 A common divisor cannot contain more copies of either prime than either number has. Taking the smaller exponent for each prime gives the greatest common divisor:
 
-> gcd(48, 36) = 2<sup>min(4, 2)</sup> · 3<sup>min(1, 2)</sup> = 2<sup>2</sup> · 3 = 12.
+$$
+\operatorname{gcd}(48,36) = 2^{\min(4,2)} \cdot 3^{\min(1,2)} = 2^2 \cdot 3 = 12
+$$
 
 A common multiple must contain enough copies of each prime for both numbers to divide it. Taking the larger exponent gives the least common multiple:
 
-> lcm(48, 36) = 2<sup>max(4, 2)</sup> · 3<sup>max(1, 2)</sup> = 2<sup>4</sup> · 3<sup>2</sup> = 144.
+$$
+\operatorname{lcm}(48,36) = 2^{\max(4,2)} \cdot 3^{\max(1,2)} = 2^4 \cdot 3^2 = 144
+$$
 
 Multiplying the original numbers and regrouping their factors gives:
 
-> 48 · 36 = (2<sup>4</sup> · 3)(2<sup>2</sup> · 3<sup>2</sup>)
->
-> = (2<sup>2</sup> · 3)(2<sup>4</sup> · 3<sup>2</sup>)
->
-> = gcd(48, 36) · lcm(48, 36).
+$$
+\begin{aligned}
+48 \cdot 36 &= (2^4 \cdot 3)(2^2 \cdot 3^2) \\
+&= (2^2 \cdot 3)(2^4 \cdot 3^2) \\
+&= \operatorname{gcd}(48,36) \cdot \operatorname{lcm}(48,36)
+\end{aligned}
+$$
 
-So lcm(48, 36) = (48 · 36) / 12 = 144. Seeing the factors rearrange like this made me want to write down why it would work for any pair of positive integers.
+So $\operatorname{lcm}(48,36) = (48 \cdot 36)/12 = 144$. Seeing the factors rearrange like this made me want to write down why it would work for any pair of positive integers.
 
 ## Giving every prime a place
 
-To put all the prime pieces in the same order, I called the ith prime p<sub>i</sub>, so p<sub>1</sub> = 2, p<sub>2</sub> = 3, p<sub>3</sub> = 5, and so on. By unique prime factorization, any two **positive integers** a and b can be written as
+To put all the prime pieces in the same order, I called the ith prime $p_i$, so $p_1 = 2$, $p_2 = 3$, $p_3 = 5$, and so on. By unique prime factorization, any two **positive integers** a and b can be written as
 
-> a = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>nᵢ</sup>,
->
-> b = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>mᵢ</sup>,
+$$
+a = \prod_{i=1}^{\infty} p_i^{n_i}, \qquad
+b = \prod_{i=1}^{\infty} p_i^{m_i}
+$$
 
-Here, every n<sub>i</sub> and m<sub>i</sub> is a nonnegative integer. If a prime does not divide a number, I give it exponent zero. Its contribution is then p<sup>0</sup> = 1 (so including it leaves the number unchanged).
+Here, every $n_i$ and $m_i$ is a nonnegative integer. If a prime does not divide a number, I give it exponent zero. Its contribution is then $p^0 = 1$ (so including it leaves the number unchanged).
 
 For example, 48 starts with exponents (4, 1, 0, 0, …), while 36 starts with (2, 2, 0, 0, …). The number 1 has zero in every position.
 
@@ -50,21 +60,27 @@ Although the product notation runs over infinitely many primes, only finitely ma
 
 Multiplication now amounts to adding exponents in each position:
 
-> ab = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>nᵢ + mᵢ</sup>.
+$$
+ab = \prod_{i=1}^{\infty} p_i^{n_i+m_i}
+$$
 
 This was the part I found especially nice. Both numbers now use the same prime pieces, including the ones that only contribute the identity. I could look at multiplication, gcd, and lcm as different ways of working with the exponents in those same positions.
 
 ## Minimum for gcd, maximum for lcm
 
-A positive integer d divides a exactly when, for every prime, the exponent in d is at most the exponent in a. For d to divide both a and b, its ith exponent must therefore be at most min(n<sub>i</sub>, m<sub>i</sub>).
+A positive integer d divides a exactly when, for every prime, the exponent in d is at most the exponent in a. For d to divide both a and b, its ith exponent must therefore be at most $\min(n_i,m_i)$.
 
 Choosing that minimum in every position produces a common divisor that every other common divisor divides. Hence
 
-> gcd(a, b) = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>min(nᵢ, mᵢ)</sup>.
+$$
+\operatorname{gcd}(a,b) = \prod_{i=1}^{\infty} p_i^{\min(n_i,m_i)}
+$$
 
-Similarly, a positive common multiple must have an ith exponent at least max(n<sub>i</sub>, m<sub>i</sub>). Choosing exactly those maxima produces a common multiple that divides every other common multiple. Hence
+Similarly, a positive common multiple must have an ith exponent at least $\max(n_i,m_i)$. Choosing exactly those maxima produces a common multiple that divides every other common multiple. Hence
 
-> lcm(a, b) = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>max(nᵢ, mᵢ)</sup>.
+$$
+\operatorname{lcm}(a,b) = \prod_{i=1}^{\infty} p_i^{\max(n_i,m_i)}
+$$
 
 The zero exponents make primes absent from one factorization fit the same rule. For instance, if a prime divides a but not b, its exponent in the gcd is zero, while its exponent in the lcm is the one from a.
 
@@ -72,21 +88,26 @@ The zero exponents make primes absent from one factorization fit the same rule. 
 
 At this point, the observation I needed was very small: the minimum and maximum of two exponents are just those same two values in increasing order. So
 
-> min(n<sub>i</sub>, m<sub>i</sub>) + max(n<sub>i</sub>, m<sub>i</sub>) = n<sub>i</sub> + m<sub>i</sub>.
+$$
+\min(n_i,m_i) + \max(n_i,m_i) = n_i + m_i
+$$
 
 Multiplying the gcd and lcm adds their exponents, so
 
-> gcd(a, b) · lcm(a, b)
->
-> = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>min(nᵢ, mᵢ) + max(nᵢ, mᵢ)</sup>
->
-> = ∏<sub>i = 1</sub><sup>∞</sup> p<sub>i</sub><sup>nᵢ + mᵢ</sup>
->
-> = ab.
+$$
+\begin{aligned}
+\operatorname{gcd}(a,b) \cdot \operatorname{lcm}(a,b)
+&= \prod_{i=1}^{\infty} p_i^{\min(n_i,m_i)+\max(n_i,m_i)} \\
+&= \prod_{i=1}^{\infty} p_i^{n_i+m_i} \\
+&= ab
+\end{aligned}
+$$
 
 Since a and b are positive, their gcd is nonzero, and we can rearrange this as
 
-> **lcm(a, b) = ab / gcd(a, b).**
+$$
+\operatorname{lcm}(a,b) = \frac{ab}{\operatorname{gcd}(a,b)}
+$$
 
 That was enough to recover the formula I had not wanted to memorize. For each prime, taking the minimum and maximum and adding them gives the same exponent as multiplying the original numbers. Once I saw it that way, I felt I could find the formula again whenever I needed it.
 

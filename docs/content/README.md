@@ -109,3 +109,17 @@ Adding a photo or post should require local content/asset edits and a rebuild, n
 The owner supplied handwritten notes dated August 2023 and authorized a blog entry. `content/posts/gcd-lcm-prime-exponents.md` transcribes the 48/36 example and general proof, with a personal explanation and a brief owner-supplied connection to later Turing-machine constructions. The transcription corrects swapped min/max labels in the handwritten compact products and explicitly restricts the factorization to positive integers with finitely many nonzero exponents. Metadata retains month precision (`2023-08`) rather than inventing a day. The post is included in local builds for review. The owner subsequently approved committing these changes on 13 November 2026; pushing and deployment remain outside this request. Original notebook photographs are not copied into public assets.
 
 The owner subsequently clarified the personal setting: helping a friend prepare for the Universidad Nacional de Colombia admission exam. The revised first-person article emphasizes the curiosity of representing numbers with all primes, with unused primes contributing the multiplicative identity. Parentheses replace em dashes in the article. This revision is prepared locally for review.
+
+## Mathematics in articles
+
+Keep writing articles in Markdown. Use `$p_i^{n_i}$` for inline math and a blank-line-separated `$$` block for a centered display equation:
+
+```text
+$$
+\operatorname{lcm}(a,b) = \frac{ab}{\operatorname{gcd}(a,b)}
+$$
+```
+
+Use `\begin{aligned} … \end{aligned}` with `&` alignment markers and `\\` between rows for multi-line derivations. Use `\cdot`, `\prod`, `\min`, `\max`, and braces for compound exponents rather than HTML superscripts or Unicode approximations. Code spans and fenced code blocks remain literal. Real quotations still use Markdown blockquotes.
+
+The build-time article renderer converts math to semantic MathML using math-core, sanitizes the combined HTML, and preserves the heading index. Invalid or unsupported math fails the build with the article path and expression. This is a math subset of LaTeX, not a full document compiler. Equations are available in the generated HTML without scripts or external services. Wide equations scroll within their focusable container on small screens. Visual font details depend on the browser's installed math fonts.
