@@ -17,11 +17,19 @@ fn main() {
         assert!(slugs.insert(slug.to_string()), "duplicate slug");
         let path = PathBuf::from("content/posts").join(format!("{slug}.md"));
         let body = fs::read_to_string(&path).expect("published article body missing");
-        let date = p["date"].as_str().expect("article date YYYY or YYYY-MM-DD");
+        let date = p["date"]
+            .as_str()
+            .expect("article date YYYY, YYYY-MM, or YYYY-MM-DD");
         assert!(
             (date.len() == 4 && date.bytes().all(|c| c.is_ascii_digit()) && date != "0000")
+                || (date.len() == 7
+                    && date.is_ascii()
+                    && date.as_bytes()[4] == b'-'
+                    && date[..4].bytes().all(|c| c.is_ascii_digit())
+                    && &date[..4] != "0000"
+                    && matches!(date[5..].parse::<u8>(), Ok(1..=12)))
                 || (date.len() == 10 && date.as_bytes()[4] == b'-' && date.as_bytes()[7] == b'-'),
-            "date must be YYYY or YYYY-MM-DD"
+            "date must be YYYY, YYYY-MM, or YYYY-MM-DD"
         );
         let mut headings: Vec<(String, String)> = Vec::new();
         let mut current: Option<(String, String)> = None;
