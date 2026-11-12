@@ -24,11 +24,47 @@ struct Point {
     radius: f64,
     color: String,
 }
+/// Closest point on a swept pointer segment: fast gestures cannot skip dots.
+fn closest(p: Vec2, a: Vec2, b: Vec2) -> Vec2 {
+    let d = (b.0 - a.0, b.1 - a.1);
+    let length2 = d.0 * d.0 + d.1 * d.1;
+    let t = if length2 > 0.0001 {
+        (((p.0 - a.0) * d.0 + (p.1 - a.1) * d.1) / length2).clamp(0.0, 1.0)
+    } else {
+        0.0
+    };
+    (a.0 + t * d.0, a.1 + t * d.1)
+}
 fn limited(v: Vec2, max: f64) -> Vec2 {
     let factor = (max / v.0.hypot(v.1).max(0.0001)).min(1.0);
     (v.0 * factor, v.1 * factor)
 }
 impl Point {
+    fn kick(&mut self, from: Vec2, to: Vec2, velocity: Vec2) {
+        let near = closest(self.pos, from, to);
+        let dx = self.pos.0 - near.0;
+        let dy = self.pos.1 - near.1;
+        let distance = dx.hypot(dy);
+        let falloff = (1.0 - distance / INFLUENCE).max(0.0).powi(2);
+        let speed = velocity.0.hypot(velocity.1);
+        // Energy depends on travel, not the number of dispatched pointer events.
+        let travel = (to.0 - from.0).hypot(to.1 - from.1);
+        let gain = 1.0 - (-travel / 24.0).exp();
+        let outward = speed.min(1800.0) * 0.45;
+        let normal = if distance > 0.1 {
+            (dx / distance, dy / distance)
+        } else {
+            let angle = self.home.0 * 2.399 + self.home.1;
+            (angle.cos(), angle.sin())
+        };
+        self.velocity = limited(
+            (
+                self.velocity.0 + falloff * gain * (velocity.0 * 0.55 + normal.0 * outward),
+                self.velocity.1 + falloff * gain * (velocity.1 * 0.55 + normal.1 * outward),
+            ),
+            MAX_SPEED,
+        );
+    }
     fn advance(&mut self, pointer: Option<Vec2>, dt: f64) -> bool {
         // Sleeping points need no integration until the pointer reaches them.
         if self.pos == self.home
@@ -85,9 +121,16 @@ impl Point {
         moving || near_mouse
     }
 }
+struct Sweep {
+    from: Vec2,
+    to: Vec2,
+    velocity: Vec2,
+}
 struct Scene {
     points: Vec<Point>,
     pointer: Option<Vec2>,
+    previous: Option<(Vec2, f64)>,
+    sweeps: Vec<Sweep>,
     last: f64,
     pending: Option<i32>,
     dirty: bool,
@@ -98,6 +141,8 @@ struct Scene {
 impl Scene {
     fn reset(&mut self, surface: &HtmlElement) {
         self.pointer = None;
+        self.previous = None;
+        self.sweeps.clear();
         self.last = 0.0;
         for p in &mut self.points {
             p.pos = p.home;
@@ -109,6 +154,11 @@ impl Scene {
         let _ = surface.remove_attribute("data-particles");
     }
     fn draw(&mut self, ctx: &CanvasRenderingContext2d, dt: f64) -> bool {
+        for sweep in self.sweeps.drain(..) {
+            for p in &mut self.points {
+                p.kick(sweep.from, sweep.to, sweep.velocity);
+            }
+        }
         ctx.clear_rect(0.0, 0.0, self.width, self.height);
         let mut moving = false;
         for p in &mut self.points {
@@ -234,6 +284,8 @@ pub fn mount(
     let scene = Rc::new(RefCell::new(Scene {
         points: Vec::new(),
         pointer: None,
+        previous: None,
+        sweeps: Vec::new(),
         last: 0.0,
         pending: None,
         dirty: true,
@@ -261,8 +313,10 @@ pub fn mount(
             }
             if s.dirty {
                 let pointer = s.pointer;
+                let previous = s.previous;
                 s.reset(&surface);
                 s.pointer = pointer;
+                s.previous = previous;
                 let Some(points) = layout(&surface, &canvas, &figures) else {
                     return;
                 };
@@ -302,10 +356,30 @@ pub fn mount(
                 f64::from(event.client_x()) - rect.left(),
                 f64::from(event.client_y()) - rect.top(),
             );
+            let now = event.time_stamp();
             let mut s = scene.borrow_mut();
             if !s.visible {
                 return;
             }
+            if let Some((previous, time)) = s.previous {
+                let dt = ((now - time) / 1000.0).max(0.001);
+                if dt < 0.1 && !s.dirty {
+                    let velocity =
+                        limited(((p.0 - previous.0) / dt, (p.1 - previous.1) / dt), 2400.0);
+                    // Bound queued work between frames; preserve the path's endpoint.
+                    if s.sweeps.len() < 32 {
+                        s.sweeps.push(Sweep {
+                            from: previous,
+                            to: p,
+                            velocity,
+                        });
+                    } else if let Some(last) = s.sweeps.last_mut() {
+                        last.to = p;
+                        last.velocity = velocity;
+                    }
+                }
+            }
+            s.previous = Some((p, now));
             s.pointer = Some(p);
             drop(s);
             schedule(&scene, &frame);
@@ -316,6 +390,7 @@ pub fn mount(
         move |_: web_sys::Event| {
             let mut s = scene.borrow_mut();
             s.pointer = None;
+            s.previous = None;
             drop(s);
             schedule(&scene, &frame);
         }
