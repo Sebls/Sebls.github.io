@@ -78,3 +78,11 @@ The sampler reads original transparent artwork, excludes alpha below 90%, and re
 ## About achievements and Hobbies — 11 November 2026
 
 About achievements use compact date-and-description rows in the same neutral text colors as Education and Selected skills. Dates sit in a narrow left column on larger screens and stack above descriptions below 480px. Organization names are muted rather than accent-colored. Hobbies is a separate generated page with shared navigation and local Competitive programming and Volunteering sections. ICPC participation and both volunteer roles moved there; future interests are added only when supplied by the owner.
+
+## Shared momentum scene — 12 November 2026
+
+This supersedes the earlier per-artwork Canvas/lifecycle and orbit-target descriptions. All visible figures now share one Canvas in stage CSS coordinates. Individual artwork boxes no longer clip particles; the scene clips them at the overall illustration boundary. The yellow area remains 240px tall, with a transparent 24px lower allowance for the existing cat overhang; the caption follows outside the stage. Artwork positions relative to the yellow panel are preserved. The unused yellow orbit ellipse was removed.
+
+The 40px influence applies radial and tangential forces to current particle positions. Swept pointer segments transfer speed-dependent directional/outward momentum, bounded by speed caps and a bounded event queue. Home springs are softer during interaction and more strongly damped on exit. Simulation substeps remain at most 1/120 second, frame deltas at most 50ms. Distant resting particles skip integration, while the shared Canvas redraws all visible dots. No fixed orbit limits excursions. Exact home position and zero velocity are restored below settling thresholds.
+
+The renderer uses one frame callback, one listener set, cached layout transforms, a displayed-size buffer with pixel density capped at 2, lazy eligible initialization, and hidden-figure exclusion. Resize and intersection observers handle stage size and offscreen suspension. Static SVGs remain accessible and visible until the first animated frame is ready. Existing motion/input fallbacks and cleanup are retained. Figure data/placement are registered separately from physics; see the development guide for adding artwork.

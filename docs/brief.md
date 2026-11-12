@@ -39,7 +39,7 @@ Use a sticky rail on desktop, with sufficient space for long menus. On small scr
 
 ## Home illustration contract
 
-The supplied local PNG has been converted into a colored point SVG at the owner's request. This preserves the existing cat design and prepares positions and colors for later local gravitational interaction. A shared local Canvas renderer repels and swirls individual points in the cat, plants, flag, and sleep marks around the mouse, preserving momentum and restoring their positions on exit, with SVGs retained as static fallbacks. At widths up to 720px, show only the cat. If no local artwork is available, use an unobtrusive static placeholder. Do not invent a final cat design or reuse the reference website's imagery.
+The supplied local PNG has been converted into a colored point SVG at the owner's request. This preserves the existing cat design and prepares positions and colors for later local gravitational interaction. One shared local Canvas scene repels and swirls points from the cat, plants, flag, and sleep marks. Fast pointer sweeps add momentum and let dots leave individual artwork bounds within the clipped illustration stage. Damped springs restore exact positions on exit, with SVGs retained as static fallbacks. At widths up to 720px, show only the cat. If no local artwork is available, use an unobtrusive static placeholder. Do not invent a final cat design or reuse the reference website's imagery.
 
 The local black-hole effect may visually warp the illustration or a decorative layer inside that area, depending on what the reference evidence supports. Exact appearance will be refined when artwork is supplied. It must satisfy all of these boundaries:
 
