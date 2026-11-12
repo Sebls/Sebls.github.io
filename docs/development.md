@@ -88,3 +88,7 @@ Regenerate all five plants and the flag with `swift scripts/generate-decoration-
 The 63px plant and 70px flag desktop sizes target the 310px cat’s nominal 2.225px spacing. Occupied-cell centroids make actual neighbor distances vary; the goal is comparable visual sampling, not identical point counts per rectangular area. Counts are 582, 504, 305, 540, 453 for plants and 363 for the flag. Update `targetPitch` and reference display sizes in the sampler if the desired density or CSS sizing changes. Regenerate SVG and JSON together, then rebuild.
 
 Run `python3 scripts/analyze-point-density.py` for current values, or add `--viewport 390` for mobile sizing. See [the density report](../docs/point-density.md) for before/after figures and limitations.
+
+### Blog math renderer
+
+`build_support/markdown.rs` renders article structure and math at build time. Markdown `$…$` and `$$…$$` expressions become inline and display MathML respectively; aligned displays use `aligned`. Invalid expressions stop the build with the source path. Plain Markdown, HTML sanitization, heading IDs, local assets, and draft exclusion remain in the existing pipeline. See the content guide for examples. Run `cargo test --test markdown` for renderer regression checks. Native MathML avoids a browser script dependency; font appearance depends on locally available math fonts.
