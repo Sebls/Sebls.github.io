@@ -62,6 +62,8 @@ The tree above is the organizational guide; small pages and components are group
 
 Load curated content locally, preferably at build time for this small site. A small manifest mapping article metadata to bundled Markdown is enough initially; document the one step needed to register a new article. Use a maintained Markdown renderer rather than inventing a parser. No MDX or Node framework is needed. Bundled content grows with the blog; reconsider loading only if measured size justifies it.
 
+Home's decorative interaction uses one shared Canvas scene in `src/effects/particles.rs`, with a figure registry and static SVG markup in `src/effects/mod.rs`. Figures share CSS-pixel coordinates, speed-dependent swept pointer impulses, spring restoration, one scheduler/listener set, and stage clipping. New figures require assets, registration, placement CSS, and a Trunk SVG copy entry; no renderer changes. See the development guide for the authoring contract and current tuning limits.
+
 ## GitHub Pages deployment contract
 
 - The owner confirmed `Sebls/Sebls.github.io` on 11 November 2026 and authorized automatic publication. Production URL: `https://sebls.github.io/`; build base path: `/`.

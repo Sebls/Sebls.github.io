@@ -931,6 +931,7 @@ name = "sebls-portfolio"
 version = "0.1.0"
 dependencies = [
  "ammonia",
+ "js-sys",
  "pulldown-cmark",
  "serde",
  "serde_json",

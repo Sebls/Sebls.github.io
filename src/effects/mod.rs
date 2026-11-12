@@ -9,66 +9,82 @@ pub struct CatProps {
     pub base: String,
 }
 
-/// Every point illustration uses the same fallback and animation lifecycle.
-/// Keep the SVG and its matching authoring JSON together when adding artwork.
-#[derive(Properties, PartialEq)]
-struct PointArtworkProps {
-    surface: NodeRef,
-    base: String,
+/// Artwork registration is separate from physics. Order is also drawing order.
+struct Figure {
     name: &'static str,
     data: &'static str,
     class: &'static str,
-    #[prop_or_default]
     alt: &'static str,
 }
+macro_rules! figure {
+    ($name:literal, $class:literal, $alt:literal) => {
+        Figure {
+            name: $name,
+            data: include_str!(concat!("../../assets/images/", $name, "-points.json")),
+            class: $class,
+            alt: $alt,
+        }
+    };
+}
+const FIGURES: &[Figure] = &[
+    figure!(
+        "colombia-flag",
+        "surface-flag",
+        "Colombian flag made of colored dots"
+    ),
+    figure!("plant-1", "plant", ""),
+    figure!("plant-2", "plant", ""),
+    figure!("plant-3", "plant", ""),
+    figure!("plant-4", "plant", ""),
+    figure!("plant-5", "plant", ""),
+    figure!(
+        "sleeping-cat",
+        "cat-art",
+        "A black and white sleeping cat made of colored dots"
+    ),
+    figure!("sleep-marks", "cat-zzz", ""),
+];
 
-#[function_component(PointArtwork)]
-fn point_artwork(props: &PointArtworkProps) -> Html {
+#[function_component(Cat)]
+pub fn cat(props: &CatProps) -> Html {
+    let surface = use_node_ref();
     let canvas = use_node_ref();
-    let artwork = use_node_ref();
+    let nodes = use_memo((), |_| {
+        FIGURES
+            .iter()
+            .map(|_| NodeRef::default())
+            .collect::<Vec<_>>()
+    });
     {
-        let surface = props.surface.clone();
-        let canvas = canvas.clone();
-        let artwork = artwork.clone();
-        use_effect_with(props.data, move |data| {
+        let (surface, canvas, nodes) = (surface.clone(), canvas.clone(), nodes.clone());
+        use_effect_with((), move |_| {
+            let figures = nodes
+                .iter()
+                .cloned()
+                .zip(FIGURES.iter().map(|f| f.data))
+                .collect();
             #[cfg(target_arch = "wasm32")]
-            let cleanup = particles::mount(surface, canvas, artwork, data);
+            let cleanup = particles::mount(surface, canvas, figures);
             #[cfg(not(target_arch = "wasm32"))]
             let cleanup = {
-                let _ = (surface, canvas, artwork, data);
+                let _: Vec<(NodeRef, &'static str)> = figures;
+                let _ = (surface, canvas);
                 || {}
             };
             cleanup
         });
     }
-    html! {
-        <div class={classes!("point-artwork", props.class)} ref={artwork}>
-            <img class="point-fallback" src={format!("{}{}-points.svg", props.base, props.name)} alt={props.alt}/>
-            <canvas class="point-particles" ref={canvas} aria-hidden="true"/>
-        </div>
-    }
-}
-
-#[function_component(Cat)]
-pub fn cat(props: &CatProps) -> Html {
-    let surface = use_node_ref();
-    // Listing an illustration here opts it into the shared renderer automatically.
-    let image = |name, data, class, alt| {
-        html! {
-            <PointArtwork surface={surface.clone()} base={props.base.clone()} {name} {data} {class} {alt}/>
-        }
+    let image = |i: usize| {
+        let f = &FIGURES[i];
+        html! {<div class={classes!("point-artwork", f.class)} ref={nodes[i].clone()}>
+            <img class="point-fallback" src={format!("{}{}-points.svg", props.base, f.name)} alt={f.alt}/>
+        </div>}
     };
-    html! {<figure class="cat-figure"><div class="cat-surface" ref={surface.clone()}>
-        {image("colombia-flag", include_str!("../../assets/images/colombia-flag-points.json"), "surface-flag", "Colombian flag made of colored dots")}
+    html! {<figure class="cat-figure"><div class="cat-surface" ref={surface}>
+        {for FIGURES.iter().enumerate().filter(|(_, f)| f.class != "plant").map(|(i, _)| image(i))}
         <div class="plant-cluster" aria-hidden="true">
-            {image("plant-1", include_str!("../../assets/images/plant-1-points.json"), "plant", "")}
-            {image("plant-2", include_str!("../../assets/images/plant-2-points.json"), "plant", "")}
-            {image("plant-3", include_str!("../../assets/images/plant-3-points.json"), "plant", "")}
-            {image("plant-4", include_str!("../../assets/images/plant-4-points.json"), "plant", "")}
-            {image("plant-5", include_str!("../../assets/images/plant-5-points.json"), "plant", "")}
+            {for FIGURES.iter().enumerate().filter(|(_, f)| f.class == "plant").map(|(i, _)| image(i))}
         </div>
-        <div class="cat-orbit" aria-hidden="true"/>
-        {image("sleeping-cat", include_str!("../../assets/images/sleeping-cat-points.json"), "cat-art", "A black and white sleeping cat made of colored dots")}
-        {image("sleep-marks", include_str!("../../assets/images/sleep-marks-points.json"), "cat-zzz", "")}
+        <canvas class="scene-particles" ref={canvas} aria-hidden="true"/>
     </div><figcaption><span aria-hidden="true">{"please let Aiden (my cat) sleep"}</span></figcaption></figure>}
 }
