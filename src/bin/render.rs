@@ -73,7 +73,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         fs::copy(&photo.file, dest)?;
     }
     for post in content::posts() {
-        for asset in post.assets {
+        let cover_file = post.cover_image.map(|image| image.file);
+        for asset in post.assets.into_iter().chain(cover_file) {
             let path = std::path::Path::new(&asset);
             assert!(
                 asset.starts_with("assets/images/")

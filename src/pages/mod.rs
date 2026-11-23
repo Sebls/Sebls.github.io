@@ -1,5 +1,5 @@
 use crate::{
-    components::{arrow, entries, social_links},
+    components::{arrow, entries, social_links, PostCover},
     content,
     effects::Cat,
     routes::{href, Route},
@@ -122,12 +122,22 @@ pub fn render(route: &Route, base: &str) -> Html {
         Route::Blog => {
             html! {<>{heading("07 / Notes & observations","Writing","A place to think out loud about engineering, learning, and the things in between.")}
               if content::posts().is_empty(){<div class="empty-state"><span class="empty-mark" aria-hidden="true">{"{ … }"}</span><h2>{"Room for a first thought."}</h2><p>{"No articles published yet. Future notes and longer reads will appear here."}</p></div>}
-              else{<div class="post-list">{for content::posts().into_iter().map(|p|html!{<article>{post_date(&p.date)}<h2><a href={href(base,&Route::Article{slug:p.slug})}>{p.title}{arrow("up-right")}</a></h2><p>{p.summary}</p><p class="eyebrow">{p.tags.join(" / ")}</p></article>})}</div>}
+              else{<div class="post-list">{for content::posts().into_iter().map(|p|html!{
+                <article class={classes!(p.cover_image.is_some().then_some("has-cover"))}>
+                  if let Some(image) = &p.cover_image {
+                    <a class="post-thumbnail" href={href(base,&Route::Article{slug:p.slug.clone()})} tabindex="-1" aria-hidden="true"><img src={format!("{}{}",base,image.file)} alt="" width={image.width.to_string()} height={image.height.to_string()} loading="lazy" decoding="async"/></a>
+                  }
+                  <div class="post-preview">{post_date(&p.date)}<h2><a href={href(base,&Route::Article{slug:p.slug})}>{p.title}</a></h2>
+                    if !p.summary.is_empty(){<p>{p.summary}</p>}
+                    if !p.tags.is_empty(){<p class="eyebrow">{p.tags.join(" / ")}</p>}
+                  </div>
+                </article>
+              })}</div>}
             </>}
         }
         Route::Article { slug } => match content::posts().into_iter().find(|p| p.slug == *slug) {
             Some(p) => {
-                html! {<article class="reading"><a class="back-link" href={href(base,&Route::Blog)}>{arrow("left")}{"All writing"}</a><header class="page-heading"><p class="eyebrow">{post_date(&p.date)}</p><h1>{p.title}</h1><p class="lead">{p.summary}</p></header><div class="prose">{Html::from_html_unchecked(AttrValue::from(p.html))}</div></article>}
+                html! {<article class="reading"><a class="back-link" href={href(base,&Route::Blog)}>{arrow("left")}{"All writing"}</a><header class="page-heading"><p class="eyebrow">{post_date(&p.date)}</p><h1>{p.title}</h1><p class="lead">{p.summary}</p></header><PostCover image={p.cover_image} base={base.to_owned()}/><div class="prose">{Html::from_html_unchecked(AttrValue::from(p.html))}</div></article>}
             }
             None => not_found(base),
         },

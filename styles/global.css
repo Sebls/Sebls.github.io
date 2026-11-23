@@ -719,3 +719,36 @@ h1:focus {
   outline:2px solid var(--accent);
   outline-offset:3px
 }
+
+.post-cover {
+  margin:0 0 56px
+}
+.post-cover img {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:4px
+}
+.post-cover figcaption {
+  max-width:720px;
+  margin:12px auto 0;
+  font-size:.875rem
+}
+.post-list .has-cover {
+  display:grid;
+  grid-template-columns:minmax(0,240px) minmax(0,1fr);
+  gap:32px;
+  align-items:start
+}
+.post-thumbnail img {
+  width:100%;
+  aspect-ratio:3 / 2;
+  object-fit:cover
+}
+.post-preview {
+  min-width:0
+}
+@media(max-width:720px) {
+  .post-cover { margin-bottom:32px }
+  .post-list .has-cover { grid-template-columns:1fr; gap:24px }
+}

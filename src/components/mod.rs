@@ -140,3 +140,23 @@ pub fn social_links() -> Html {
         </a>
     </>}
 }
+
+#[derive(Properties, PartialEq)]
+pub struct PostCoverProps {
+    pub image: Option<content::PostImage>,
+    pub base: String,
+}
+
+#[function_component(PostCover)]
+pub fn post_cover(props: &PostCoverProps) -> Html {
+    match &props.image {
+        Some(image) => html! {
+            <figure class="post-cover">
+                <img src={format!("{}{}", props.base, image.file)} alt={image.alt.clone()}
+                    width={image.width.to_string()} height={image.height.to_string()} decoding="async"/>
+                if !image.caption.is_empty() { <figcaption>{&image.caption}</figcaption> }
+            </figure>
+        },
+        None => Html::default(),
+    }
+}

@@ -34,6 +34,30 @@ fn main() {
                 || (date.len() == 10 && date.as_bytes()[4] == b'-' && date.as_bytes()[7] == b'-'),
             "date must be YYYY, YYYY-MM, or YYYY-MM-DD"
         );
+        if let Some(image) = p.get("cover_image").filter(|v| !v.is_null()) {
+            let file = image["file"].as_str().expect("cover image file");
+            assert!(
+                file.starts_with("assets/images/")
+                    && std::path::Path::new(file)
+                        .components()
+                        .all(|part| matches!(part, std::path::Component::Normal(_))),
+                "cover image must be inside assets/images"
+            );
+            assert!(
+                image["alt"]
+                    .as_str()
+                    .is_some_and(|alt| !alt.trim().is_empty())
+                    && ["width", "height"].iter().all(|key| image[key]
+                        .as_u64()
+                        .is_some_and(|n| n > 0 && n <= u32::MAX as u64)),
+                "cover image needs alt text and positive dimensions"
+            );
+            assert!(
+                std::path::Path::new(file).is_file(),
+                "cover image file missing"
+            );
+            println!("cargo:rerun-if-changed={file}");
+        }
         let (html, headings) =
             markdown::render(&body).unwrap_or_else(|error| panic!("{}: {error}", path.display()));
         p["html"] = html.into();
