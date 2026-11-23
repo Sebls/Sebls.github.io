@@ -6,6 +6,7 @@
 | --- | --- | --- | --- |
 | [portfolio-design-system.json](references/portfolio-design-system.json) | `metadata`, `global`, relevant `designTokens` and `components` | Color, typography, spacing, surfaces, visual hierarchy | Personal text, page structure, third-party imagery |
 | [portfolio-layout-navigation.json](references/portfolio-layout-navigation.json) | `layout`, `navigation`, `index`, `architecture`, `responsive` | Left rail, content proportions, page index, navigation grouping | Marketing pages, product copy, its competing visual theme |
+| [blog-layout-reference.json](references/blog-layout-reference.json) | Article header, reading column, table of contents | Blog-only layout and spacing | Reference colors, fonts, branding, copy, or imagery |
 | [black-hole-inspection.json](references/black-hole-inspection.json) | `viewport`, `canvases`, `events`, selected `snapshots` | Visual clues for the local illustration interaction | Global pointer scope, reference assets, assumed shaders/libraries |
 
 JSON is inspection evidence, not production configuration. Inspect keys and targeted excerpts rather than loading every event and computed style into the agent's context.
@@ -86,3 +87,36 @@ This supersedes the earlier per-artwork Canvas/lifecycle and orbit-target descri
 The 40px influence applies radial and tangential forces to current particle positions. Swept pointer segments transfer speed-dependent directional/outward momentum, bounded by speed caps and a bounded event queue. Home springs are softer during interaction and more strongly damped on exit. Simulation substeps remain at most 1/120 second, frame deltas at most 50ms. Distant resting particles skip integration, while the shared Canvas redraws all visible dots. No fixed orbit limits excursions. Exact home position and zero velocity are restored below settling thresholds.
 
 The renderer uses one frame callback, one listener set, cached layout transforms, a displayed-size buffer with pixel density capped at 2, lazy eligible initialization, and hidden-figure exclusion. Resize and intersection observers handle stage size and offscreen suspension. Static SVGs remain accessible and visible until the first animated frame is ready. Existing motion/input fallbacks and cleanup are retained. Figure data/placement are registered separately from physics; see the development guide for adding artwork.
+
+## Blog layout — 23 November 2026
+
+Blog listing and article views use a dedicated shell with a single “Back to main site” link in the header. Other page layouts retain their shared rail. The new blog reference supplies the centered title, generous header spacing, 720px reading column, and adjacent article index; the original Inter/system sans-serif, monospace labels, dark surfaces, neutral text, and amber accent remain unchanged. No reference text, scripts, assets, or company navigation is imported.
+
+The article index sits beside the reading column above 1280px; below that it becomes an inline section index before the body. This breakpoint and the mobile listing layout are adaptations of the single supplied desktop snapshot. Optional owner-supplied cover images appear between header and body and as listing thumbnails; image-free posts reserve no image space. The article body ends with an All writing link.
+
+### Reference refinements — 23 November 2026
+
+The article header now follows the extraction’s 840px title measure, 64px vertical padding, and approximately 31px title size at its 1216px viewport. The existing summary is retained beneath the title. A separate Published/Topics definition list follows the optional full-width cover, matching the reference’s title → cover → metadata → body order. Only supplied date precision and existing tags are used; no category or author fields are inferred. Cover-free articles omit that region entirely. At phone widths metadata stacks; this is an adaptation. The current navigation markup, global font families, and color tokens are unchanged.
+
+The inline article index is used through 1280px so the desktop index does not squeeze into a narrow side gutter. The reference also hides its desktop index at the supplied 1216px viewport; the exact 1280px cutoff remains an adaptation.
+
+
+### Three-column article layout — 23 November 2026
+
+The owner's supplied desktop screenshot supersedes the previous metadata placement and title sizing above. Article pages now have a bold centered title, a numbered section index on the left, optional cover and article text in the center, and Published/Topics metadata on the right. Both side columns align with the start of the central content, including the cover when present. The blog shell expands to at most 1800px; the central column is at most 840px and body text at most 720px. Existing dark colors and font families remain, as required by this guide. No reference imagery, article text, or unsupported Team field is imported. Existing summaries remain beneath titles.
+
+Through 1280px the metadata, section index, and central content stack; through 720px the metadata groups also stack. These responsive arrangements adapt the supplied desktop composition. Covers remain optional and uncropped; posts without one reserve no image space. The numbered index uses existing section links and selected states.
+
+
+### Reading bar and typography — 23 November 2026
+
+The owner requested the reference's scrolling contents behavior. Once a rendered article heading reaches 96px from the viewport top, the initial index becomes invisible without moving content and a fixed full-width bar shows the current section number and label. Scrolling back above the first heading restores the initial index. The bar button opens a scrollable section list with native anchors and current-location state; Escape closes it and returns focus to the button. Long current labels truncate visually on phones while the full accessible button name remains available. There is no animation or scroll interception.
+
+The local reference JSON at a 1216px viewport records a 30.8307px article title (36.9969px line height), 25.1804px h2, 21.0601px h3, and 16.5301px body text (25.291px line height). The new scale gives approximately 31px / 25.2px / 21.06px / 16.53px at that viewport, with 1.53 body leading. The fluid title retains 1.12 leading at larger widths and 1.2 at phone widths, so title line height is an adaptation rather than an exact match. Listing entry titles are now 20px instead of the earlier 24–32px range. Article lists inherit the body size. Existing font families and colors remain; reference-specific serif fonts and third-party assets are not imported. This supersedes the earlier larger title sizing.
+
+
+### Smooth contents transitions and return links — 23 November 2026
+
+The owner requested smooth entry/exit. The original index fades over 240ms with a small 10px upward movement over 280ms; the reading bar fades over 240ms and slides from above over 320ms. Both remain mounted, so scrolling back reverses the transitions from their current appearance. Hidden controls become inert immediately, while delayed CSS visibility allows exit motion to finish. Reduced-motion preferences disable all these transitions. The disclosure chevron rotates over 200ms. No layout dimensions or article content animate.
+
+Article headers now offer “All writing” (blog listing) and “Portfolio” (Home). The reading bar also keeps an All writing link available beside its contents button; the listing header offers Portfolio. The heading threshold is now 100px, with the existing 96px anchor offset, to allow for fractional browser rounding when jumping to a section. This supersedes the earlier exact 96px threshold and instant-transition description.
