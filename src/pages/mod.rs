@@ -1,5 +1,5 @@
 use crate::{
-    components::{arrow, entries, social_links, PageIndex, PostCover},
+    components::{arrow, entries, social_links, ArticleNavigation, PostCover},
     content,
     effects::Cat,
     routes::{href, Route},
@@ -144,7 +144,7 @@ pub fn render(route: &Route, base: &str) -> Html {
                     if !p.summary.is_empty(){<p class="lead">{p.summary}</p>}
                   </header>
                   <div class="article-layout">
-                    if !sections.is_empty(){<aside class="article-index"><PageIndex sections={sections}/></aside>}
+                    if !sections.is_empty(){<ArticleNavigation sections={sections} base={base.to_owned()}/>}
                     <dl class="article-metadata" aria-label="Article details">
                       <div><dt>{"Published"}</dt><dd>{post_date(&p.date)}</dd></div>
                       if !p.tags.is_empty(){<div><dt>{"Topics"}</dt><dd><ul>{for p.tags.iter().map(|tag| html!{<li>{tag}</li>})}</ul></dd></div>}

@@ -1,3 +1,6 @@
+mod article_navigation;
+pub use article_navigation::ArticleNavigation;
+
 use crate::{
     content, pages,
     routes::{href, Route},
