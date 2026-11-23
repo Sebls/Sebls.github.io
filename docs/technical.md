@@ -99,3 +99,22 @@ Manually verify desktop and small-screen layouts, keyboard menu/focus handling, 
 ## Blog mathematics — 13 November 2026
 
 Articles still use local Markdown. `build_support/markdown.rs` composes pulldown-cmark's math events with math-core 0.7.0 (a build-only dependency), then sanitizes HTML with an explicit MathML element/attribute allowlist. This replaces the prime-exponent article's blockquote/HTML approximations with inline math and centered display equations, including aligned derivations. The generated HTML is shared by SSR and hydration; no client math library, CDN, or additional publishing system is needed. Math fonts use the browser's math font stack. Renderer integration tests cover semantics, literal code, sanitization, invalid expressions, article headings, and preservation of the existing article's figures. API references: [pulldown-cmark math events](https://docs.rs/pulldown-cmark/latest/pulldown_cmark/struct.Options.html#associatedconstant.ENABLE_MATH), [math-core](https://docs.rs/math-core/0.7.0/math_core/).
+
+## Blog layout and optional covers — 23 November 2026
+
+The Blog and Article routes share a blog-only shell with a minimal Home link. The article index is rendered beside the body rather than in the portfolio rail. `PostImage` supplies optional cover metadata; build validation checks local paths, file existence, alternative text, and positive dimensions before SSR/hydration. The native renderer copies published covers automatically. No dependencies or routing changes were added. Existing SSR and intrinsic image sizing APIs were checked in the official [Yew 0.23 SSR documentation](https://yew.rs/docs/advanced-topics/server-side-rendering) and [MDN image reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img).
+
+
+### Article column arrangement — 23 November 2026
+
+Article markup groups the optional `PostCover` and body inside `.article-content`. `.article-layout` places the existing `PageIndex`, central content, and semantic metadata definition list in three desktop columns. Through 1280px these stack using CSS; index links retain native fragment navigation. CSS counters number index links without changing heading IDs. No dependencies, browser APIs, content records, or routing behavior changed.
+
+
+### Scroll-aware article contents — 23 November 2026
+
+`src/components/article_navigation.rs` owns the article-only reading state and disclosure. It caches rendered heading elements on mount and checks their viewport positions on scroll, resize, and pageshow, updating Yew state only when the active index changes. The latest heading at or above 96px becomes current. Listeners are removed on unmount. The original index is present in generated HTML; the bar is added after hydration when reading a section. With JavaScript unavailable the original index remains usable. No new dependency or web-sys feature is needed. APIs were verified against the official [Yew use_effect_with documentation](https://docs.rs/yew/latest/yew/functional/fn.use_effect_with.html) and [web-sys Window documentation](https://docs.rs/web-sys/latest/web_sys/struct.Window.html). Heading anchor offsets leave clearance for the 66px bar.
+
+
+### Persistent reading bar and navigation — 23 November 2026
+
+`ArticleNavigation` now receives the hosting base for its All writing link and keeps the bar mounted for reversible CSS opacity/transform transitions. `inert` and `aria-hidden` disable hidden controls immediately; CSS visibility is delayed during exit and reduced motion removes transitions. Heading activation allows 4px tolerance above the 96px anchor offset. The shared blog shell links article readers to the blog listing and Home using All writing and Portfolio labels. No dependency or web-sys feature added. Implementation references: [MDN transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using) and [inert](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert).

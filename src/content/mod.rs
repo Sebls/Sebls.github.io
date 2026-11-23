@@ -11,6 +11,8 @@ pub struct Post {
     pub tags: Vec<String>,
     #[serde(default)]
     pub assets: Vec<String>,
+    #[serde(default)]
+    pub cover_image: Option<PostImage>,
     pub html: String,
     pub headings: Vec<(String, String)>,
 }
@@ -54,4 +56,14 @@ pub struct Portfolio {
 }
 pub fn portfolio() -> Portfolio {
     serde_json::from_str(include_str!("../../content/portfolio.json")).expect("curated content")
+}
+
+#[derive(Deserialize, Clone, PartialEq)]
+pub struct PostImage {
+    pub file: String,
+    pub alt: String,
+    pub width: u32,
+    pub height: u32,
+    #[serde(default)]
+    pub caption: String,
 }

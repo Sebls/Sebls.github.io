@@ -1,3 +1,6 @@
+mod article_navigation;
+pub use article_navigation::ArticleNavigation;
+
 use crate::{
     content, pages,
     routes::{href, Route},
@@ -49,6 +52,21 @@ pub fn shell(props: &ShellProps) -> Html {
         })
     };
     let sections = pages::sections(&props.route);
+    if matches!(props.route, Route::Blog | Route::Article { .. }) {
+        return html! {
+            <div class="blog-site">
+                <a class="skip" href="#main">{"Skip to content"}</a>
+                <header class="blog-navigation"><nav aria-label="Blog navigation">
+                    if matches!(props.route, Route::Article { .. }) {
+                        <a href={href(&props.base, &Route::Blog)}>{"All writing"}</a>
+                    }
+                    <a href={href(&props.base, &Route::Home)}>{"Portfolio"}</a>
+                </nav></header>
+                <main id="main" tabindex="-1">{pages::render(&props.route, &props.base)}</main>
+                <footer><span>{"© Sebastian Lopez Silva"}</span></footer>
+            </div>
+        };
+    }
     html! {
       <div class="site" onkeydown={close}>
         <a class="skip" href="#main">{"Skip to content"}</a>
@@ -79,7 +97,7 @@ pub struct IndexProps {
     pub sections: Vec<(String, String)>,
 }
 #[function_component(PageIndex)]
-fn page_index(props: &IndexProps) -> Html {
+pub fn page_index(props: &IndexProps) -> Html {
     let selected = use_state(String::new);
     {
         let selected = selected.clone();
@@ -139,4 +157,24 @@ pub fn social_links() -> Html {
             <span>{"LinkedIn"}</span>
         </a>
     </>}
+}
+
+#[derive(Properties, PartialEq)]
+pub struct PostCoverProps {
+    pub image: Option<content::PostImage>,
+    pub base: String,
+}
+
+#[function_component(PostCover)]
+pub fn post_cover(props: &PostCoverProps) -> Html {
+    match &props.image {
+        Some(image) => html! {
+            <figure class="post-cover">
+                <img src={format!("{}{}", props.base, image.file)} alt={image.alt.clone()}
+                    width={image.width.to_string()} height={image.height.to_string()} decoding="async"/>
+                if !image.caption.is_empty() { <figcaption>{&image.caption}</figcaption> }
+            </figure>
+        },
+        None => Html::default(),
+    }
 }
