@@ -1,5 +1,5 @@
 use crate::{
-    components::{arrow, entries, social_links, PostCover},
+    components::{arrow, entries, social_links, PageIndex, PostCover},
     content,
     effects::Cat,
     routes::{href, Route},
@@ -120,7 +120,8 @@ pub fn render(route: &Route, base: &str) -> Html {
             </>}
         }
         Route::Blog => {
-            html! {<>{heading("07 / Notes & observations","Writing","A place to think out loud about engineering, learning, and the things in between.")}
+            html! {<>
+              <header class="blog-heading"><p class="eyebrow">{"Notes & observations"}</p><h1>{"Writing"}</h1><p class="lead">{"A place to think out loud about engineering, learning, and the things in between."}</p></header>
               if content::posts().is_empty(){<div class="empty-state"><span class="empty-mark" aria-hidden="true">{"{ … }"}</span><h2>{"Room for a first thought."}</h2><p>{"No articles published yet. Future notes and longer reads will appear here."}</p></div>}
               else{<div class="post-list">{for content::posts().into_iter().map(|p|html!{
                 <article class={classes!(p.cover_image.is_some().then_some("has-cover"))}>
@@ -137,7 +138,25 @@ pub fn render(route: &Route, base: &str) -> Html {
         }
         Route::Article { slug } => match content::posts().into_iter().find(|p| p.slug == *slug) {
             Some(p) => {
-                html! {<article class="reading"><a class="back-link" href={href(base,&Route::Blog)}>{arrow("left")}{"All writing"}</a><header class="page-heading"><p class="eyebrow">{post_date(&p.date)}</p><h1>{p.title}</h1><p class="lead">{p.summary}</p></header><PostCover image={p.cover_image} base={base.to_owned()}/><div class="prose">{Html::from_html_unchecked(AttrValue::from(p.html))}</div></article>}
+                let sections = sections(route);
+                html! {<article class="reading">
+                  <header class="blog-heading article-heading"><h1>{p.title}</h1>
+                    if !p.summary.is_empty(){<p class="lead">{p.summary}</p>}
+                  </header>
+                  <div class="article-layout">
+                    if !sections.is_empty(){<aside class="article-index"><PageIndex sections={sections}/></aside>}
+                    <dl class="article-metadata" aria-label="Article details">
+                      <div><dt>{"Published"}</dt><dd>{post_date(&p.date)}</dd></div>
+                      if !p.tags.is_empty(){<div><dt>{"Topics"}</dt><dd><ul>{for p.tags.iter().map(|tag| html!{<li>{tag}</li>})}</ul></dd></div>}
+                    </dl>
+                    <div class="article-content">
+                      <PostCover image={p.cover_image} base={base.to_owned()}/>
+                      <div class="article-body"><div class="prose">{Html::from_html_unchecked(AttrValue::from(p.html))}</div>
+                        <a class="all-writing" href={href(base,&Route::Blog)}>{"All writing"}</a>
+                      </div>
+                    </div>
+                  </div>
+                </article>}
             }
             None => not_found(base),
         },

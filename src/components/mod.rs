@@ -49,6 +49,21 @@ pub fn shell(props: &ShellProps) -> Html {
         })
     };
     let sections = pages::sections(&props.route);
+    if matches!(props.route, Route::Blog | Route::Article { .. }) {
+        return html! {
+            <div class="blog-site">
+                <a class="skip" href="#main">{"Skip to content"}</a>
+                <header class="blog-navigation"><nav aria-label="Blog navigation">
+                    if matches!(props.route, Route::Article { .. }) {
+                        <a href={href(&props.base, &Route::Blog)}>{"All writing"}</a>
+                    }
+                    <a href={href(&props.base, &Route::Home)}>{"Portfolio"}</a>
+                </nav></header>
+                <main id="main" tabindex="-1">{pages::render(&props.route, &props.base)}</main>
+                <footer><span>{"© Sebastian Lopez Silva"}</span></footer>
+            </div>
+        };
+    }
     html! {
       <div class="site" onkeydown={close}>
         <a class="skip" href="#main">{"Skip to content"}</a>
@@ -79,7 +94,7 @@ pub struct IndexProps {
     pub sections: Vec<(String, String)>,
 }
 #[function_component(PageIndex)]
-fn page_index(props: &IndexProps) -> Html {
+pub fn page_index(props: &IndexProps) -> Html {
     let selected = use_state(String::new);
     {
         let selected = selected.clone();
