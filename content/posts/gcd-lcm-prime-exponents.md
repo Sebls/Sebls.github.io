@@ -1,16 +1,12 @@
 *From my notes of August 2023.*
 
-In August 2023, I was helping a friend with some exercises to prepare for the admission exam at Universidad Nacional de Colombia. We were working with the greatest common divisor and the least common multiple (mcd and mcm in Spanish, or gcd and lcm here), and I ended up getting curious about something quite simple.
+In August 2023, while helping a friend prepare for the Universidad Nacional de Colombia admission exam, we kept running into problems involving the greatest common divisor and the least common multiple (mcd and mcm in Spanish, or gcd and lcm here). Rather than memorizing the identity relating them, I wanted to see it directly from prime factorizations.
 
-I never really liked memorizing the formulas for these things. While going through the exercises, I noticed how the gcd takes the minimum of the prime exponents and the lcm takes the maximum. I wanted to follow that idea a little further and see whether I could write everything in the same way.
-
-What I liked was the possibility of giving every prime a place in the representation of a number. Even a prime that does not divide it can stay there with exponent zero (contributing 1, the multiplicative identity). We can build the description from all the prime pieces, while only some of them actually change the number.
-
-I know this is not a big result. It was just a small curiosity I came across while trying to help a friend, but I enjoyed seeing a familiar formula come out of that way of looking at numbers. These are the example and the argument I wrote down.
+The key idea is to give every prime a fixed position in the representation of a positive integer, assigning exponent zero to primes that do not divide it (so they contribute $1$, the multiplicative identity). Multiplication, $\operatorname{gcd}$, and $\operatorname{lcm}$ then reduce to simple operations on exponent sequences.
 
 ## Starting with 48 and 36
 
-I started with 48 and 36, writing out their prime factorizations:
+Consider $48$ and $36$ written in prime-factored form:
 
 $$
 \begin{aligned}
@@ -19,19 +15,16 @@ $$
 \end{aligned}
 $$
 
-A common divisor cannot contain more copies of either prime than either number has. Taking the smaller exponent for each prime gives the greatest common divisor:
+Taking the smaller exponent for each prime gives the greatest common divisor, and taking the larger exponent gives the least common multiple:
 
 $$
-\operatorname{gcd}(48,36) = 2^{\min(4,2)} \cdot 3^{\min(1,2)} = 2^2 \cdot 3 = 12
+\begin{aligned}
+\operatorname{gcd}(48,36) &= 2^{\min(4,2)} \cdot 3^{\min(1,2)} = 2^2 \cdot 3 = 12 \\
+\operatorname{lcm}(48,36) &= 2^{\max(4,2)} \cdot 3^{\max(1,2)} = 2^4 \cdot 3^2 = 144
+\end{aligned}
 $$
 
-A common multiple must contain enough copies of each prime for both numbers to divide it. Taking the larger exponent gives the least common multiple:
-
-$$
-\operatorname{lcm}(48,36) = 2^{\max(4,2)} \cdot 3^{\max(1,2)} = 2^4 \cdot 3^2 = 144
-$$
-
-Multiplying the original numbers and regrouping their factors gives:
+Multiplying the two numbers and regrouping their prime factors yields:
 
 $$
 \begin{aligned}
@@ -41,58 +34,67 @@ $$
 \end{aligned}
 $$
 
-So $\operatorname{lcm}(48,36) = (48 \cdot 36)/12 = 144$. Seeing the factors rearrange like this made me want to write down why it would work for any pair of positive integers.
+Hence $\operatorname{lcm}(48,36) = (48 \cdot 36)/12 = 144$. The rest of this note formalizes why this holds for all positive integers.
 
-## Giving every prime a place
+## Prime-exponent representation
 
-To put all the prime pieces in the same order, I called the ith prime $p_i$, so $p_1 = 2$, $p_2 = 3$, $p_3 = 5$, and so on. By unique prime factorization, any two **positive integers** a and b can be written as
-
-$$
-a = \prod_{i=1}^{\infty} p_i^{n_i}, \qquad
-b = \prod_{i=1}^{\infty} p_i^{m_i}
-$$
-
-Here, every $n_i$ and $m_i$ is a nonnegative integer. If a prime does not divide a number, I give it exponent zero. Its contribution is then $p^0 = 1$ (so including it leaves the number unchanged).
-
-For example, 48 starts with exponents (4, 1, 0, 0, …), while 36 starts with (2, 2, 0, 0, …). The number 1 has zero in every position.
-
-Although the product notation runs over infinitely many primes, only finitely many exponents are nonzero for any given positive integer. These are ordinary finite prime factorizations written in a common notation; there is no convergence issue. Zero itself is outside this representation.
-
-Multiplication now amounts to adding exponents in each position:
+Let $p_1 < p_2 < p_3 < \dots$ be the sequence of all prime numbers ($p_1 = 2$, $p_2 = 3$, $p_3 = 5$, and so on). By the **Fundamental Theorem of Arithmetic**, every positive integer $a \in \mathbb{Z}_{>0}$ has a unique prime factorization, which we can write as
 
 $$
-ab = \prod_{i=1}^{\infty} p_i^{n_i+m_i}
+a = \prod_{i=1}^{\infty} p_i^{n_i}
 $$
 
-This was the part I found especially nice. Both numbers now use the same prime pieces, including the ones that only contribute the identity. I could look at multiplication, gcd, and lcm as different ways of working with the exponents in those same positions.
+where each exponent $n_i \in \mathbb{Z}_{\ge 0}$ is a nonnegative integer and $n_i = 0$ for all but finitely many indices $i$ (finite support). Any prime that does not divide $a$ receives exponent $0$, contributing $p_i^0 = 1$ and leaving the product unchanged. In particular, $a = 1$ has $n_i = 0$ for all $i$. Zero itself is excluded from this representation.
 
-## Minimum for gcd, maximum for lcm
+For example, $48$ corresponds to the exponent sequence $(4, 1, 0, 0, \dots)$, and $36$ corresponds to $(2, 2, 0, 0, \dots)$. Because only finitely many exponents are nonzero, the infinite product is simply a finite product written in a uniform index set, with no convergence issues.
 
-A positive integer d divides a exactly when, for every prime, the exponent in d is at most the exponent in a. For d to divide both a and b, its ith exponent must therefore be at most $\min(n_i,m_i)$.
-
-Choosing that minimum in every position produces a common divisor that every other common divisor divides. Hence
+Given a second positive integer $b = \prod_{i=1}^{\infty} p_i^{m_i}$, multiplication adds exponents componentwise:
 
 $$
-\operatorname{gcd}(a,b) = \prod_{i=1}^{\infty} p_i^{\min(n_i,m_i)}
+ab = \prod_{i=1}^{\infty} p_i^{n_i + m_i}
 $$
 
-Similarly, a positive common multiple must have an ith exponent at least $\max(n_i,m_i)$. Choosing exactly those maxima produces a common multiple that divides every other common multiple. Hence
+## Divisibility, gcd, and lcm
+
+For positive integers $d$ and $a$, we say that $d$ **divides** $a$ (written $d \mid a$) if there exists a positive integer $k$ such that $a = dk$.
+
+**Lemma (Divisibility in prime exponents).** *Let $d = \prod_{i=1}^{\infty} p_i^{d_i}$ and $a = \prod_{i=1}^{\infty} p_i^{n_i}$ be positive integers. Then $d \mid a$ if and only if $d_i \le n_i$ for all $i \ge 1$.*
+
+*Proof.* If $d \mid a$, then $a = dk$ for some positive integer $k = \prod_{i=1}^{\infty} p_i^{k_i}$ with $k_i \ge 0$. Multiplying gives $a = \prod_{i=1}^{\infty} p_i^{d_i + k_i}$, so uniqueness of prime factorization implies $n_i = d_i + k_i \ge d_i$ for every $i$. Conversely, if $d_i \le n_i$ for all $i$, define $k_i = n_i - d_i \ge 0$. Since $n_i = 0$ for all but finitely many $i$, the same holds for $k_i$, so $k = \prod_{i=1}^{\infty} p_i^{k_i}$ is a well-defined positive integer satisfying $dk = a$, hence $d \mid a$.
+
+Recall the standard definitions for positive integers $a$ and $b$:
+
+- A **common divisor** of $a$ and $b$ is a positive integer $d$ such that $d \mid a$ and $d \mid b$. The **greatest common divisor** $\operatorname{gcd}(a,b)$ is the largest such integer.
+- A **common multiple** of $a$ and $b$ is a positive integer $m$ such that $a \mid m$ and $b \mid m$. The **least common multiple** $\operatorname{lcm}(a,b)$ is the smallest such integer.
+
+**Proposition (Prime-exponent formulas).** *For any positive integers $a = \prod_{i=1}^{\infty} p_i^{n_i}$ and $b = \prod_{i=1}^{\infty} p_i^{m_i}$,*
 
 $$
+\operatorname{gcd}(a,b) = \prod_{i=1}^{\infty} p_i^{\min(n_i,m_i)}, \qquad
 \operatorname{lcm}(a,b) = \prod_{i=1}^{\infty} p_i^{\max(n_i,m_i)}
 $$
 
-The zero exponents make primes absent from one factorization fit the same rule. For instance, if a prime divides a but not b, its exponent in the gcd is zero, while its exponent in the lcm is the one from a.
+*Proof.* Both products have finite support because $0 \le \min(n_i, m_i) \le n_i$ and $0 \le \max(n_i, m_i) \le n_i + m_i$, so each defines a positive integer.
 
-## The formula I wanted to understand
+Let $g = \prod_{i=1}^{\infty} p_i^{\min(n_i,m_i)}$. Since $\min(n_i,m_i) \le n_i$ and $\min(n_i,m_i) \le m_i$ for every $i$, the lemma gives $g \mid a$ and $g \mid b$, so $g$ is a common divisor. If $d = \prod_{i=1}^{\infty} p_i^{d_i}$ is any common divisor of $a$ and $b$, then by the lemma $d_i \le n_i$ and $d_i \le m_i$, whence $d_i \le \min(n_i,m_i)$ for all $i$. Applying the lemma again yields $d \mid g$, and since both are positive integers, $d \le g$. Therefore $g = \operatorname{gcd}(a,b)$.
 
-At this point, the observation I needed was very small: the minimum and maximum of two exponents are just those same two values in increasing order. So
+Similarly, let $L = \prod_{i=1}^{\infty} p_i^{\max(n_i,m_i)}$. Because $n_i \le \max(n_i,m_i)$ and $m_i \le \max(n_i,m_i)$ for all $i$, we have $a \mid L$ and $b \mid L$, so $L$ is a common multiple. If $m = \prod_{i=1}^{\infty} p_i^{m'_i}$ is any common multiple of $a$ and $b$, then $n_i \le m'_i$ and $m_i \le m'_i$, so $\max(n_i,m_i) \le m'_i$ for all $i$. By the lemma, $L \mid m$, which implies $L \le m$. Therefore $L = \operatorname{lcm}(a,b)$.
+
+## The product identity
+
+**Theorem.** *For all positive integers $a$ and $b$,*
+
+$$
+\operatorname{gcd}(a,b) \cdot \operatorname{lcm}(a,b) = ab
+$$
+
+*Proof.* For any two numbers $x$ and $y$, either $x \le y$ (so $\min(x,y) = x$ and $\max(x,y) = y$) or $x > y$ (so $\min(x,y) = y$ and $\max(x,y) = x$). In either case,
 
 $$
 \min(n_i,m_i) + \max(n_i,m_i) = n_i + m_i
 $$
 
-Multiplying the gcd and lcm adds their exponents, so
+Multiplying the prime-exponent formulas for $\operatorname{gcd}(a,b)$ and $\operatorname{lcm}(a,b)$ adds their exponents in each position:
 
 $$
 \begin{aligned}
@@ -103,20 +105,8 @@ $$
 \end{aligned}
 $$
 
-Since a and b are positive, their gcd is nonzero, and we can rearrange this as
+Since $a$ and $b$ are positive, $\operatorname{gcd}(a,b) \ge 1$ is nonzero, and we obtain
 
 $$
 \operatorname{lcm}(a,b) = \frac{ab}{\operatorname{gcd}(a,b)}
 $$
-
-That was enough to recover the formula I had not wanted to memorize. For each prime, taking the minimum and maximum and adding them gives the same exponent as multiplying the original numbers. Once I saw it that way, I felt I could find the formula again whenever I needed it.
-
-*Transcription note: the handwritten expanded expressions correctly use minima for gcd and maxima for lcm, but the compact product expressions swap those labels in two places. They are corrected here.*
-
-## Why I kept these notes
-
-I kept these notes because I liked the way a choice of representation made the relationship easier to see. We start with all the prime pieces, let the unused ones contribute 1, and describe the operations through their exponents. Nothing complicated comes out of it, but I found that way of modeling the problem satisfying.
-
-Later, in my Theory of Computation course, I used a similar property when constructing Turing machines. I enjoyed finding a connection with something I had first thought about while helping a friend with admission exercises.
-
-This is just a small mathematical curiosity, and that is how I wanted to share it. Sometimes I keep a page of notes simply because I had a good time figuring something out.
