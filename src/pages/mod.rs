@@ -54,6 +54,7 @@ pub fn sections(route: &Route) -> Vec<(String, String)> {
                 "Competitive programming".into(),
             ),
             ("volunteering".into(), "Volunteering".into()),
+            ("interests".into(), "Interests".into()),
         ],
         Route::Experience => content::portfolio()
             .experience
@@ -112,6 +113,7 @@ pub fn render(route: &Route, base: &str) -> Html {
             html! {<>{heading("05 / Beyond the usual","Hobbies","Interests, challenges, and ways to give back.")}
               <section id="competitive-programming" tabindex="-1"><h2>{"Competitive programming"}</h2>{entries(content::portfolio().hobbies)}</section>
               <section id="volunteering" tabindex="-1"><h2>{"Volunteering"}</h2>{entries(content::portfolio().volunteering)}</section>
+              <section id="interests" tabindex="-1"><h2>{"Interests"}</h2>{entries(content::portfolio().interests)}</section>
             </>}
         }
         Route::Gallery => {

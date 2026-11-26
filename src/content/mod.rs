@@ -35,9 +35,11 @@ pub fn photos() -> Vec<Photo> {
 pub struct Entry {
     pub id: String,
     pub title: String,
+    #[serde(default)]
     pub organization: String,
     #[serde(default)]
     pub organization_url: String,
+    #[serde(default)]
     pub dates: String,
     pub summary: String,
     #[serde(default)]
@@ -53,6 +55,8 @@ pub struct Portfolio {
     pub achievements: Vec<Entry>,
     pub volunteering: Vec<Entry>,
     pub hobbies: Vec<Entry>,
+    #[serde(default)]
+    pub interests: Vec<Entry>,
 }
 pub fn portfolio() -> Portfolio {
     serde_json::from_str(include_str!("../../content/portfolio.json")).expect("curated content")

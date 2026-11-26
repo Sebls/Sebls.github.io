@@ -189,6 +189,23 @@
       "summary": "Developed game features and 3D models for a fundraising video game supporting vulnerable communities during the COVID-19 pandemic. Also took part in health campaigns and the distribution of food, clothing, and other essential supplies."
     }
   ],
+  "interests": [
+    {
+      "id": "digital-technology",
+      "title": "Digital technology",
+      "summary": "I enjoy building small personal projects and tinkering with Arduino and Raspberry Pi."
+    },
+    {
+      "id": "3d-modeling",
+      "title": "3D modeling and animation",
+      "summary": "Since 2020, I've been into tools like Blender for making simple 3D models to use as game mods. Along the way, I learned about rigging, rendering, basic animations, and how to tweak game assets to swap in my own models."
+    },
+    {
+      "id": "video-games",
+      "title": "Video games",
+      "summary": "I had a phase where I played a lot of Minecraft and got really into redstone and technical Minecraft, building automatic systems and learning how the game's mechanics work. I'm also fascinated by computational projects people build in Minecraft, like logic gates, adders, memory registers, and computer graphics. I haven't built those myself yet, but I love exploring how they work and maybe I'll give it a try someday."
+    }
+  ],
   "hobbies": [
     {
       "id": "icpc",
