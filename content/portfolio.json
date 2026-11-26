@@ -136,19 +136,41 @@
       "summary": "Awarded full tuition exemptions for two consecutive academic years (2025–2026 and 2026–2027)."
     },
     {
-      "id": "youth-excellence",
-      "title": "Youth for Excellence",
+      "id": "youth-excellence-stem",
+      "title": "Youth for Excellence — STEM Programs",
       "organization": "Programa Jóvenes a la E · Bogotá, Colombia",
       "dates": "2024",
-      "summary": "Received a Best Student Award, with a GPA in the top 1% among university students in Bogotá across approximately 40 universities.",
+      "summary": "Awarded for having the best GPA across STEM programs among university students in Bogotá.",
       "url": "https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024"
     },
     {
-      "id": "unal-honors",
-      "title": "Academic honors and tuition waivers",
+      "id": "youth-excellence",
+      "title": "Youth for Excellence — All Programs",
+      "organization": "Programa Jóvenes a la E · Bogotá, Colombia",
+      "dates": "2024",
+      "summary": "Received a Best Student Award for having one of the best GPAs across all programs and universities in Bogotá (top 1% across approximately 40 universities).",
+      "url": "https://www.agenciaatenea.gov.co/premios-jovenes-la-e-2024"
+    },
+    {
+      "id": "unal-promotion-gpa",
+      "title": "Best GPA of the Promotion",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "2024-1",
+      "summary": "Achieved the highest GPA of the promotion (ranked 1/81)."
+    },
+    {
+      "id": "unal-tuition",
+      "title": "Tuition waivers",
       "organization": "Universidad Nacional de Colombia",
       "dates": "2022–2024",
-      "summary": "Received Class Honors in the second semester of 2022 and tuition waivers for 2022-1, 2022-2, 2023-1, 2023-2, and 2024-1."
+      "summary": "Awarded tuition waivers for 2022-1, 2022-2, 2023-1, 2023-2, and 2024-1, granted to the top 15 GPAs in the degree program across all promotions."
+    },
+    {
+      "id": "unal-program-gpa",
+      "title": "Best GPA Across All Promotions",
+      "organization": "Universidad Nacional de Colombia",
+      "dates": "2022-2",
+      "summary": "Achieved the highest GPA in the degree program across all promotions."
     }
   ],
   "volunteering": [
