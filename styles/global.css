@@ -367,6 +367,10 @@ footer a {
   border-top:1px solid var(--line);
   padding:24px 0
 }
+.education .location {
+  font-size:.85rem;
+  margin-bottom:8px
+}
 .education .eyebrow {
   margin-bottom:12px
 }

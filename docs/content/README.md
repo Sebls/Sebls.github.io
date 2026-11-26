@@ -24,7 +24,7 @@ On 11 November 2026, the owner supplied the title and author order for the STIM 
 
 The owner subsequently supplied a separate STIM Research Intern role for March–May 2026, on-site in Fontainebleau. The owner then placed it immediately after STMicroelectronics and shortened its summary and detail, using the existing entry format. These supplied internship dates supersede the older CV dates for the role; the Work manuscript entry retains its broader February–May research period. LinkedIn edit-form links and the remote logo were not imported into the site.
 
-The latest owner edits also expand the About coursework, add a November 2025 Probabilistic Methods in Combinatorics entry at Czech Technical University in Prague, place Selected skills before Achievements, and record full Mines tuition exemptions for both 2025–2026 and 2026–2027. These newer owner-supplied facts update the curated copy without rewriting the preserved source CV.
+The latest owner edits also expand the About coursework, add an Extra courses section with 35-hour courses at Télécom Paris, Polytechnic Institute of Paris (Formal Methods, November 2026), École normale supérieure – PSL (Cryptography and Computer Security, November 2026), and Czech Technical University in Prague (Probabilistic Methods in Combinatorics, November 2025), include city and country labels on all education and extra-course entries, place Selected skills before Achievements, and record full Mines tuition exemptions for both 2025–2026 and 2026–2027. These newer owner-supplied facts update the curated copy without rewriting the preserved source CV.
 
 ## TransMilenio project
 
